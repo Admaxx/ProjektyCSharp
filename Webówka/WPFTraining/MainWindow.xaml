@@ -1,0 +1,14 @@
+﻿<Window x:Class="WPFTraining.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFTraining"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="Ciśnij Kuhwa" x:Name="Button" Click="Button_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,10,0,0"/>
+        <ProgressBar HorizontalAlignment="Left" Visibility="Hidden" Name="PB" Height="26" Margin="337,129,0,0" VerticalAlignment="Top" Width="136"/>
+        <Button Content="Web" x:Name="UrlTaken" Click="UrlTaken_Click"  HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="75"/>
+    </Grid>
+</Window>
