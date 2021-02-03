@@ -8,10 +8,10 @@
         Title="WebPages" Height="450" Width="800">
     <Grid>
         <WebBrowser HorizontalAlignment="Left" x:Name="WebPage" Height="387" Margin="0,23,0,0" VerticalAlignment="Top" Width="784"/>
-        <TextBox HorizontalAlignment="Left" x:Name="UrlGrabber" Height="23" TextWrapping="Wrap" Text="google.com" VerticalAlignment="Top" Width="630" Margin="96,0,0,0"/>
+        <TextBox HorizontalAlignment="Left" x:Name="UrlGrabber" Height="23" TextWrapping="Wrap" Text="http://www.google.com" VerticalAlignment="Top" Width="625" Margin="101,0,0,0"/>
         <Button Content="Przejdź" x:Name="WebSearch" Click="WebSearch_Click" HorizontalAlignment="Left" Margin="726,0,0,0" VerticalAlignment="Top" Width="58" Height="23"/>
         <Button Content="Cofnij" x:Name="BackButton" Click="Back_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="43" Height="23"/>
-        <Button Content="Następna" x:Name="ForwardButton" Click="Forward_Click" HorizontalAlignment="Left" Margin="43,0,0,0" VerticalAlignment="Top" Width="53" Height="23"/>
+        <Button Content="Następna" x:Name="ForwardButton" Click="Forward_Click" HorizontalAlignment="Left" Margin="43,0,0,0" VerticalAlignment="Top" Width="58" Height="23"/>
 
     </Grid>
 </Window>

@@ -30,30 +30,28 @@ namespace WPFTraining
 
         private void WebSearch_Click(object sender, RoutedEventArgs e)
         {
-           
-            try
-            {
-                BackButton.IsEnabled = true;
-                WebPage.Source = new Uri(UrlGrabber.Text);
+            GoogleSearch google = new GoogleSearch();
+            string googleQuery = "https://www.google.com/search?q=";
+            
+                if(google.Search(UrlGrabber.Text) == true)
+                {
+                    BackButton.IsEnabled = true;
+                    WebPage.Source = new Uri(googleQuery + UrlGrabber.Text);
+                }
+                else
+                {
+                    WebPage.Source = new Uri("http://www." + UrlGrabber.Text);
+                    UrlGrabber.Text = "http://www." + UrlGrabber.Text;
+                }
                 //ActualAddress();
                
-            }
-            catch (Exception)
-            {
-                
-               
-                
-                WebPage.Source = new Uri("http://www."+UrlGrabber.Text);
-                
-                UrlGrabber.Text = "http://www." + UrlGrabber.Text;
-                //ActualAddress();
-            }
+            
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
 
-            WebPage.GoBack();
+            //WebPage.GoBack();
             if (WebPage.CanGoBack == false)
             {
                 BackButton.IsEnabled = false;
@@ -63,7 +61,7 @@ namespace WPFTraining
             else
             {
                 ForwardButton.IsEnabled = true;
-                MessageBox.Show("Fajki");
+                //MessageBox.Show("Fajki");
                 BackButton.IsEnabled = true;
                 WebPage.GoBack();
             }
@@ -73,7 +71,7 @@ namespace WPFTraining
 
         private void Forward_Click(object sender, RoutedEventArgs e)
         {
-            WebPage.GoForward();
+            //WebPage.GoForward();
             if(WebPage.CanGoForward == false)
             {
                 ForwardButton.IsEnabled = false;
