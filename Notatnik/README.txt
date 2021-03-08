@@ -1,2 +1,1 @@
-Simple Notepad, that's uses MySQL DB.
-Written in PL lang.
+Simple Notepad. Using MySQL DB. All written in PL lang.
