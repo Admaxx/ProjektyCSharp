@@ -11,10 +11,10 @@ namespace Notatnik
     internal static class DatabaseConn
     {
         internal static MySqlConnection conn = new MySqlConnection(
-            "Server = SampleServer " +
-                "Database = SampleDB; " +
-                "user = SampleUser; " +
-                "password = SamplePass;"
+            "Server = SampleServer; " +
+                "Database = ServerDB; " +
+                "user = YoursUser; " +
+                "password = YoursPass;"
             );
 
         static internal void Connect()

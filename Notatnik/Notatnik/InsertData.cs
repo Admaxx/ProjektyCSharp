@@ -33,7 +33,7 @@ namespace Notatnik
         static internal string CheckingIfExist(string Title, string Content)
         {
             //MessageBox.Show(GettingNotes.GetDatas(Title).Count.ToString());
-            if(GettingNotes.GetDatas(Title).Count != 3)
+            if(GettingNotes.GetDatas(Title).Count != 4)
             {
                 return Insert(Title, Content);
             }

@@ -72,7 +72,8 @@ namespace Notatnik
             FindAllTitles();
             TitleGet.Text = "";
             TextGet.Text = "";
-
+            Date.Text = "";
+            UpdateDate.Text = "";
         }
         private async Task TextLength()
         {
@@ -110,7 +111,7 @@ namespace Notatnik
             TitleGet.Text = GettingNotes.GetDatas(Combo.Text)[0];
             TextGet.Text = GettingNotes.GetDatas(Combo.Text)[1];
             Date.Text = "Data dodania: " + GettingNotes.GetDatas(Combo.Text)[2];
-
+            UpdateDate.Text = "Data poprawy " + GettingNotes.GetDatas(Combo.Text)[3];
         }
 
         private void FindButton_Click(object sender, RoutedEventArgs e)

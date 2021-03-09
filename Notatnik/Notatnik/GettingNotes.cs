@@ -32,6 +32,8 @@ namespace Notatnik
 
                     AllDatas.TitlesAndContent.Add(reader.GetString(0));
                     AllDatas.TitlesAndContent.Add(reader.GetString(1));
+                    AllDatas.TitlesAndContent.Add(reader.GetString(2));
+                        
                 }
                 DatabaseConn.Disconnect();
            
