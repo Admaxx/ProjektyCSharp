@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System;
 using System.Threading;
+using System.Data.SqlTypes;
 
 namespace Notatnik
 {
@@ -15,7 +16,15 @@ namespace Notatnik
         public MainWindow()
         {
             InitializeComponent();
-            FindAllTitles();
+            try
+            {
+                FindAllTitles();
+            } catch (MySql.Data.MySqlClient.MySqlException)
+            {
+                MessageBox.Show("Brak połączenia z bazą, wyłączam program", "Błędne połączenie",MessageBoxButton.OK,MessageBoxImage.Error);
+                Close();
+
+            }
             Task.WhenAll(TextLength());
             
         }
@@ -23,7 +32,7 @@ namespace Notatnik
         internal void Getter()
         {
             MessageBox.Show(CheckingIfNullInput.InputChecker(Title.Text, TextValues.Text));
-            FindAllTitles();
+            FindAllTitles(); 
 
         }
         internal void CorrectText()
@@ -96,13 +105,19 @@ namespace Notatnik
         {
             CorrectText();
         }
+        private void PlacingAllDatas()
+        {
+            TitleGet.Text = GettingNotes.GetDatas(Combo.Text)[0];
+            TextGet.Text = GettingNotes.GetDatas(Combo.Text)[1];
+            Date.Text = "Data dodania: " + GettingNotes.GetDatas(Combo.Text)[2];
+
+        }
 
         private void FindButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                TitleGet.Text = GettingNotes.GetDatas(Combo.Text)[0];
-                TextGet.Text = GettingNotes.GetDatas(Combo.Text)[1];
+                PlacingAllDatas();
             }catch(ArgumentOutOfRangeException)
             {
                 TitleGet.Text = "";

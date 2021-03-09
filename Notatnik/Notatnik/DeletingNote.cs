@@ -14,7 +14,7 @@ namespace Notatnik
             if(DatabaseConn.conn.State != System.Data.ConnectionState.Open)  
                 DatabaseConn.Connect();
 
-            string query = string.Format("Delete from datas where title = '{0}'", title);
+            string query = string.Format($"Delete from datas where title = '{title}'");
 
             MySqlCommand command = new MySqlCommand(query, DatabaseConn.conn);
 

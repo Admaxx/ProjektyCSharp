@@ -16,8 +16,8 @@ namespace Notatnik
                 DatabaseConn.Connect();
 
             string query = string.Format(
-                "Update datas set Content = '{0}'" +
-                " where Title = '{1}'",content, title);
+                $"Update datas set Content = '{content}'" +
+                $" where Title = '{title}'");
 
             MySqlCommand command = new MySqlCommand(query, DatabaseConn.conn);
             //MessageBox.Show(query);

@@ -20,7 +20,7 @@ namespace Notatnik
             
             string query = string.Format("Insert into datas " +
                 "(Title, Content) " +
-                "values ('{0}', '{1}')", Title, Content);
+                $"values ('{Title}', '{Content}')");
             //MessageBox.Show(query);
             MySqlCommand command = new MySqlCommand(query,DatabaseConn.conn);
 
@@ -33,7 +33,7 @@ namespace Notatnik
         static internal string CheckingIfExist(string Title, string Content)
         {
             //MessageBox.Show(GettingNotes.GetDatas(Title).Count.ToString());
-            if(GettingNotes.GetDatas(Title).Count != 2)
+            if(GettingNotes.GetDatas(Title).Count != 4)
             {
                 return Insert(Title, Content);
             }

@@ -15,14 +15,16 @@
         <Button Content="Zatwierdź" x:Name="Input" Foreground="Green" HorizontalAlignment="Left" Margin="486,274,0,0" VerticalAlignment="Top" Width="75" Click="Input_Click"/>
         <TextBlock HorizontalAlignment="Left" x:Name="TitleGet" Margin="94,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Width="160"/>
         <TextBlock HorizontalAlignment="Left" x:Name="TextGet" Margin="51,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Height="139" Width="251"/>
-        <Button Content="Popraw" HorizontalAlignment="Left" Foreground="Yellow" Click="CorrectText_Click" Margin="227,391,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Popraw" HorizontalAlignment="Left" Foreground="Yellow" Click="CorrectText_Click" Margin="227,298,0,0" VerticalAlignment="Top" Width="75"/>
         <ComboBox HorizontalAlignment="Left" x:Name="Combo" IsEditable="true" Margin="94,58,0,0" VerticalAlignment="Top" Width="160"/>
         <Button Content="Znajdź" x:Name="FindButton" Click="FindButton_Click" HorizontalAlignment="Left" Margin="259,58,0,0" VerticalAlignment="Top" Width="75" Height="22"/>
         <TextBlock HorizontalAlignment="Left" Margin="139,37,0,0" TextWrapping="Wrap" Text="Znajdź tytuł" VerticalAlignment="Top" Width="115"/>
-        <Button Content="Usuń" HorizontalAlignment="Left" Foreground="MediumVioletRed" x:Name="DeleteButton" Click="DeleteButton_Click" Margin="307,391,0,0" VerticalAlignment="Top" Width="75" Height="19"/>
+        <Button Content="Usuń" HorizontalAlignment="Left" Foreground="MediumVioletRed" x:Name="DeleteButton" Click="DeleteButton_Click" Margin="307,298,0,0" VerticalAlignment="Top" Width="75" Height="19"/>
         <Button Content="Wyczyść" HorizontalAlignment="Left" x:Name="CleanTitle" Click="CleanTitle_Click" Margin="718,58,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
         <Button Content="Wyczyść" HorizontalAlignment="Left" x:Name="CleanContent" Click="CleanContent_Click" Margin="638,274,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBlock HorizontalAlignment="Left" x:Name="LengthOfText" Margin="638,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
+        <TextBlock HorizontalAlignment="Left" Margin="307,223,0,0" x:Name="Date" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
+        <TextBlock HorizontalAlignment="Left" Margin="307,322,0,0" x:Name="UpdateDate" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>
