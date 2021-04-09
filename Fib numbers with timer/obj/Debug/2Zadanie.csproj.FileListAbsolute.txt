@@ -1,0 +1,17 @@
+C:\Users\Jakub\source\repos\2Zadanie\2Zadanie\bin\Debug\2Zadanie.exe.config
+C:\Users\Jakub\source\repos\2Zadanie\2Zadanie\bin\Debug\2Zadanie.exe
+C:\Users\Jakub\source\repos\2Zadanie\2Zadanie\bin\Debug\2Zadanie.pdb
+C:\Users\Jakub\source\repos\2Zadanie\2Zadanie\obj\Debug\MainWindow.g.cs
+C:\Users\Jakub\source\repos\2Zadanie\2Zadanie\obj\Debug\App.g.cs
+C:\Users\Jakub\source\repos\2Zadanie\2Zadanie\obj\Debug\2Zadanie_MarkupCompile.cache
+C:\Users\Jakub\source\repos\2Zadanie\2Zadanie\obj\Debug\2Zadanie_MarkupCompile.lref
+C:\Users\Jakub\source\repos\2Zadanie\2Zadanie\obj\Debug\MainWindow.baml
+C:\Users\Jakub\source\repos\2Zadanie\2Zadanie\obj\Debug\2Zadanie.g.resources
+C:\Users\Jakub\source\repos\2Zadanie\2Zadanie\obj\Debug\_2Zadanie.Properties.Resources.resources
+C:\Users\Jakub\source\repos\2Zadanie\2Zadanie\obj\Debug\2Zadanie.csproj.GenerateResource.cache
+C:\Users\Jakub\source\repos\2Zadanie\2Zadanie\obj\Debug\2Zadanie.csproj.CoreCompileInputs.cache
+C:\Users\Jakub\source\repos\2Zadanie\2Zadanie\obj\Debug\2Zadanie.exe
+C:\Users\Jakub\source\repos\2Zadanie\2Zadanie\obj\Debug\2Zadanie.pdb
+C:\Users\Jakub\source\repos\2Zadanie\2Zadanie\obj\Debug\FibonacciResultNumbers.g.cs
+C:\Users\Jakub\source\repos\2Zadanie\2Zadanie\obj\Debug\FibonacciResultNumbers.baml
+C:\Users\Jakub\source\repos\2Zadanie\2Zadanie\obj\Debug\2Zadanie.csprojAssemblyReference.cache

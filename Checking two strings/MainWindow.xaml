@@ -1,0 +1,20 @@
+﻿<Window x:Class="_1Zadanie.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_1Zadanie"
+        mc:Ignorable="d"
+        Title="Zadanie1" Height="450" Width="800" 
+        ResizeMode="NoResize" Background="LightGray">
+    <Grid>
+        
+        <TextBox HorizontalAlignment="Left" x:Name="FirstString" Height="23" Margin="307,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143" RenderTransformOrigin="0.202,0.583"/>
+        <TextBox HorizontalAlignment="Left" x:Name="SecondString" Height="23" Margin="307,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143"/>
+        <Button Content="Sprawdź" x:Name="CheckDiff" Click="CheckDiff_Click" HorizontalAlignment="Left" Margin="389,202,0,0" VerticalAlignment="Top" Width="61" Foreground="Red"/>
+        <Button Content="Losuj" x:Name="RandomWords" Click="RandomWords_Click" HorizontalAlignment="Left" Margin="307,202,0,0" VerticalAlignment="Top" Width="61" Foreground="Blue"/>
+        <Button Content="Wyczyść" x:Name="ClearButton1" Click="ClearButton1_Click" HorizontalAlignment="Left" Margin="455,146,0,0" VerticalAlignment="Top" Width="61" Height="23"/>
+        <Button Content="Wyczyść" x:Name="ClearButton2" Click="ClearButton2_Click" HorizontalAlignment="Left" Margin="455,174,0,0" VerticalAlignment="Top" Width="61" Height="23"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace _2Zadanie
+{
+    /// <summary>
+    /// Logika interakcji dla klasy MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        //int i = 0;
+        FibonacciResultNumbers fr = new FibonacciResultNumbers();
+        AllDatas ad = new AllDatas();
+        internal List<long> FibList = new List<long>();
+        public MainWindow()
+        {
+
+            InitializeComponent();
+
+            
+
+        }
+        
+
+        private async void ShowFib_Click(object sender, RoutedEventArgs e)
+        {
+
+            fr.Show();
+            Close();
+            await Task.WhenAll(fr.FibonacciNumbers(), fr.Timer()); //Funkcja, która "wprawia w ruch" dwie zawarte w niej
+                                                                   //metody, które działają asynchronicznie.
+            //fr.ApplicationTime();
+            
+        }
+    }
+}
