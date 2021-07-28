@@ -10,7 +10,6 @@ namespace BattleShipsFinal
         internal string begin(List<string> ShipCoords)
         {
             string IsStrike = Choose();
-            //MessageBox.Show(ShipCoords.Count().ToString());
             if (ShipCoords.Any(item => item.Contains(IsStrike)))
                 if (!Strikes.Any(item => item.Contains(IsStrike)))
                 {

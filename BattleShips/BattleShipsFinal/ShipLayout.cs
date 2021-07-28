@@ -28,8 +28,6 @@ namespace BattleShipsFinal
         internal bool Horizontally()
         {
             space = new IsEnoughSpace(BoardSize, ShipModels, ShipStart, UsedSpace, ShipPlaces);
-            //MessageBox.Show($"{BoardSize}, {ShipStart[0].Name}{ShipStart[0].Height}{ShipStart[0].Width}");
-            //MessageBox.Show(UsedSpace.Count.ToString() + "s");
             return space.Check();
 
         }

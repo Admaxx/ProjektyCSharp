@@ -21,3 +21,5 @@ C:\Users\Jakub\source\repos\BattleShips\BattleShipsFinal\obj\Debug\netcoreapp3.1
 C:\Users\Jakub\source\repos\BattleShips\BattleShipsFinal\obj\Debug\netcoreapp3.1\BattleShipsFinal.genruntimeconfig.cache
 C:\Users\Jakub\source\repos\BattleShips\BattleShipsFinal\obj\Debug\netcoreapp3.1\Player2.g.cs
 C:\Users\Jakub\source\repos\BattleShips\BattleShipsFinal\obj\Debug\netcoreapp3.1\Player2.baml
+C:\Users\Jakub\source\repos\BattleShips\BattleShipsFinal\obj\Debug\netcoreapp3.1\Options.g.cs
+C:\Users\Jakub\source\repos\BattleShips\BattleShipsFinal\obj\Debug\netcoreapp3.1\Options.baml

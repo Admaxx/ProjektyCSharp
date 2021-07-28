@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 C:\Users\Jakub\source\repos\BattleShips\BattleShipsFinal\App.xaml
-3468200378
+4507268563
 
-26-549232682
+22-1478831169
 192-1533232326
-MainWindow.xaml;Player1.xaml;Player2.xaml;
+MainWindow.xaml;Options.xaml;Player1.xaml;Player2.xaml;
 
 True
 

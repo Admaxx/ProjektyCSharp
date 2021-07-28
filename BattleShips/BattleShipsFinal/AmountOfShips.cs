@@ -11,9 +11,8 @@ namespace BattleShipsFinal
         {
             var Amount = 0;
             foreach (var Model in Model())
-            {
                 Amount += Model.Counter;
-            }
+
             return Amount;
         }
     }

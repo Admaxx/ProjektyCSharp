@@ -22,7 +22,6 @@ namespace BattleShipsFinal
 
     public partial class Player2 : Window
     {
-        GameBoard bo = new GameBoard();
         AllDatas all = new AllDatas();
         RandomPlaces rp = new RandomPlaces();
         ShipLayout sl;
@@ -30,7 +29,6 @@ namespace BattleShipsFinal
         AmountOfShips Ships = new AmountOfShips();
         BattleBegin battle = new BattleBegin();
         RandomPlace rand = new RandomPlace();
-        IsWin win = new IsWin();
         public Player2()
         {
             InitializeComponent();
@@ -39,7 +37,7 @@ namespace BattleShipsFinal
         internal void GameBegin()
         {
             DrawRectangles(Board);
-            Horizontally();
+            SwitchDimensions();
         }
         void DrawRectangles(Canvas Board)
         {
@@ -61,6 +59,11 @@ namespace BattleShipsFinal
                     Canvas.SetTop(rectangle, j * (GameSettings.size + GameSettings.space));
                 }
             }
+        }
+        internal void SwitchDimensions()
+        {
+            Horizontally();
+            //Vertical() - analogicznie;
         }
         internal void Horizontally()
         {
@@ -88,6 +91,10 @@ namespace BattleShipsFinal
                         }
                 }
             }
+            PlacingShips();
+        }
+        private void PlacingShips()
+        {
             foreach (var m in all.ShipPlaces)
             {
                 Rectangle tb = (Rectangle)this.FindName(m);

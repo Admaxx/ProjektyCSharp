@@ -13,7 +13,6 @@ namespace BattleShipsFinal
             StartElement.Clear();
             while (1 == 1)
             {
-                
                 StartElement.Add(new StartModel() 
                 {
                     Name = StartValue,

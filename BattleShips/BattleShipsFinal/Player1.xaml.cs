@@ -22,14 +22,12 @@ namespace BattleShipsFinal
 
     public partial class Player1 : Window
     {
-        GameBoard bo = new GameBoard();
         AllDatas all = new AllDatas();
         RandomPlaces rp = new RandomPlaces();
         ShipLayout sl;
         CreateShips Create = new CreateShips();
         AmountOfShips Ships = new AmountOfShips();
         BattleBegin battle = new BattleBegin();
-        IsWin win = new IsWin();
         RandomPlace rand = new RandomPlace();
         public Player1()
         {
@@ -40,8 +38,7 @@ namespace BattleShipsFinal
         internal void GameBegin()
         {
             DrawRectangles(Board);
-            Horizontally();
-            
+            SwitchDimensions();
         }
         void DrawRectangles(Canvas Board)
         {
@@ -64,37 +61,22 @@ namespace BattleShipsFinal
                 }
             }
         }
-        public void Example()
+        internal void SwitchDimensions()
         {
-            Rectangle pinkRectangle = new Rectangle();
-            pinkRectangle.Width = 50;
-            pinkRectangle.Height = 50;
-            pinkRectangle.Stroke = new SolidColorBrush(Colors.Black);
-            pinkRectangle.Fill = new SolidColorBrush(Colors.Gray);
-            pinkRectangle.Name = all.StartValue;
-            RegisterName(all.StartValue, pinkRectangle);
-            Canvas.SetRight(pinkRectangle, 300);
-            Canvas.SetRight(pinkRectangle, 100);
-            //Board.Children.Add(pinkRectangle);
-            Rectangle tb = (Rectangle)FindName(all.StartValue);
-            tb.Fill = new SolidColorBrush(Colors.HotPink);
+            Horizontally();
+            //Vertical() - analogicznie;
         }
         internal void Horizontally()
         {
 
             List<ShipModels> ModelCount = Create.Model();
-            //MessageBox.Show($"{ModelCount[0].Counter},{ModelCount[1].Counter}, {ModelCount.Count}");
             for (int item = 0; item <= ModelCount.Count - 1; item++)
             {
                 for (int i = 0; i <= ModelCount[item].Counter - 1; i++)
                 {
-
-                    //MessageBox.Show($"{ModelCount[item].Name}{ModelCount[item].Length}{ModelCount[item].Counter}");
                     var RandomStart = rp.RandomStart(all.maxSize);
                     var Used = rp.UsedPlace;
                     sl = new ShipLayout(all.maxSize, ModelCount[item], RandomStart, Used, all.ShipPlaces);
-                    //MessageBox.Show(Used.Count.ToString() + "du");
-                    //MessageBox.Show(Used.Count.ToString() + "m");
                     if (sl.Horizontally() == false)
                     {
                         Used.RemoveAt(i);
@@ -108,30 +90,20 @@ namespace BattleShipsFinal
                             all.UsedPlace.Add($"{m.Name}{m.Height}{m.Width}");
                             all.AllShipCounts += ModelCount[item].Counter;
                         }
-
-                    //all.UsedPlaces.Add($"{RandomStart[i].Name}{RandomStart[i].Height}{RandomStart[i].Width}");
-                    //MessageBox.Show($"i: {i}, Item: {item}");
-
-
-
-
-
                 }
-                //foreach (var m in all.ShipPlaces)
-                //{
-                //    MessageBox.Show(m);
-                //}
             }
-            //MessageBox.Show(all.ShipPlaces.Count().ToString());
+            PlacingShips();
+            
+        }
+        private void PlacingShips()
+        {
             foreach (var m in all.ShipPlaces)
             {
-                //MessageBox.Show(m);
                 Rectangle tb = (Rectangle)this.FindName(m);
                 tb.Fill = new SolidColorBrush(Colors.Black);
 
             }
             GameSettings.AmountOfShips = all.ShipPlaces.Count() - all.AllShipCounts;
-            
         }
         internal bool PlayerChoosing(int AllShips)
         {
@@ -162,8 +134,6 @@ namespace BattleShipsFinal
                     Result1.Text = GameSettings.IsHit[1];
                     
                 }));
-
-                //MessageBox.Show($"{StartShipsAmount}, {all.Strikes.Count()},{all.AllShipCounts}");
             else
                 Dispatcher.Invoke(new Action(() =>
                 {
@@ -181,40 +151,7 @@ namespace BattleShipsFinal
                 Player1Info.Text = $"{all.PlayerBehavior[2]}";
 
             }));
-            //MessageBox.Show(all.Strikes.Count().ToString());
-
-
-            //MessageBox.Show(GameSettings.GameOver.ToString());
-            //if (win.WinShip
-            // (StartShipsAmount, all.Strikes.Count() + all.AllShipCounts)
-            // ==
-            // true
-            // ||
-            // GameSettings.GameOver == false)
-            //{
-            //    GameSettings.GameOver = true;
-            //    MessageBox.Show("1Wysrau jebany");
-            //    break;
-
-            //}
-            //else
-            //{
-            //    break;
-            //}
-
             return false;
         }
-
-
-        //private void BlueButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    //var RandomStart = rp.RandomStart(all.Size);
-        //    //MessageBox.Show(RandomStart);
-
-        //    //Rectangle tb = (Rectangle)this.FindName(RandomStart);
-        //    //tb.Fill = new SolidColorBrush(Colors.Blue);
-        //    //all.UsedPlace.Add(RandomStart);
-        //    Horizontally();
-        //}
     }
 }
