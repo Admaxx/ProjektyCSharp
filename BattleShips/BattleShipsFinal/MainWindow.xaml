@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BattleShipsFinal"
         mc:Ignorable="d"
-        Title="Menu" Height="400" Width="400" Background="Gray">
+        Title="Menu" Height="400" Width="400" Background="Gray" ResizeMode="NoResize">
     <Grid>
         <Button Content="Start" x:Name="GameStart" Click="GameStart_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,248,0,0" Width="108"/>
-        <Button Content="Opcje" IsEnabled="False" HorizontalAlignment="Center" x:Name="Options" Click="Options_Click" Margin="0,273,0,0" VerticalAlignment="Top" Width="108"/>
+        <Button Content="Opcje" HorizontalAlignment="Center" x:Name="Options" Click="Options_Click" Margin="0,273,0,0" VerticalAlignment="Top" Width="108"/>
         <Button Content="Wyjście" x:Name="ExitButton" Click="ExitButton_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Width="108" Margin="0,298,0,0"/>
         <Image x:Name="Pic1" Source="ExamplePhoto/BattleShipsPic.jpg" HorizontalAlignment="Left" Height="162" Margin="116,38,0,0" VerticalAlignment="Top" Width="181">
         </Image>

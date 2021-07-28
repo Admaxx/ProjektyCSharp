@@ -32,7 +32,6 @@ namespace BattleShipsFinal
         public Player2()
         {
             InitializeComponent();
-            GameBegin();
         }
         internal void GameBegin()
         {

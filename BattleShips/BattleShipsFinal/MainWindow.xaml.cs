@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -35,11 +36,21 @@ namespace BattleShipsFinal
         }
         private async void GameStart_Click(object sender, RoutedEventArgs e)
         {
-            pl1.Show();
-            pl2.Show();
+            PlayerAndGraficsSetting();
+            ShowBoards();
             Close();
             await Task.WhenAll(Game());
-            
+
+        }
+        private void PlayerAndGraficsSetting()
+        {
+            pl1.GameBegin();
+            pl2.GameBegin();
+        }
+        private void ShowBoards()
+        {
+            pl1.Show();
+            pl2.Show();
         }
         private async Task Game()
         {
@@ -58,7 +69,14 @@ namespace BattleShipsFinal
         }
         private void Options_Click(object sender, RoutedEventArgs e)
         {
-            GameSettings.GameOptions.Show();
+            try
+            {
+                GameSettings.GameOptions.Show();
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {

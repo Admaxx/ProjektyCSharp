@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BattleShipsFinal"
         mc:Ignorable="d"
-        Title="Options" Height="450" Width="800">
+        Title="Options" Height="500" Width="400" ResizeMode="NoResize" Background="Gray">
     <Grid>
-        <ComboBox HorizontalAlignment="Center" x:Name="SizeOptions" Margin="0,115,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="249,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="86"><Run Text="Wielkość mapy"/><Run Language="pl-pl" Text=":"/></TextBlock>
-        <Button Content="Zatwierdź" x:Name="Appr" Click="Appr_Click" HorizontalAlignment="Left" Margin="420,142,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Center" x:Name="SizeOptions" Margin="0,57,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="36,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="86"><Run Text="Wielkość mapy"/><Run Language="pl-pl" Text=":"/></TextBlock>
+        <Button Content="Zatwierdź" x:Name="Appr" Click="Appr_Click" HorizontalAlignment="Left" Margin="265,57,0,0" VerticalAlignment="Top" Height="22" RenderTransformOrigin="-3,0.661"/>
+        <TextBlock x:Name="MapSize" HorizontalAlignment="Left" Margin="54,150,0,0" Text="Mapa ustawiona na: " TextWrapping="Wrap" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

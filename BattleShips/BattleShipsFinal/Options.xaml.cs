@@ -17,12 +17,14 @@ namespace BattleShipsFinal
     /// </summary>
     public partial class Options : Window
     {
-        
+        public string OriginalText { get; private set; }
         public Options()
         {
             InitializeComponent();
             SizeOptions.SelectedIndex = 2;
+            OriginalText = MapSize.Text;
         }
+
         internal int SizeChange()
         {
             
@@ -39,7 +41,12 @@ namespace BattleShipsFinal
 
         private void Appr_Click(object sender, RoutedEventArgs e)
         {
-            GameSettings.size = SizeChange();
+            Dispatcher.Invoke(new Action (() => 
+            {
+                MapSize.Text = $"{OriginalText} {SizeChange()}";
+                GameSettings.size = SizeChange();
+            }));
+            
         }
     }
 }

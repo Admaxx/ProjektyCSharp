@@ -26,18 +26,15 @@ namespace BattleShipsFinal
         RandomPlaces rp = new RandomPlaces();
         ShipLayout sl;
         CreateShips Create = new CreateShips();
-        AmountOfShips Ships = new AmountOfShips();
         BattleBegin battle = new BattleBegin();
         RandomPlace rand = new RandomPlace();
         public Player1()
         {
             InitializeComponent();
-            GameBegin();
-
         }
         internal void GameBegin()
         {
-            DrawRectangles(Board);
+;           DrawRectangles(Board);
             SwitchDimensions();
         }
         void DrawRectangles(Canvas Board)
@@ -152,6 +149,11 @@ namespace BattleShipsFinal
 
             }));
             return false;
+        }
+
+        private void Board_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+
         }
     }
 }
