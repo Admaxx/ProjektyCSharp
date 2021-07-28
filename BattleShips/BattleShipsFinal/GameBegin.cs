@@ -12,12 +12,12 @@ namespace BattleShipsFinal
             if (player1 == true)
             {
                 GameSettings.GameOver = true;
-                MessageBox.Show(PlayerBehavior[0] + $" 1");
+                MessageBox.Show(PlayerBehavior[0] + $" 2");
             }
             else if(player2 == true)
             {
                 GameSettings.GameOver = true;
-                MessageBox.Show(PlayerBehavior[0] + $" 2");
+                MessageBox.Show(PlayerBehavior[0] + $" 1");
             }
         }
     }

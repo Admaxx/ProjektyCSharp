@@ -7,10 +7,13 @@
         mc:Ignorable="d"
         Title="Player1" Height="450" Width="800">
     <Grid>
-        <Canvas Margin="235,46,98,98" x:Name="Board"/>
+        <Canvas Margin="235,46,98,98" x:Name="Board">
+            <TextBlock Canvas.Left="383" Canvas.Top="51" Text="Wynik ostrzału: " TextWrapping="Wrap"/>
+            <TextBlock x:Name="Result1" Canvas.Left="405" Canvas.Top="72" Text="" TextWrapping="Wrap" Width="52"/>
+        </Canvas>
         <TextBlock HorizontalAlignment="Left" Margin="334,10,0,0" Text="Gracz1" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="630,46,0,0" Text="Ilość trafień" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Text1" HorizontalAlignment="Left" Margin="639,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="33"/>
-        <TextBox HorizontalAlignment="Left" x:Name="Player1Info" Margin="274,341,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="Text1" HorizontalAlignment="Left" Margin="642,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40"/>
+        <TextBlock HorizontalAlignment="Left" x:Name="Player1Info" Margin="274,341,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

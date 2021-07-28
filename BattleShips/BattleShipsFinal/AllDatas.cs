@@ -12,7 +12,9 @@ namespace BattleShipsFinal
         {
             "Wygrał gracz nr ",
             "Wykonuje ruch",
-            "Czeka na swoją kolei"
+            "Czeka na swoją kolei",
+            "Pudło!",
+            "Trafienie!"
         };
         internal int AllShipCounts;
         internal List<string> Ex = new List<string>();

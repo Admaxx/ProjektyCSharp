@@ -24,6 +24,14 @@ namespace BattleShipsFinal
         internal static readonly int size = 25;
         internal static readonly int space = 2;
         internal static bool GameOver = false;
+        internal static int AmountOfShips = 0;
+        internal static List<int> PlayerGame = new List<int>()
+        {{0 }, {0 }};
+        internal static List<string> IsHit = new List<string>()
+        {
+            {""},
+            {""}
+        };
     }
     
     public partial class MainWindow : Window
@@ -39,8 +47,6 @@ namespace BattleShipsFinal
             pl2.Show();
             
         }
-
-        //Do poprawy
         private async void GameStart_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -53,14 +59,14 @@ namespace BattleShipsFinal
             await Task.Run(() => 
             {
                 while (GameSettings.GameOver == false)
-                    begin.Game(pl1.PlayerChoosing(), pl2.PlayerChoosing());
+                    begin.Game
+                    (
+                        pl1.PlayerChoosing(GameSettings.AmountOfShips),
+                        pl2.PlayerChoosing(GameSettings.AmountOfShips)
+                    );
 
             });
             
-        }
-        private void Stop_Click(object sender, RoutedEventArgs e)
-        {
-            pl1.Close();
         }
     }
 }

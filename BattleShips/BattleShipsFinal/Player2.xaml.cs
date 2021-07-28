@@ -29,12 +29,12 @@ namespace BattleShipsFinal
         CreateShips Create = new CreateShips();
         AmountOfShips Ships = new AmountOfShips();
         BattleBegin battle = new BattleBegin();
+        RandomPlace rand = new RandomPlace();
         IsWin win = new IsWin();
         public Player2()
         {
             InitializeComponent();
             GameBegin();
-
         }
         internal void GameBegin()
         {
@@ -62,42 +62,22 @@ namespace BattleShipsFinal
                 }
             }
         }
-        public void Example()
-        {
-            Rectangle pinkRectangle = new Rectangle();
-            pinkRectangle.Width = 50;
-            pinkRectangle.Height = 50;
-            pinkRectangle.Stroke = new SolidColorBrush(Colors.Black);
-            pinkRectangle.Fill = new SolidColorBrush(Colors.Gray);
-            pinkRectangle.Name = all.StartValue;
-            RegisterName(all.StartValue, pinkRectangle);
-            Canvas.SetRight(pinkRectangle, 300);
-            Canvas.SetRight(pinkRectangle, 100);
-            //Board.Children.Add(pinkRectangle);
-            Rectangle tb = (Rectangle)FindName(all.StartValue);
-            tb.Fill = new SolidColorBrush(Colors.HotPink);
-        }
         internal void Horizontally()
         {
-
             List<ShipModels> ModelCount = Create.Model();
-            //MessageBox.Show($"{ModelCount[0].Counter},{ModelCount[1].Counter}, {ModelCount.Count}");
+            
             for (int item = 0; item <= ModelCount.Count - 1; item++)
             {
                 for (int i = 0; i <= ModelCount[item].Counter - 1; i++)
-                {
-
-                    //MessageBox.Show($"{ModelCount[item].Name}{ModelCount[item].Length}{ModelCount[item].Counter}");
+                { 
                     var RandomStart = rp.RandomStart(all.maxSize);
                     var Used = rp.UsedPlace;
                     sl = new ShipLayout(all.maxSize, ModelCount[item], RandomStart, Used, all.ShipPlaces);
-                    //MessageBox.Show(Used.Count.ToString() + "du");
-                    //MessageBox.Show(Used.Count.ToString() + "m");
+                   
                     if (sl.Horizontally() == false)
                     {
                         Used.RemoveAt(i);
                         i--;
-
                     }
                     else
                         foreach (var m in RandomStart)
@@ -106,104 +86,59 @@ namespace BattleShipsFinal
                             all.UsedPlace.Add($"{m.Name}{m.Height}{m.Width}");
                             all.AllShipCounts += ModelCount[item].Counter;
                         }
-
-                    //all.UsedPlaces.Add($"{RandomStart[i].Name}{RandomStart[i].Height}{RandomStart[i].Width}");
-                    //MessageBox.Show($"i: {i}, Item: {item}");
-
-
-
-
-
                 }
-                //foreach (var m in all.ShipPlaces)
-                //{
-                //    MessageBox.Show(m);
-                //}
             }
-            //MessageBox.Show(all.ShipPlaces.Count().ToString());
             foreach (var m in all.ShipPlaces)
             {
-                //MessageBox.Show(m);
                 Rectangle tb = (Rectangle)this.FindName(m);
                 tb.Fill = new SolidColorBrush(Colors.Black);
 
             }
         }
-        internal bool PlayerChoosing()
+        internal bool PlayerChoosing(int AllShips)
         {
-
-
             int StartShipsAmount = all.ShipPlaces.Count();
-            int AllShips = StartShipsAmount - all.AllShipCounts;
             Dispatcher.Invoke(new Action(() =>
             {
                 Player2Info.Text = $"{all.PlayerBehavior[1]}";
 
             }));
 
-            //MessageBox.Show(StartShipsAmount.ToString());
+            Thread.Sleep(rand.RandomVal() * 1000);
 
-            Thread.Sleep(1500);
-            if (all.Strikes.Count == StartShipsAmount - all.AllShipCounts)
+            if (StartShipsAmount - all.AllShipCounts == all.minSize)
                 return true;
 
             var GettingResult = battle.begin(all.ShipPlaces);
-            Dispatcher.Invoke(new Action(() =>
-            {
-                Text2.Text = $"{all.Strikes.Count}/{StartShipsAmount - all.AllShipCounts}";
 
-            }));
             if (GettingResult
             != string.Empty)
-            {
                 Dispatcher.Invoke(new Action(() =>
                 {
                     Rectangle tb = (Rectangle)FindName(GettingResult);
                     tb.Fill = new SolidColorBrush(Colors.Red);
                     all.Strikes.Add(GettingResult);
+                    GameSettings.IsHit[1] = all.PlayerBehavior[4];
+                    Result2.Foreground = new SolidColorBrush(Colors.Green);
+                    Result2.Text = GameSettings.IsHit[0];
+                    
                 }));
-
-                //MessageBox.Show($"{StartShipsAmount}, {all.Strikes.Count()},{all.AllShipCounts}");
-            }
+            else
+                Dispatcher.Invoke(new Action(() =>
+                {
+                    GameSettings.IsHit[1] = all.PlayerBehavior[3];
+                    Result2.Foreground = new SolidColorBrush(Colors.Red);
+                    Result2.Text = GameSettings.IsHit[0];
+                    
+                }));
             Dispatcher.Invoke(new Action(() =>
             {
+                GameSettings.PlayerGame[1] = all.Strikes.Count;
+                Text2.Text = $"{GameSettings.PlayerGame[0]}/{AllShips}";
                 Player2Info.Text = $"{all.PlayerBehavior[2]}";
 
             }));
-            //MessageBox.Show(all.Strikes.Count().ToString());
-
-
-            //MessageBox.Show(GameSettings.GameOver.ToString());
-            //if (win.WinShip
-            // (StartShipsAmount, all.Strikes.Count() + all.AllShipCounts)
-            // ==
-            // true
-            // ||
-            // GameSettings.GameOver == false)
-            //{
-            //    GameSettings.GameOver = true;
-            //    MessageBox.Show("1Wysrau jebany");
-            //    break;
-
-            //}
-            //else
-            //{
-            //    break;
-            //}
-
             return false;
         }
-
-
-        //private void BlueButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    //var RandomStart = rp.RandomStart(all.Size);
-        //    //MessageBox.Show(RandomStart);
-
-        //    //Rectangle tb = (Rectangle)this.FindName(RandomStart);
-        //    //tb.Fill = new SolidColorBrush(Colors.Blue);
-        //    //all.UsedPlace.Add(RandomStart);
-        //    Horizontally();
-        //}
     }
 }

@@ -30,6 +30,7 @@ namespace BattleShipsFinal
         AmountOfShips Ships = new AmountOfShips();
         BattleBegin battle = new BattleBegin();
         IsWin win = new IsWin();
+        RandomPlace rand = new RandomPlace();
         public Player1()
         {
             InitializeComponent();
@@ -129,45 +130,54 @@ namespace BattleShipsFinal
                 tb.Fill = new SolidColorBrush(Colors.Black);
 
             }
+            GameSettings.AmountOfShips = all.ShipPlaces.Count() - all.AllShipCounts;
             
         }
-        internal bool PlayerChoosing()
+        internal bool PlayerChoosing(int AllShips)
         {
             int StartShipsAmount = all.ShipPlaces.Count();
-            int AllShips = StartShipsAmount - all.AllShipCounts;
             Dispatcher.Invoke(new Action(() =>
             {
                 Player1Info.Text = $"{all.PlayerBehavior[1]}";
 
             }));
+            
+            Thread.Sleep(rand.RandomVal() * 1000);
 
-            //MessageBox.Show(StartShipsAmount.ToString());
-
-            Thread.Sleep(1500);
-            if (all.Strikes.Count == StartShipsAmount - all.AllShipCounts)
+            if (StartShipsAmount - all.AllShipCounts == all.minSize)
                 return true;
 
 
             var GettingResult = battle.begin(all.ShipPlaces);
-            Dispatcher.Invoke(new Action(() =>
-            {
-                Text1.Text = $"{all.Strikes.Count}/{StartShipsAmount - all.AllShipCounts}";
 
-            }));
             if (GettingResult
             != string.Empty)
-            {
                 Dispatcher.Invoke(new Action(() =>
                 {
                     Rectangle tb = (Rectangle)FindName(GettingResult);
                     tb.Fill = new SolidColorBrush(Colors.Red);
                     all.Strikes.Add(GettingResult);
+                    GameSettings.IsHit[0] = all.PlayerBehavior[4];
+                    Result1.Foreground = new SolidColorBrush(Colors.Green);
+                    Result1.Text = GameSettings.IsHit[1];
+                    
                 }));
 
                 //MessageBox.Show($"{StartShipsAmount}, {all.Strikes.Count()},{all.AllShipCounts}");
-            }
+            else
+                Dispatcher.Invoke(new Action(() =>
+                {
+                    GameSettings.IsHit[0] = all.PlayerBehavior[3];
+                    Result1.Foreground = new SolidColorBrush(Colors.Red);
+                    Result1.Text = GameSettings.IsHit[1];
+                    
+                }));
+            
+
             Dispatcher.Invoke(new Action(() =>
             {
+                GameSettings.PlayerGame[0] = all.Strikes.Count;
+                Text1.Text = $"{GameSettings.PlayerGame[1]}/{AllShips}";
                 Player1Info.Text = $"{all.PlayerBehavior[2]}";
 
             }));
