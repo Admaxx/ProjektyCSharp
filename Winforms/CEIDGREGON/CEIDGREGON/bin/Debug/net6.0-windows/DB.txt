@@ -1,0 +1,1 @@
+Data Source = DESKTOP-VTOS691\MSSQLSERVER01; INITIAL Catalog = CEIDGREGON;User ID = sa; Password = Jajeczko8;

@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="4.8.*" />
+    <PackageReference Include="System.ServiceModel.Federation" Version="4.8.*" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.10.0" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.8.*" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.8.*" />
+    <PackageReference Include="WcfCoreMtomEncoder" Version="0.1.16" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="CEIDGREGONBLL\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="CEIDGREGONDAL\CEIDGREGONTableDAL.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CEIDGREGONTableDAL.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="CEIDGREGONDAL\GUSValuesBLL.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GUSValuesBLL.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="CEIDGREGONDAL\CEIDGREGONTableDAL.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CEIDGREGONTableDAL.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="CEIDGREGONDAL\GUSValuesBLL.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GUSValuesBLL.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>
