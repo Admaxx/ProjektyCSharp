@@ -1,48 +1,24 @@
-using System.Net.NetworkInformation;
-using System.ServiceModel;
-using System.ServiceModel.Channels;
-using ServiceReference1;
-using CEIDGREGON.CEIDGREGONBLL;
-using CEIDGREGON.CEIDGREGONDAL.GUSValuesBLLTableAdapters;
-
 namespace CEIDGREGON
 {
     public partial class MainForm : Form
     {
         DbChooseForm db;
-        GetRequests request;
-        ProgramGeneralData allData;
-        GetFirstNonEmptyValue Value;
-        GUSValuesBLL gusData;
-        GUSValuesTableAdapter gusConn;
+        ShowRaportValues ShowInsert;
+        CheckAllReq Check;
+
         public MainForm()
         {
-            request = new GetRequests();
-            allData = new ProgramGeneralData();
-            Value = new GetFirstNonEmptyValue();
-            gusData = new GUSValuesBLL();
-            gusConn = new GUSValuesTableAdapter();
+            Check = new CheckAllReq();
             Settings();
+            ShowInsert = new ShowRaportValues();
         }
         void Settings()
         {
-            if (!IsInternetConnection())
-            {
-                MessageBox.Show("Program nie mo¿e zostaæ uruchomiony \nSprawdŸ swoje po³¹czenie internetowe", "B³¹d", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (!System.IO.File.Exists(allData.DBFile))
-            {
-                db = new DbChooseForm();
-                db.ShowDialog();
-            }
+            Check.Requiments();
+
             InitializeComponent();
             CenterToScreen();
             SetElementsLocation();
-
-            request.Login(allData.GusToken);
-            using (StreamReader sr = new StreamReader(allData.DBFile))
-                gusConn.Connection.ConnectionString = sr.ReadToEnd();
         }
         void SetElementsLocation()
         {
@@ -101,31 +77,12 @@ namespace CEIDGREGON
             DataRaportPicker.Text = e.End.ToShortDateString();
             monthCalendar1.Visible = false;
         }
-        private void GetValuesAndInsertToDB(int SelectedRaportIndex)
-        {
-            string GetValueFromAPI = string.Empty;
-
-            if (SelectedRaportIndex == 0)
-                GetValueFromAPI = request.GetValuesForDanePodmiotu(Value.ReturnFirstNonEmpty(new string[] { RegonBox.Text, NIPBox.Text, KRSBox.Text }));
-
-            else if (SelectedRaportIndex == 1)
-                GetValueFromAPI = request.GetValuesForPelnyRaport(RegonBox.Text, raportyPelne.Text);
-
-            else //(SelectedRaportIndex == 2)
-                GetValueFromAPI = request.GetValuesForZbiorczyRaport(DataRaportPicker.Text, raportyZbiorcze.Text);
-
-            MessageBox.Show(GetValueFromAPI,"Dane",MessageBoxButtons.OK);
-            
-            if(!GetValueFromAPI.Contains("<ErrorCode>"))//Jesli wiadomosc nie jest bledem, to moge ja zapisac - po co zapisywac blad?
-                gusData.InsertXMLValuesToDB(GetValueFromAPI, (byte)SelectedRaportIndex);
-        }
         private void button1_Click(object sender, EventArgs e)
         {
-            GetValuesAndInsertToDB(raportRodzBox.SelectedIndex);
+            MessageBox.Show(ShowInsert.GetValuesAndInsertToDB(raportRodzBox.SelectedIndex,
+                new List<string> { RegonBox.Text, NIPBox.Text, KRSBox.Text,
+                    DataRaportPicker.Text }, new List<string> { raportyPelne.Text, raportyZbiorcze.Text }));
         }
-        private bool IsInternetConnection()
-        =>
-        NetworkInterface.GetIsNetworkAvailable();
         private void ChangeDBToolStripMenuItem_Click(object sender, EventArgs e)
         {
             db = new DbChooseForm();

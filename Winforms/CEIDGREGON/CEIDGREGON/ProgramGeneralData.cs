@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CEIDGREGON
+﻿namespace CEIDGREGON
 {
     internal class ProgramGeneralData
     {
@@ -18,8 +12,6 @@ namespace CEIDGREGON
             //@$"{Environment.CurrentDirectory}/SqlFiles/TriggersCreateList.sql", //Some problems with that...
             @$"{Environment.CurrentDirectory}/SqlFiles/ValuesCreateList.sql"
         };
-
-
 
         internal readonly string DBFile = Environment.CurrentDirectory + @"\DB.txt";
 

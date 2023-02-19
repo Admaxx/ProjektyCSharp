@@ -72,7 +72,6 @@
             this.PassBox.PasswordChar = '*';
             this.PassBox.Size = new System.Drawing.Size(200, 23);
             this.PassBox.TabIndex = 3;
-            this.PassBox.Text = "Jajeczko8";
             // 
             // label2
             // 
@@ -122,7 +121,7 @@
             this.btnAbort.UseVisualStyleBackColor = true;
             this.btnAbort.Click += new System.EventHandler(this.btnAbort_Click);
             // 
-            // DbChoose
+            // DbChooseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -136,8 +135,8 @@
             this.Controls.Add(this.LoginBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DbBox);
-            this.Name = "DbChoose";
-            this.Text = "DbChoose";
+            this.Name = "DbChooseForm";
+            this.Text = "Baza";
             this.Load += new System.EventHandler(this.DbChoose_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

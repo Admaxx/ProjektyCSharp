@@ -1,9 +1,5 @@
 ﻿using Microsoft.Win32;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.ServiceModel.Channels;
-using System.Windows.Forms;
 
 namespace CEIDGREGON
 {

@@ -53,13 +53,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="CEIDGREGON.exe" size="152242626">
+  <file name="CEIDGREGON.exe" size="152244162">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>ysTgphIA1BuU4hBzOXpEK0txOd7SEGuTuPgHyA1nynw=</dsig:DigestValue>
+      <dsig:DigestValue>sv4b62MfsyJSqko8d8P3CKAxPZXWqpczgF1iPZAF0fQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="D3DCompiler_47_cor3.dll" size="4111304">
