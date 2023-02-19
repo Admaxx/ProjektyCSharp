@@ -30,7 +30,7 @@ namespace CEIDGREGON
 
         internal string WriteDBFile(string DbConnectionString)
         {
-            using (StreamWriter sw = new StreamWriter(DBFile, true))
+            using (StreamWriter sw = new StreamWriter(DBFile))
             {
                 sw.WriteLine(DbConnectionString);
             }

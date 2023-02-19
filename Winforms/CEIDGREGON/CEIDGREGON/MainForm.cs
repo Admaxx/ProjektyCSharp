@@ -116,7 +116,8 @@ namespace CEIDGREGON
 
             MessageBox.Show(GetValueFromAPI,"Dane",MessageBoxButtons.OK);
             
-            gusData.InsertXMLValuesToDB(GetValueFromAPI, (byte)SelectedRaportIndex);
+            if(!GetValueFromAPI.Contains("<ErrorCode>"))//Jesli wiadomosc nie jest bledem, to moge ja zapisac - po co zapisywac blad?
+                gusData.InsertXMLValuesToDB(GetValueFromAPI, (byte)SelectedRaportIndex);
         }
         private void button1_Click(object sender, EventArgs e)
         {
