@@ -13,13 +13,15 @@ public partial class CeidgregonContext : DbContext
     public CeidgregonContext(DbContextOptions<CeidgregonContext> options)
         : base(options)
     {
+        
     }
 
     public virtual DbSet<Gusvalue> Gusvalues { get; set; }
 
+    string ConnString = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build()["ConnectionStrings:CEIDGConn"];
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=DESKTOP-VTOS691\\MSSQLSERVER01;database=CEIDGREGON;User ID = sa;Password = Jajeczko8;Encrypt=True;TrustServerCertificate=True;");
+        => optionsBuilder.UseSqlServer(ConnString);
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
