@@ -1,11 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using CEIDGWebApi.Model;
 using CEIDGREGON;
-using ServiceReference1;
 using CEIDGWebApi.Models;
-using Newtonsoft.Json.Linq;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.Linq;
 
 namespace CEIDGWebApi.Controllers
 {
@@ -29,22 +24,6 @@ namespace CEIDGWebApi.Controllers
         }
 
         [HttpGet]
-        [Route("[controller]/GetRaportByType/{raportType}")]
-        public List<string> GetRaportByType(byte raportType)
-            =>
-            context.Gusvalues.Where(item => item.RaportType == raportType).
-                OrderByDescending(item => item.Id).Select(item => item.Xmlvalues).ToList();
-        
-
-        [HttpGet]
-        [Route("[controller]/GetRaportByDate/{Date}/{raportType?}")]
-        public List<string> GetRaportByDate(DateTime Date, byte raportType)
-            => 
-            context.Gusvalues.Where(item => item.ImportDate == Date && item.RaportType == raportType).
-                OrderByDescending(item => item.Id).Select(item => item.Xmlvalues).ToList();
-
-
-        [HttpGet]
         [Route("[controller]/GetRaport/{Id}")]
         public string GetRaport(int id)
         {
@@ -57,6 +36,27 @@ namespace CEIDGWebApi.Controllers
 
             return string.Empty;
         }
+
+        [HttpGet]
+        [Route("[controller]/GetRaportByType/{raportType}")]
+        public List<string> GetRaportByType(byte raportType)
+            =>
+            context.Gusvalues.Where(item => item.RaportType == raportType).
+                OrderByDescending(item => item.Id).Select(item => item.Xmlvalues).ToList();
+
+        [HttpGet]
+        [Route("[controller]/GetLastRaport")]
+        public string GetLastRaport()
+            =>
+            context.Gusvalues.OrderBy(item => item.Id).Last().Xmlvalues.ToString();
+
+
+        [HttpGet]
+        [Route("[controller]/GetRaportByDate/{Date}")]
+        public List<string> GetRaportByDate(DateTime Date)
+            => 
+            context.Gusvalues.Where(item => item.ImportDate == Date).
+                OrderByDescending(item => item.Id).Select(item => item.Xmlvalues).ToList();
 
         [HttpPut]
         [Route("[controller]/UpdateRaport/{Id}/{UpdatedValue}")]
@@ -84,12 +84,12 @@ namespace CEIDGWebApi.Controllers
 
             GetValuesFromInsert = show.GetValuesAndInsertToDB(Value, RaportTypeNo, NazwaRaportu);
             
-
             context.Add(new Gusvalue() { Xmlvalues = GetValuesFromInsert, ImportDate = DateTime.Now, RaportType = RaportTypeNo });
             context.SaveChanges();
 
-            return GetValuesFromInsert;
+            return $"Wpisano poprawnie do bazy";
         }
+
         [HttpDelete]
         [Route("[controller]/DeleteRaport/{Id}")]
         public string DeleteRaport(int id)
