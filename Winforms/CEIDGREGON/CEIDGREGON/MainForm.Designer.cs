@@ -45,6 +45,7 @@
             this.EndOfWorkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oPCJEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ChangeDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CheckStanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -212,7 +213,8 @@
             // oPCJEToolStripMenuItem
             // 
             this.oPCJEToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ChangeDBToolStripMenuItem});
+            this.ChangeDBToolStripMenuItem,
+            this.CheckStanToolStripMenuItem});
             this.oPCJEToolStripMenuItem.Name = "oPCJEToolStripMenuItem";
             this.oPCJEToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.oPCJEToolStripMenuItem.Text = "OPCJE";
@@ -220,9 +222,16 @@
             // ChangeDBToolStripMenuItem
             // 
             this.ChangeDBToolStripMenuItem.Name = "ChangeDBToolStripMenuItem";
-            this.ChangeDBToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ChangeDBToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.ChangeDBToolStripMenuItem.Text = "Zmień bazę";
             this.ChangeDBToolStripMenuItem.Click += new System.EventHandler(this.ChangeDBToolStripMenuItem_Click);
+            // 
+            // CheckStanToolStripMenuItem
+            // 
+            this.CheckStanToolStripMenuItem.Name = "CheckStanToolStripMenuItem";
+            this.CheckStanToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.CheckStanToolStripMenuItem.Text = "Sprawdź stan";
+            this.CheckStanToolStripMenuItem.Click += new System.EventHandler(this.CheckStanToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -243,7 +252,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.raportRodzBox);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Strona główna";
             this.menuStrip1.ResumeLayout(false);
@@ -272,5 +283,6 @@
         private ToolStripMenuItem EndOfWorkToolStripMenuItem;
         private ToolStripMenuItem oPCJEToolStripMenuItem;
         private ToolStripMenuItem ChangeDBToolStripMenuItem;
+        private ToolStripMenuItem CheckStanToolStripMenuItem;
     }
 }

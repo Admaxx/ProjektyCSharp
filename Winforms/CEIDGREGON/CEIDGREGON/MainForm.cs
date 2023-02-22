@@ -5,7 +5,7 @@ namespace CEIDGREGON
         DbChooseForm db;
         ShowRaportValues ShowInsert;
         CheckAllReq Check;
-
+        ProgramOptions options;
         public MainForm()
         {
             Check = new CheckAllReq();
@@ -93,6 +93,12 @@ namespace CEIDGREGON
         {
             if (MessageBox.Show($"Napewno chcesz zakoñczyæ pracê?", "Zakoñczenie", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 Environment.Exit(0);
+        }
+
+        private void CheckStanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            options = new ProgramOptions();
+            options.ShowDialog();
         }
     }
 }

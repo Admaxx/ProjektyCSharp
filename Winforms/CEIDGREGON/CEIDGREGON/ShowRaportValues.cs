@@ -10,8 +10,6 @@
             request = new GetRequests();
             Box = new GetFirstNonEmptyValue();
             raporty = new InsertToRaportyToDB();
-
-            request.Login(GusToken);
         }
         internal string GetValuesAndInsertToDB(int RaportIndex, List<string> BoxList, List<string> ComboList)
         {

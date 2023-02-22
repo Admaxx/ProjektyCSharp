@@ -135,6 +135,9 @@
             this.Controls.Add(this.LoginBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DbBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "DbChooseForm";
             this.Text = "Baza";
             this.Load += new System.EventHandler(this.DbChoose_Load);

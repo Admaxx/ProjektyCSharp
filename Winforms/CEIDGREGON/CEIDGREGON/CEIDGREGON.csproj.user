@@ -7,6 +7,9 @@
     <Compile Update="DbChooseForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ProgramOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
