@@ -12,41 +12,50 @@ namespace CEIDGWebApi.Controllers
     
     public class CEIDGController : ControllerBase
     {
-        CeidgregonContext context = new CeidgregonContext();
+        CeidgregonContext context;
+
+        ProgramGeneralData AllData;
+        ShowRaportValues show;
 
         byte RaportTypeNo;
-        ProgramGeneralData AllData;
         string GetValuesFromInsert;
-        ShowRaportValues show;
 
         public CEIDGController() 
         {
-            show = new ShowRaportValues();
+            context = new CeidgregonContext();
+
             AllData = new ProgramGeneralData();
+            show = new ShowRaportValues();
         }
 
         [HttpGet]
         [Route("[controller]/GetRaportByType/{raportType}")]
         public List<string> GetRaportByType(byte raportType)
-        {
-            return context.Gusvalues.Where(item => item.RaportType == raportType).
+            =>
+            context.Gusvalues.Where(item => item.RaportType == raportType).
                 OrderByDescending(item => item.Id).Select(item => item.Xmlvalues).ToList();
-        }
+        
 
         [HttpGet]
         [Route("[controller]/GetRaportByDate/{Date}/{raportType?}")]
         public List<string> GetRaportByDate(DateTime Date, byte raportType)
-        {
-            return context.Gusvalues.Where(item => item.ImportDate == Date && item.RaportType == raportType).
+            => 
+            context.Gusvalues.Where(item => item.ImportDate == Date && item.RaportType == raportType).
                 OrderByDescending(item => item.Id).Select(item => item.Xmlvalues).ToList();
-        }
 
 
         [HttpGet]
         [Route("[controller]/GetRaport/{Id}")]
         public string GetRaport(int id)
         {
-            return context.Gusvalues.Where(item => item.Id == id).Single().Xmlvalues;
+            try
+            {
+                return context.Gusvalues.Where(item => item.Id == id).Single().Xmlvalues;
+            }
+            catch (InvalidOperationException ex) { return "Nie znaleziono podanych danych, wybierz inne Id"; }
+            catch (Exception e) { }
+
+            return string.Empty;
         }
 
         [HttpPut]
@@ -58,14 +67,14 @@ namespace CEIDGWebApi.Controllers
                 context.Gusvalues.Where(item => item.Id == id).Single().Xmlvalues = UpdatedValue;
                 context.SaveChanges();
             }
-            catch (InvalidOperationException ex) { return "Nie znaleziono podanych danych, wybierz inne ID"; }
+            catch (InvalidOperationException ex) { return "Nie znaleziono podanych danych, wybierz inne Id"; }
             catch (Exception e) { }
 
             return $"Zmieniono dane o indeksie {id}";
         }
 
         [HttpPost]
-        [Route("[controller]/{action}/{RaportName}/{Value}/{NazwaRaportu?}")]
+        [Route("[controller]/InsertRaport/{RaportName}/{Value}/{NazwaRaportu?}")]
         public string InsertRaport(string RaportName, string Value, string? NazwaRaportu)
         {
             if (!AllData.RaportTypes.ContainsKey($"{RaportName}"))

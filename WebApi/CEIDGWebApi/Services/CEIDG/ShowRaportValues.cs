@@ -1,7 +1,4 @@
-﻿using CEIDGWebApi.Services.CEIDG;
-using CEIDGWebApi.Models;
-
-namespace CEIDGREGON
+﻿namespace CEIDGREGON
 {
     internal class ShowRaportValues : ProgramGeneralData
     {
