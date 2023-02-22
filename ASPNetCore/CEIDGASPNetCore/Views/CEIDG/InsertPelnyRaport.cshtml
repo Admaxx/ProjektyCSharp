@@ -1,0 +1,37 @@
+﻿@model CEIDGASPNetCore.Models.DanePobierzPelnyRaport
+
+@{
+    ViewData["Title"] = "Pelny Raport";
+}
+
+<h1>Wyświetl pełny raport</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="InsertPelnyRaport">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Regon" class="control-label"></label>
+                <input asp-for="Regon" class="form-control" />
+                <span asp-validation-for="Regon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NazwaRaportu" class="control-label"></label>
+                <input asp-for="NazwaRaportu" class="form-control" />
+                <span asp-validation-for="NazwaRaportu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Wróć do opcji</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
