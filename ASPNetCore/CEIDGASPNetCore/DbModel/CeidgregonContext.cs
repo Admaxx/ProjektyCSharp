@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CEIDGASPNetCore.DbModel;
 
@@ -34,6 +35,16 @@ public partial class CeidgregonContext : DbContext
             entity.Property(e => e.Xmlvalues)
                 .IsUnicode(false)
                 .HasColumnName("XMLValues");
+        });
+        modelBuilder.Entity<RaportTypeNames>(entity =>
+        {
+            entity
+                .ToTable("RaportTypeNames");
+
+            entity.Property(e => e.Id).ValueGeneratedOnAdd();
+            entity.Property(e => e.RaportTypeName)
+                .IsUnicode(false)
+                .HasColumnName("RaportTypeName");
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -9,14 +9,17 @@ namespace CEIDGASPNetCore.Controllers
     {
         CeidgregonContext context;
         GetInsertValues Get;
+        ConvertDocOnFormat convert;
         public CEIDGController()
         {
             context = new CeidgregonContext();
             Get = new GetInsertValues();
-
         }
-        public IActionResult ViewLastRaport()
+        public IActionResult ViewLastRaport(bool SetJSONFormat)
         {
+            convert = new ConvertDocOnFormat(SetJSONFormat);
+            ViewBag.IsJSON = SetJSONFormat;
+            context.Gusvalues.OrderBy(item => item.Id).Last().Xmlvalues = convert.ChooseFormat(context.Gusvalues.OrderBy(item => item.Id).Last().Xmlvalues);
             return View(context.Gusvalues.OrderBy(item => item.Id).Last());
         }
         public IActionResult Index()
@@ -35,7 +38,6 @@ namespace CEIDGASPNetCore.Controllers
         [HttpPost]
         public IActionResult InsertDaneSzukajPodmioty(DaneSzukajPodmiotyModel model)
         {
-
             if (ModelState.IsValid)
             {
                 Gusvalue GusValue = Get.LastInsertValues(0, new List<string>() { model.Regon, model.NIP, model.KRS });
@@ -45,8 +47,6 @@ namespace CEIDGASPNetCore.Controllers
 
                 return RedirectToAction("InsertSuccess", GusValue);
             }
-
-
             return View();
         }
         public IActionResult InsertPelnyRaport()
@@ -87,6 +87,16 @@ namespace CEIDGASPNetCore.Controllers
                 return RedirectToAction("InsertSuccess", GusValue);
             }
             return View();
+        }
+
+        public IActionResult DeleteLastRaport(int lastId)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Gusvalues.Remove(context.Gusvalues.Where(item => item.Id == lastId).First());
+                context.SaveChanges();
+            }
+            return RedirectToAction("ViewLastRaport", false);
         }
     }
 }

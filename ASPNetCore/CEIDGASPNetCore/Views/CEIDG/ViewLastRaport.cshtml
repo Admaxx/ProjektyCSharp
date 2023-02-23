@@ -6,12 +6,20 @@
 
 <h1>ViewLastRaport</h1>
 
+@{
+    string FormatStatus = "Zawartość na ";
+    ViewBag.IsJSON = !ViewBag.IsJSON;
+    FormatStatus += Convert.ToBoolean(ViewBag.IsJSON) ? "JSON" : "XML";
+}
+
+
 <div>
     <h4>Gusvalue</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Xmlvalues)
+            @Html.Label("Zawartość raportu");
+            <a asp-action="ViewLastRaport" asp-route-SetJSONFormat="@ViewBag.IsJSON">@FormatStatus</a>
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Xmlvalues)
@@ -28,6 +36,9 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.RaportType)
         </dd>
+        <dt class="col-sm-2">
+            <a asp-action="DeleteLastRaport" asp-route-lastId="@Model.Id"><b>Usuń ten rekord</b></a>
+        </dt>
     </dl>
 </div>
 <div>

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5iFmLiNdRWoxiL6oaczC3uU9xUnrrHrtWgBYXrl4FA2b51JawlivVGUNkOV+f8Y346+K5w3rw6Ukolit57Sptw==",
+  "dgSpecHash": "corf7HdW9yPgrKV0M7BSC1PauSqbcf+q+VW3bV1LAtbcfCF4vhZqkQBn7XM0eA0zphCX3LdB4D7Xq+aDWxmvbA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jakub\\source\\repos\\CEIDGASPNetCore\\CEIDGASPNetCore\\CEIDGASPNetCore.csproj",
   "expectedPackageFiles": [
@@ -80,7 +80,7 @@
     "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
-    "C:\\Users\\Jakub\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Jakub\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\newtonsoft.json.bson\\1.0.1\\newtonsoft.json.bson.1.0.1.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\nuget.common\\6.3.1\\nuget.common.6.3.1.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\nuget.configuration\\6.3.1\\nuget.configuration.6.3.1.nupkg.sha512",
