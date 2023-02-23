@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CEIDGREGON;
 using CEIDGWebApi.Models;
+using CEIDGASPNetCore.Services.CEIDG;
 
 namespace CEIDGWebApi.Controllers
 {
@@ -8,6 +9,7 @@ namespace CEIDGWebApi.Controllers
     public class CEIDGController : ControllerBase
     {
         CeidgregonContext context;
+        ConvertDocOnFormat convert;
 
         ProgramGeneralData AllData;
         ShowRaportValues show;
@@ -45,10 +47,12 @@ namespace CEIDGWebApi.Controllers
                 OrderByDescending(item => item.Id).Select(item => item.Xmlvalues).ToList();
 
         [HttpGet]
-        [Route("[controller]/GetLastRaport")]
-        public string GetLastRaport()
-            =>
-            context.Gusvalues.OrderBy(item => item.Id).Last().Xmlvalues.ToString();
+        [Route("[controller]/GetLastRaport/{FormatType?}")]
+        public string GetLastRaport(bool FormatType)
+        {
+            convert = new ConvertDocOnFormat(FormatType);
+            return convert.ChooseFormat(context.Gusvalues.OrderBy(item => item.Id).Last().Xmlvalues);
+        }
 
 
         [HttpGet]
