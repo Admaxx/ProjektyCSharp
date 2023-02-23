@@ -2,6 +2,7 @@
 using CEIDGASPNetCore.Models;
 using CEIDGASPNetCore.Services.CEIDG;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace CEIDGASPNetCore.Controllers
 {
@@ -18,11 +19,14 @@ namespace CEIDGASPNetCore.Controllers
         }
         public IActionResult ViewLastRaport(bool SetJSONFormat)
         {
-            ViewBag.AlkoId = context.Gusvalues;
-            var RaportModel = context.Gusvalues.OrderBy(item => item.Id).Last();
-            convert = new ConvertDocOnFormat(SetJSONFormat);
             ViewBag.IsJSON = SetJSONFormat;
 
+            if (context.Gusvalues.IsNullOrEmpty())
+                return RedirectToAction("EmptyView");
+            
+            var RaportModel = context.Gusvalues.OrderBy(item => item.Id).Last();
+            convert = new ConvertDocOnFormat(SetJSONFormat);
+            
             RaportModel.Xmlvalues = convert.ChooseFormat(RaportModel.Xmlvalues);
             return View(RaportModel);
         }
@@ -105,12 +109,16 @@ namespace CEIDGASPNetCore.Controllers
         public IActionResult GetGusErrorMess(GusSpecialMessages model)
         {
             ViewBag.ListOfErrors = context.GusSpecialMessages;
-            if (!string.IsNullOrEmpty(model.GusSpecialMessageText))
+            if (!string.IsNullOrEmpty(model.GusSpecialMessageValue))
             {
                 handlingErrors = new Handling();
 
-                ViewBag.ErrorMessage = handlingErrors.GetErrorMessage(model.GusSpecialMessageText);
+                ViewBag.ErrorMessage = handlingErrors.GetErrorMessage(model.GusSpecialMessageValue);
             }
+            return View();
+        }
+        public IActionResult EmptyView()
+        {
             return View();
         }
     }

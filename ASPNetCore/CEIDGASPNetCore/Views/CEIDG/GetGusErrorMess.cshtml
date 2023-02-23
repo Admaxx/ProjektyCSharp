@@ -9,7 +9,7 @@
 {
     <dl class="row">
         <dt class="col-sm-12">
-            @Html.DropDownListFor(m => m.GusSpecialMessageText, new SelectList(ViewBag.ListOfErrors, "GusSpecialMessageValue", "GusSpecialMessageText"))
+            @Html.DropDownListFor(m => m.GusSpecialMessageValue, new SelectList(ViewBag.ListOfErrors, "GusSpecialMessageValue", "GusSpecialMessageText"))
         </dt>
         <dd class="col-sm-20">
             @ViewBag.ErrorMessage
@@ -17,3 +17,7 @@
     </dl>
     <td><input type="submit" value="Wybierz" /></td>
 }
+<div>
+    <a asp-action="Index">Wróć do menu</a>
+</div>
+

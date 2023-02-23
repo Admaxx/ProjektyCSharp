@@ -14,6 +14,9 @@ namespace CEIDGASPNetCore.Services.CEIDG
         }
         public string ChooseFormat(string Values)
         {
+            if (string.IsNullOrEmpty(Values))
+                return "Brak danych";
+
             if (JSONFormat)
                 return ToJSON(Values);
 
