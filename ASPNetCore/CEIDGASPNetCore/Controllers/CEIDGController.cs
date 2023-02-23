@@ -18,7 +18,6 @@ namespace CEIDGASPNetCore.Controllers
         }
         public IActionResult ViewLastRaport(bool SetJSONFormat)
         {
-            ViewBag.AlkoId = context.Gusvalues;
             var RaportModel = context.Gusvalues.OrderBy(item => item.Id).Last();
             convert = new ConvertDocOnFormat(SetJSONFormat);
             ViewBag.IsJSON = SetJSONFormat;
