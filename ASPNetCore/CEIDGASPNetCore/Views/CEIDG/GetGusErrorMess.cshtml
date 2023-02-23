@@ -1,0 +1,19 @@
+﻿@model CEIDGASPNetCore.DbModel.GusSpecialMessages
+
+@{
+    ViewData["Title"] = "Opcje";
+}
+<h1>Opcje</h1>
+
+@using (Html.BeginForm("GetGusErrorMess", "CEIDG", FormMethod.Post))
+{
+    <dl class="row">
+        <dt class="col-sm-12">
+            @Html.DropDownListFor(m => m.GusSpecialMessageText, new SelectList(ViewBag.ListOfErrors, "GusSpecialMessageValue", "GusSpecialMessageText"))
+        </dt>
+        <dd class="col-sm-20">
+            @ViewBag.ErrorMessage
+        </dd>
+    </dl>
+    <td><input type="submit" value="Wybierz" /></td>
+}

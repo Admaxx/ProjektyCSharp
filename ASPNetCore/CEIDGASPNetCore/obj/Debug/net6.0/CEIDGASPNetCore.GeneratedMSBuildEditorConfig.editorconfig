@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Jakub\source\repos\CEIDGASPNetCore\CEIDGASPNetCore
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Jakub/source/repos/CEIDGASPNetCore/CEIDGASPNetCore/Views/CEIDG/GetGusErrorMess.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0VJREdcR2V0R3VzRXJyb3JNZXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Jakub/source/repos/CEIDGASPNetCore/CEIDGASPNetCore/Views/CEIDG/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0VJREdcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

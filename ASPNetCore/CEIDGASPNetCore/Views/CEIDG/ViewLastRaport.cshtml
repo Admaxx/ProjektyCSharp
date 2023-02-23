@@ -11,7 +11,7 @@
     ViewBag.IsJSON = !ViewBag.IsJSON;
     FormatStatus += Convert.ToBoolean(ViewBag.IsJSON) ? "JSON" : "XML";
 }
-
+@Html.DropDownListFor(item => item.Id, new SelectList(ViewBag.AlkoId, "Id", "RaportType"))
 
 <div>
     <h4>Gusvalue</h4>

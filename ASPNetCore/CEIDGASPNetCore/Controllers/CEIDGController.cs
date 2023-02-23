@@ -10,6 +10,7 @@ namespace CEIDGASPNetCore.Controllers
         CeidgregonContext context;
         GetInsertValues Get;
         ConvertDocOnFormat convert;
+        Handling handlingErrors;
         public CEIDGController()
         {
             context = new CeidgregonContext();
@@ -17,10 +18,13 @@ namespace CEIDGASPNetCore.Controllers
         }
         public IActionResult ViewLastRaport(bool SetJSONFormat)
         {
+            ViewBag.AlkoId = context.Gusvalues;
+            var RaportModel = context.Gusvalues.OrderBy(item => item.Id).Last();
             convert = new ConvertDocOnFormat(SetJSONFormat);
             ViewBag.IsJSON = SetJSONFormat;
-            context.Gusvalues.OrderBy(item => item.Id).Last().Xmlvalues = convert.ChooseFormat(context.Gusvalues.OrderBy(item => item.Id).Last().Xmlvalues);
-            return View(context.Gusvalues.OrderBy(item => item.Id).Last());
+
+            RaportModel.Xmlvalues = convert.ChooseFormat(RaportModel.Xmlvalues);
+            return View(RaportModel);
         }
         public IActionResult Index()
         {
@@ -97,6 +101,17 @@ namespace CEIDGASPNetCore.Controllers
                 context.SaveChanges();
             }
             return RedirectToAction("ViewLastRaport", false);
+        }
+        public IActionResult GetGusErrorMess(GusSpecialMessages model)
+        {
+            ViewBag.ListOfErrors = context.GusSpecialMessages;
+            if (!string.IsNullOrEmpty(model.GusSpecialMessageText))
+            {
+                handlingErrors = new Handling();
+
+                ViewBag.ErrorMessage = handlingErrors.GetErrorMessage(model.GusSpecialMessageText);
+            }
+            return View();
         }
     }
 }
