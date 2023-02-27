@@ -1,4 +1,4 @@
-﻿@model CEIDGASPNetCore.DbModel.GusSpecialMessages
+﻿@model IEnumerable<CEIDGASPNetCore.DbModel.GusSpecialMessages>
 
 @{
     ViewData["Title"] = "Opcje";
@@ -9,7 +9,7 @@
 {
     <dl class="row">
         <dt class="col-sm-12">
-            @Html.DropDownListFor(m => m.GusSpecialMessageValue, new SelectList(ViewBag.ListOfErrors, "GusSpecialMessageValue", "GusSpecialMessageText"))
+            @Html.DropDownList("SpecialMessageText", new SelectList(Model, "GusSpecialMessageValue", "GusSpecialMessageText"))
         </dt>
         <dd class="col-sm-20">
             @ViewBag.ErrorMessage

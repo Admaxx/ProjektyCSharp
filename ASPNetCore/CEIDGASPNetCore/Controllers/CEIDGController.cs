@@ -17,22 +17,27 @@ namespace CEIDGASPNetCore.Controllers
             context = new CeidgregonContext();
             Get = new GetInsertValues();
         }
+        public IActionResult Index()
+        {
+            return View();
+        }
         public IActionResult ViewLastRaport(bool SetJSONFormat)
         {
             ViewBag.IsJSON = SetJSONFormat;
 
             if (context.Gusvalues.IsNullOrEmpty())
                 return RedirectToAction("EmptyView");
-            
+
+
             var RaportModel = context.Gusvalues.OrderBy(item => item.Id).Last();
             convert = new ConvertDocOnFormat(SetJSONFormat);
-            
+
             RaportModel.Xmlvalues = convert.ChooseFormat(RaportModel.Xmlvalues);
             return View(RaportModel);
         }
-        public IActionResult Index()
+        public IActionResult ViewRaportByData(DateTime RaportDate)
         {
-            return View();
+            return View(context.Gusvalues.Where(item => item.ImportDate == RaportDate.Date).ToList());
         }
         public IActionResult InsertSuccess(Gusvalue LastInsertedValues)
         {
@@ -106,18 +111,17 @@ namespace CEIDGASPNetCore.Controllers
             }
             return RedirectToAction("ViewLastRaport", false);
         }
-        public IActionResult GetGusErrorMess(GusSpecialMessages model)
+        public IActionResult GetGusErrorMess(string SpecialMessageText)
         {
-            ViewBag.ListOfErrors = context.GusSpecialMessages;
-            if (!string.IsNullOrEmpty(model.GusSpecialMessageValue))
+            if (!string.IsNullOrEmpty(SpecialMessageText))
             {
                 handlingErrors = new Handling();
 
-                ViewBag.ErrorMessage = handlingErrors.GetErrorMessage(model.GusSpecialMessageValue);
+                ViewBag.ErrorMessage = handlingErrors.GetErrorMessage(SpecialMessageText);
             }
-            return View();
+            return View(context.GusSpecialMessages);
         }
-        public IActionResult EmptyView()
+        public IActionResult NoRaportsView()
         {
             return View();
         }

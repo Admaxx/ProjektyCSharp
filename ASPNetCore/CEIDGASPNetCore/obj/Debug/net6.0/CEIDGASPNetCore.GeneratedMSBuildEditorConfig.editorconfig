@@ -15,10 +15,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Jakub\source\repos\CEIDGASPNetCore\CEIDGASPNetCore
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Jakub/source/repos/CEIDGASPNetCore/CEIDGASPNetCore/Views/CEIDG/EmptyView.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0VJREdcRW1wdHlWaWV3LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Jakub/source/repos/CEIDGASPNetCore/CEIDGASPNetCore/Views/CEIDG/GetGusErrorMess.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0VJREdcR2V0R3VzRXJyb3JNZXNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -43,8 +39,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0VJREdcSW5zZXJ0U3VjY2Vzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Jakub/source/repos/CEIDGASPNetCore/CEIDGASPNetCore/Views/CEIDG/NoRaportsView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0VJREdcTm9SYXBvcnRzVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Jakub/source/repos/CEIDGASPNetCore/CEIDGASPNetCore/Views/CEIDG/ViewLastRaport.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0VJREdcVmlld0xhc3RSYXBvcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jakub/source/repos/CEIDGASPNetCore/CEIDGASPNetCore/Views/CEIDG/ViewRaportByData.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0VJREdcVmlld1JhcG9ydEJ5RGF0YS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Jakub/source/repos/CEIDGASPNetCore/CEIDGASPNetCore/Views/Shared/Error.cshtml]
