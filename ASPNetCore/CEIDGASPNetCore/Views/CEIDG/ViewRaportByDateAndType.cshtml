@@ -1,18 +1,21 @@
 ﻿@model IEnumerable<CEIDGASPNetCore.DbModel.Gusvalue>
 
+
+
+
 @{
-    ViewData["Title"] = "ViewRaportByData";
-}
+    ViewData["Title"] = "Wybrane raporty";
 
-@using (Html.BeginForm("ViewRaportByData","CEIDG",FormMethod.Post))
-{
-    <p>
-        <input type="date" name="RaportDate" />
-    </p>
-    <input type="submit", value="Wybierz">
-}
+    @using (Html.BeginForm("ViewRaportByDateAndType", "CEIDG", FormMethod.Post))
+    {
+        <input type="date" name="RaportDate">
+        @Html.DropDownList("RaportType", new SelectList(ViewBag.RaportTypeTable, "RaportType", "RaportTypeName"))
+        <input type="submit" value="Wybierz">
+    } 
 
+}
 <h1>Wybrane raporty</h1>
+
 <table class="table">
     <thead>
         <tr>

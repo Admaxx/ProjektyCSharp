@@ -17,6 +17,7 @@ public partial class CeidgregonContext : DbContext
     }
 
     public virtual DbSet<Gusvalue> Gusvalues { get; set; }
+    public virtual DbSet<RaportTypeNames> RaportTypeNames { get; set; }
     public virtual DbSet<GusSpecialMessages> GusSpecialMessages { get; set; }
 
     string ConnString = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build()["ConnectionStrings:CEIDGConn"];

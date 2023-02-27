@@ -11,16 +11,21 @@ namespace CEIDGASPNetCore.Controllers
         CeidgregonContext context;
         GetInsertValues Get;
         ConvertDocOnFormat convert;
-        Handling handlingErrors;
         public CEIDGController()
         {
             context = new CeidgregonContext();
             Get = new GetInsertValues();
         }
         public IActionResult Index()
+            =>
+            View();
+
+        public IActionResult ViewRaportByDateAndType(DateTime RaportDate, byte RaportType)
         {
-            return View();
+            ViewBag.RaportTypeTable = context.RaportTypeNames;
+            return View(context.Gusvalues.Where(item => item.RaportType == RaportType && item.ImportDate == RaportDate));
         }
+        
         public IActionResult ViewLastRaport(bool SetJSONFormat)
         {
             ViewBag.IsJSON = SetJSONFormat;
@@ -36,17 +41,17 @@ namespace CEIDGASPNetCore.Controllers
             return View(RaportModel);
         }
         public IActionResult ViewRaportByData(DateTime RaportDate)
-        {
-            return View(context.Gusvalues.Where(item => item.ImportDate == RaportDate.Date).ToList());
-        }
+            =>        
+            View(context.Gusvalues.Where(item => item.ImportDate == RaportDate.Date).ToList());
+        
         public IActionResult InsertSuccess(Gusvalue LastInsertedValues)
-        {
-            return View(LastInsertedValues);
-        }
+            => 
+            View(LastInsertedValues);
+        
         public IActionResult InsertDaneSzukajPodmioty()
-        {
-            return View();
-        }
+            =>
+            View();
+        
 
         [HttpPost]
         public IActionResult InsertDaneSzukajPodmioty(DaneSzukajPodmiotyModel model)
@@ -63,9 +68,8 @@ namespace CEIDGASPNetCore.Controllers
             return View();
         }
         public IActionResult InsertPelnyRaport()
-        {
-            return View();
-        }
+            =>
+            View();
         [HttpPost]
         public IActionResult InsertPelnyRaport(DanePobierzPelnyRaport model)
         {
@@ -84,9 +88,9 @@ namespace CEIDGASPNetCore.Controllers
             return View();
         }
         public IActionResult InsertRaportZbiorczy()
-        {
-            return View();
-        }
+            =>
+            View();
+
         [HttpPost]
         public IActionResult InsertRaportZbiorczy(DanePobierzRaportZbiorczy model)
         {
@@ -111,19 +115,13 @@ namespace CEIDGASPNetCore.Controllers
             }
             return RedirectToAction("ViewLastRaport", false);
         }
-        public IActionResult GetGusErrorMess(string SpecialMessageText)
-        {
-            if (!string.IsNullOrEmpty(SpecialMessageText))
-            {
-                handlingErrors = new Handling();
-
-                ViewBag.ErrorMessage = handlingErrors.GetErrorMessage(SpecialMessageText);
-            }
-            return View(context.GusSpecialMessages);
-        }
         public IActionResult NoRaportsView()
+            => 
+            View();
+        public IActionResult AllShowItemsViews()
         {
             return View();
         }
+
     }
 }

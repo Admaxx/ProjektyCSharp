@@ -6,7 +6,7 @@ namespace CEIDGASPNetCore.DbModel
     {
         [Key]
         public long Id { get; set; }
-        public int RaportType { get; set; }
+        public byte RaportType { get; set; }
 
         public string RaportTypeName { get; set; }
     }
