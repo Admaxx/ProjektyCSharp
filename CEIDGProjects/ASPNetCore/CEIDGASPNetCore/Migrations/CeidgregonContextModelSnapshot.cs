@@ -80,8 +80,8 @@ namespace CEIDGASPNetCore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<int>("RaportType")
-                        .HasColumnType("int");
+                    b.Property<byte>("RaportType")
+                        .HasColumnType("tinyint");
 
                     b.Property<string>("RaportTypeName")
                         .IsRequired()
@@ -92,6 +92,40 @@ namespace CEIDGASPNetCore.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RaportTypeNames", (string)null);
+                });
+
+            modelBuilder.Entity("CEIDGASPNetCore.DbModel.RaportyNamesModel", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("NazwaRaportu")
+                        .IsRequired()
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(max)")
+                        .HasColumnName("NazwaRaportu");
+
+                    b.Property<string>("NazwaSkrocona")
+                        .IsRequired()
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(max)")
+                        .HasColumnName("NazwaSkrocona");
+
+                    b.Property<string>("Opis")
+                        .IsRequired()
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(max)")
+                        .HasColumnName("Opis");
+
+                    b.Property<byte>("typRaportu")
+                        .HasColumnType("tinyint");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WinRaporty", (string)null);
                 });
 #pragma warning restore 612, 618
         }

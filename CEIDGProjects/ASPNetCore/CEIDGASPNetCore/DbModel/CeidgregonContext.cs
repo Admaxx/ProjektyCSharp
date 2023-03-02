@@ -19,6 +19,7 @@ public partial class CeidgregonContext : DbContext
     public virtual DbSet<Gusvalue> Gusvalues { get; set; }
     public virtual DbSet<RaportTypeNames> RaportTypeNames { get; set; }
     public virtual DbSet<GusSpecialMessages> GusSpecialMessages { get; set; }
+    public virtual DbSet<RaportyNamesModel> RaportyNames { get; set; }
 
     string ConnString = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build()["ConnectionStrings:CEIDGConn"];
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -62,6 +63,22 @@ public partial class CeidgregonContext : DbContext
                 .HasColumnName("GusSpecialMessageValue");
         });
 
+        modelBuilder.Entity<RaportyNamesModel>(entity =>
+        {
+            entity
+                .ToTable("WinRaporty");
+
+            entity.Property(e => e.Id).ValueGeneratedOnAdd();
+            entity.Property(e => e.NazwaRaportu)
+                .IsUnicode(false)
+                .HasColumnName("NazwaRaportu");
+            entity.Property(e => e.Opis)
+                .IsUnicode(false)
+                .HasColumnName("Opis");
+            entity.Property(e => e.NazwaSkrocona)
+                .IsUnicode(false)
+                .HasColumnName("NazwaSkrocona");
+        });
 
         OnModelCreatingPartial(modelBuilder);
     }

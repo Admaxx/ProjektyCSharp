@@ -1,6 +1,6 @@
 ﻿namespace CEIDGREGON
 {
-    internal class ShowRaportValues : ProgramGeneralData
+    public class ShowRaportValues : ProgramGeneralData
     {
         GetRequests request;
         GetFirstNonEmptyValue Box;
@@ -9,7 +9,7 @@
             request = new GetRequests();
             Box = new GetFirstNonEmptyValue();
         }
-        internal string GetValuesAndInsertToDB(int ActionName, List<string> BoxList, string AdditionalValue = null)
+        public string GetValuesFromGUS(int ActionName, List<string> BoxList, string AdditionalValue = null)
         {
             string GetValueFromAPI = string.Empty;
 
@@ -19,7 +19,7 @@
             else if (ActionName == 1)
                 GetValueFromAPI = request.GetValuesForPelnyRaport(BoxList[0], AdditionalValue);
 
-            else //(ActionName == 2)
+            else if (ActionName == 2)
                 GetValueFromAPI = request.GetValuesForZbiorczyRaport(BoxList[0], AdditionalValue);
 
             return GetValueFromAPI;

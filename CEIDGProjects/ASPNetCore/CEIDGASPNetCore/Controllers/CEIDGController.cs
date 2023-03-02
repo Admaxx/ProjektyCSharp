@@ -20,19 +20,19 @@ namespace CEIDGASPNetCore.Controllers
             =>
             View();
 
+        public IActionResult ViewRaportByData(DateTime RaportDate)
+            =>
+            View(context.Gusvalues.Where(item => item.ImportDate == RaportDate.Date).ToList());
+
         public IActionResult ViewRaportByDateAndType(DateTime RaportDate, byte RaportType)
         {
             ViewBag.RaportTypeTable = context.RaportTypeNames;
             return View(context.Gusvalues.Where(item => item.RaportType == RaportType && item.ImportDate == RaportDate));
         }
-        
+
         public IActionResult ViewLastRaport(bool SetJSONFormat)
         {
             ViewBag.IsJSON = SetJSONFormat;
-
-            if (context.Gusvalues.IsNullOrEmpty())
-                return RedirectToAction("EmptyView");
-
 
             var RaportModel = context.Gusvalues.OrderBy(item => item.Id).Last();
             convert = new ConvertDocOnFormat(SetJSONFormat);
@@ -40,10 +40,6 @@ namespace CEIDGASPNetCore.Controllers
             RaportModel.Xmlvalues = convert.ChooseFormat(RaportModel.Xmlvalues);
             return View(RaportModel);
         }
-        public IActionResult ViewRaportByData(DateTime RaportDate)
-            =>        
-            View(context.Gusvalues.Where(item => item.ImportDate == RaportDate.Date).ToList());
-        
         public IActionResult InsertSuccess(Gusvalue LastInsertedValues)
             => 
             View(LastInsertedValues);
@@ -60,6 +56,9 @@ namespace CEIDGASPNetCore.Controllers
             {
                 Gusvalue GusValue = Get.LastInsertValues(0, new List<string>() { model.Regon, model.NIP, model.KRS });
 
+                if (GusValue.Xmlvalues.Contains("ErrorCode"))
+                    return RedirectToAction("RaportNotFound", "CEIDGErrorHandling", GusValue);
+
                 context.Add(GusValue);
                 context.SaveChanges();
 
@@ -68,15 +67,19 @@ namespace CEIDGASPNetCore.Controllers
             return View();
         }
         public IActionResult InsertPelnyRaport()
-            =>
-            View();
+        {
+            ViewBag.RaportsList = context.RaportyNames.Where(item => item.typRaportu == 0).ToList();
+            return View();
+        }
         [HttpPost]
         public IActionResult InsertPelnyRaport(DanePobierzPelnyRaport model)
         {
-
             if (ModelState.IsValid)
             {
                 Gusvalue GusValue = Get.LastInsertValues(1, new List<string>() { model.Regon }, model.NazwaRaportu);
+
+                if (GusValue.Xmlvalues.Contains("ErrorCode"))
+                    return RedirectToAction("RaportNotFound", "CEIDGErrorHandling", GusValue);
 
                 context.Add(GusValue);
                 context.SaveChanges();
@@ -88,8 +91,10 @@ namespace CEIDGASPNetCore.Controllers
             return View();
         }
         public IActionResult InsertRaportZbiorczy()
-            =>
-            View();
+        {
+            ViewBag.RaportsList = context.RaportyNames.Where(item => item.typRaportu == 1).ToList();
+            return View();
+        }
 
         [HttpPost]
         public IActionResult InsertRaportZbiorczy(DanePobierzRaportZbiorczy model)
@@ -98,10 +103,15 @@ namespace CEIDGASPNetCore.Controllers
             {
                 Gusvalue GusValue = Get.LastInsertValues(2, new List<string>() { model.DataRaportu.ToString("yyyy-MM-dd") }, model.NazwaRaportu );
 
+                if (GusValue.Xmlvalues.Contains("ErrorCode"))
+                    return RedirectToAction("RaportNotFound","CEIDGErrorHandling", GusValue);
+
                 context.Add(GusValue);
                 context.SaveChanges();
 
                 return RedirectToAction("InsertSuccess", GusValue);
+
+
             }
             return View();
         }
@@ -120,8 +130,13 @@ namespace CEIDGASPNetCore.Controllers
             View();
         public IActionResult AllShowItemsViews()
         {
+            if (context.Gusvalues.IsNullOrEmpty())
+                return RedirectToAction("NoRaportsView");
+
             return View();
         }
-
+        public IActionResult Privacy()
+            =>
+            View();
     }
 }

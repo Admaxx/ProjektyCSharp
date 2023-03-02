@@ -5,7 +5,7 @@ using WcfCoreMtomEncoder;
 
 namespace CEIDGREGON
 {
-    internal class GetRequests : ProgramGeneralData
+    public class GetRequests : ProgramGeneralData
     {
         private readonly UslugaBIRzewnPublClient _gusServices;
         private string _sessionId;
@@ -15,7 +15,7 @@ namespace CEIDGREGON
             SetupBinding();
             Login(GusToken);
         }
-        internal string Login(string apiKey)
+        public string Login(string apiKey)
         {
             _sessionId = _gusServices.Zaloguj(apiKey);
 
@@ -38,6 +38,7 @@ namespace CEIDGREGON
         public string GetValuesForZbiorczyRaport(string pDataRaportu, string pNazwaRaportu)
             => 
             Convert.ToString(new StringReader(_gusServices.DanePobierzRaportZbiorczy(pDataRaportu, pNazwaRaportu)).ReadToEnd());
+
         internal void SetupBinding()
         {
 

@@ -9,22 +9,19 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="InsertPelnyRaport">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @using (Html.BeginForm("InsertPelnyRaport", "CEIDG", FormMethod.Post))
+        {
             <div class="form-group">
-                <label asp-for="Regon" class="control-label"></label>
-                <input asp-for="Regon" class="form-control" />
-                <span asp-validation-for="Regon" class="text-danger"></span>
+                @Html.Label("Wpisz regon")
+                @Html.TextBoxFor(item => item.Regon)
             </div>
+
             <div class="form-group">
-                <label asp-for="NazwaRaportu" class="control-label"></label>
-                <input asp-for="NazwaRaportu" class="form-control" />
-                <span asp-validation-for="NazwaRaportu" class="text-danger"></span>
+                @Html.Label("Wybierz nazwę raportu")
+                @Html.DropDownListFor(item => item.NazwaRaportu, new SelectList(ViewBag.RaportsList, "NazwaRaportu","Opis"))
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+            <td><input type="submit" value="Wybierz" /></td>
+        }
     </div>
 </div>
 
