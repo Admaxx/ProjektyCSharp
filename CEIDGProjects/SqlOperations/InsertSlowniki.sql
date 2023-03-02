@@ -1,0 +1,23 @@
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11OsFizycznaDaneOgolne', 'Dane osoby fizycznej wspólne dla wszystkich prowadzonych przez nią działalności',1, 0 );
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11OsFizycznaDzialalnoscCeidg', 'Dane dot.działalności zarejestrowanej w CEIDG, w tym adres prowadzenia tej działalności',2, 0 );
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11OsFizycznaDzialalnoscRolnicza', 'Dane dot. działalności rolniczej; w tym adres prowadzenia działalności rolniczej',3, 0 );
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11OsFizycznaDzialalnoscPozostala','Dane dot. działalności innej niż z CEIDG i rolnicza',4, 0 );
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11OsFizycznaDzialalnoscSkreslonaDo20141108','Dane dot. działalności skreślonej z REGON przed 2014.11.08',5, 0 );
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11OsFizycznaPkd','Lista kodów PKD dla podmiotu osoby fizycznej',6, 0 );
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11OsFizycznaListaJednLokalnych','Lista kodów PKD dla podmiotu osoby fizycznej',7, 0 );
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11JednLokalnaOsFizycznej','Dane jednostki lokalnej podmiotu osoby fizycznej',8, 0 );
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11JednLokalnaOsFizycznejPkd','Lista kodów PKD dla jednostki lokalnej podmiotu osoby fizycznej',9, 0 );
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11OsPrawna','Dane osoby prawnej; Uwaga: raporty dla osoby prawnej dot. także spółki cywilnej, która formalnie osobą prawną nie jest',10, 0 );
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11OsPrawnaPkd','Lista kodów PKD dla podmiotu osoby prawnej',11, 0 );
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11OsPrawnaListaJednLokalnych','Dane osoby fizycznej wspólne dla wszystkich prowadzonych przez nią działalności',12, 0 );
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11JednLokalnaOsPrawnej','Dane jednostki lokalnej podmiotu osoby prawnej',13, 0 );
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11JednLokalnaOsPrawnejPkd','Lista kodów PKD dla jednostki lokalnej podmiotu osoby prawnej',14, 0 );
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11OsPrawnaSpCywilnaWspolnicy','Lista wspólników spółki cywilnej',15, 0 );
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11TypPodmiotu','Informacja o typie podmiotu',16, 0 );
+
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11NowePodmiotyPrawneOrazDzialalnosciOsFizycznych','Lista numerów REGON podmiotów prawnych i działalności osób fizycznych wpisanych do Rejestru wg podanej daty',17, 1 );
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11AktualizowanePodmiotyPrawneOrazDzialalnosciOsFizycznych','Lista numerów REGON podmiotów prawnych i działalności osób fizycznych aktualizowanych w Rejestrze wg podanej daty',18, 1 );
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11SkreslonePodmiotyPrawneOrazDzialalnosciOsFizycznych','Lista numerów REGON podmiotów prawnych i działalności osób fizycznych skreślonych z Rejestru wg podanej daty',19, 1 );
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11NoweJednostkiLokalne','Lista numerów REGON jednostek lokalnych wpisanych do Rejestru wg podanej daty',20, 1 );
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11AktualizowaneJednostkiLokalne','Lista numerów REGON jednostek lokalnych aktualizowanych w Rejestrze wg podanej daty',21, 1 );
+insert into [CEIDGREGON].dbo.WinRaporty (NazwaRaportu, Opis, NazwaSkrocona, typRaportu) values ('BIR11JednostkiLokalneSkreslone','Lista numerów REGON jednostek lokalnych skreślonych z Rejestru wg podanej daty',22, 1 );
