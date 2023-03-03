@@ -21,7 +21,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
-            name: "CEIDGInsert",
+            name: "CEIDG",
             pattern: "{controller=CEIDG}/{action=Index}",
             defaults: new { controller = "CEIDG" }
         );

@@ -1,6 +1,7 @@
 ﻿using CEIDGASPNetCore.DbModel;
 using CEIDGASPNetCore.Models;
 using CEIDGASPNetCore.Services.CEIDG;
+using CEIDGREGON;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
@@ -11,23 +12,26 @@ namespace CEIDGASPNetCore.Controllers
         CeidgregonContext context;
         GetInsertValues Get;
         ConvertDocOnFormat convert;
+        ProgramGeneralData allData;
         public CEIDGController()
         {
             context = new CeidgregonContext();
             Get = new GetInsertValues();
+            allData = new ProgramGeneralData();
         }
         public IActionResult Index()
             =>
             View();
 
-        public IActionResult ViewRaportByData(DateTime RaportDate)
-            =>
-            View(context.Gusvalues.Where(item => item.ImportDate == RaportDate.Date).ToList());
-
-        public IActionResult ViewRaportByDateAndType(DateTime RaportDate, byte RaportType)
+        public IActionResult ViewRaportByData(DateTime RaportData)
+            => 
+            View("Views/CEIDG/Read/ViewRaportByData.cshtml", context.Gusvalues.Where(item => item.ImportDate == RaportData.Date).ToList());
+        
+        
+        public IActionResult ViewRaportByDateAndType(DateTime RaportData, byte RaportType)
         {
             ViewBag.RaportTypeTable = context.RaportTypeNames;
-            return View(context.Gusvalues.Where(item => item.RaportType == RaportType && item.ImportDate == RaportDate));
+            return View("Views/CEIDG/Read/ViewRaportByDateAndType.cshtml", context.Gusvalues.Where(item => item.RaportType == RaportType && item.ImportDate == RaportData.Date));
         }
 
         public IActionResult ViewLastRaport(bool SetJSONFormat)
@@ -38,16 +42,47 @@ namespace CEIDGASPNetCore.Controllers
             convert = new ConvertDocOnFormat(SetJSONFormat);
 
             RaportModel.Xmlvalues = convert.ChooseFormat(RaportModel.Xmlvalues);
-            return View(RaportModel);
+            return View("Views/CEIDG/Read/ViewLastRaport.cshtml", RaportModel);
         }
+        public IActionResult AllShowItemsViews()
+        {
+            if (context.Gusvalues.IsNullOrEmpty())
+                return RedirectToAction("NoRaportsView", new { MessageFromAction = "Nie zostały wystawione żadne raporty", ActionToReturn = "Index" });
+
+            return View("Views/CEIDG/Read/AllShowItemsViews.cshtml");
+        }
+
+        public IActionResult NoRaportsView(string MessageFromAction, string ActionToReturn)
+        {
+            ViewBag.Message = MessageFromAction;
+            ViewBag.ActionNameReturn = ActionToReturn;
+            return View("Views/CEIDG/Read/NoRaportsView.cshtml");
+        }
+
+        public IActionResult UpdateRaportData(Gusvalue model)
+        {
+            if (!ModelState.IsValid)
+                return View("Views/CEIDG/Update/UpdateRaportData.cshtml", context.Gusvalues.Where(item => item.Id == model.Id).First());
+            
+            if (model.ImportDate > DateTime.Now.Date)
+                return RedirectToAction("NoRaportsView", new { MessageFromAction = "Data nie może być większa, od dzisiejszej!", ActionToReturn = "ViewLastRaport" });
+
+            
+            context.Update(model);
+            context.SaveChanges();
+
+
+            return RedirectToAction("ViewLastRaport", new { SetJSONFormat = false });
+        }
+
+
         public IActionResult InsertSuccess(Gusvalue LastInsertedValues)
             => 
-            View(LastInsertedValues);
+            View("Views/CEIDG/Create/InsertSuccess.cshtml", LastInsertedValues);
         
         public IActionResult InsertDaneSzukajPodmioty()
             =>
-            View();
-        
+            View("Views/CEIDG/Create/InsertDaneSzukajPodmioty.cshtml");
 
         [HttpPost]
         public IActionResult InsertDaneSzukajPodmioty(DaneSzukajPodmiotyModel model)
@@ -64,12 +99,12 @@ namespace CEIDGASPNetCore.Controllers
 
                 return RedirectToAction("InsertSuccess", GusValue);
             }
-            return View();
+            return View("Views/CEIDG/Create/InsertDaneSzukajPodmioty.cshtml");
         }
         public IActionResult InsertPelnyRaport()
         {
             ViewBag.RaportsList = context.RaportyNames.Where(item => item.typRaportu == 0).ToList();
-            return View();
+            return View("Views/CEIDG/Create/InsertPelnyRaport.cshtml");
         }
         [HttpPost]
         public IActionResult InsertPelnyRaport(DanePobierzPelnyRaport model)
@@ -88,12 +123,12 @@ namespace CEIDGASPNetCore.Controllers
             }
 
 
-            return View();
+            return View("Views/CEIDG/Create/InsertPelnyRaport.cshtml");
         }
         public IActionResult InsertRaportZbiorczy()
         {
             ViewBag.RaportsList = context.RaportyNames.Where(item => item.typRaportu == 1).ToList();
-            return View();
+            return View("Views/CEIDG/Create/InsertRaportZbiorczy.cshtml");
         }
 
         [HttpPost]
@@ -113,7 +148,20 @@ namespace CEIDGASPNetCore.Controllers
 
 
             }
-            return View();
+            return View("Views/CEIDG/Create/InsertRaportZbiorczy.cshtml");
+        }
+
+
+        public IActionResult DeleteRaportById(long Id, DateTime raportData, byte? controllerChoose, byte? raportType)
+        {
+            string GetActionName = allData.RaportByData;
+            if (controllerChoose == 1)
+                GetActionName = allData.RaportByDateAndType;
+
+            context.Gusvalues.Remove(context.Gusvalues.Where(item => item.Id == Id).First());
+            context.SaveChanges();
+
+            return RedirectToAction(GetActionName, new { RaportData = raportData.ToString("dd-MM-yyyy"), RaportType = raportType });
         }
 
         public IActionResult DeleteLastRaport(int lastId)
@@ -124,16 +172,6 @@ namespace CEIDGASPNetCore.Controllers
                 context.SaveChanges();
             }
             return RedirectToAction("ViewLastRaport", false);
-        }
-        public IActionResult NoRaportsView()
-            => 
-            View();
-        public IActionResult AllShowItemsViews()
-        {
-            if (context.Gusvalues.IsNullOrEmpty())
-                return RedirectToAction("NoRaportsView");
-
-            return View();
         }
         public IActionResult Privacy()
             =>

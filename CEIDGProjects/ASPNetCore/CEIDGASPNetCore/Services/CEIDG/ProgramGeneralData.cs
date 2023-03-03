@@ -5,6 +5,9 @@
         //Jest to token do testowego servera usługi GUS, dlatego jest podany w plainText
         public readonly string GusToken = "abcde12345abcde12345";
 
+        public readonly string RaportByData = "ViewRaportByData";
+        public readonly string RaportByDateAndType = "ViewRaportByDateAndType";
+
         internal Dictionary<string, byte> RaportTypes = new Dictionary<string, byte>()
         {
             {"DanePrzedmiotu",0},

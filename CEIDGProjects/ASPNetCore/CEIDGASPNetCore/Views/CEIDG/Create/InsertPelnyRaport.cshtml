@@ -1,0 +1,34 @@
+﻿@model CEIDGASPNetCore.Models.DanePobierzPelnyRaport
+
+@{
+    ViewData["Title"] = "Pelny Raport";
+}
+
+<h1>Wyświetl pełny raport</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("InsertPelnyRaport", "CEIDG", FormMethod.Post))
+        {
+            <div class="form-group">
+                @Html.Label("Wpisz regon")
+                @Html.TextBoxFor(item => item.Regon)
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Wybierz nazwę raportu")
+                @Html.DropDownListFor(item => item.NazwaRaportu, new SelectList(ViewBag.RaportsList, "NazwaRaportu","Opis"))
+            </div>
+            <td><input type="submit" value="Wybierz" /></td>
+        }
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Wróć do menu</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

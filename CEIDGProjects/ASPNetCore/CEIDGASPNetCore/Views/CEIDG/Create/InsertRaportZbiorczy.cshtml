@@ -1,0 +1,35 @@
+﻿@model CEIDGASPNetCore.Models.DanePobierzRaportZbiorczy
+
+@{
+    ViewData["Title"] = "Raport Zbiorczy";
+}
+
+<h1>Wyświetl raport zbiorczy</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("InsertRaportZbiorczy", "CEIDG", FormMethod.Post))
+        {
+            <div class="form-group">
+                @Html.Label("Wyznacz datę")
+                @Html.TextBoxFor(item => item.DataRaportu, new {type = "date"})
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Wybierz nazwę raportu")
+                @Html.DropDownListFor(item => item.NazwaRaportu, new SelectList(ViewBag.RaportsList, "NazwaRaportu","Opis"))
+            </div>
+            <td><input type="submit" value="Wybierz" /></td>
+        }
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Wróć do menu</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

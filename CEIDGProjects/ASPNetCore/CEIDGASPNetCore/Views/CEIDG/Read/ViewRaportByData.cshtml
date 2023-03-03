@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CEIDGASPNetCore.DbModel.Gusvalue>
+
+@{
+    ViewData["Title"] = "ViewRaportByData";
+}
+
+@using (Html.BeginForm("ViewRaportByData","CEIDG",FormMethod.Post))
+{
+    <p>
+        <input type="date" name="RaportData" />
+    </p>
+    <input type="submit", value="Wybierz">
+}
+
+<h1>Wybrane raporty</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.Label("Zawartość raportu")
+            </th>
+            <th>
+                @Html.Label("Data raportu")
+            </th>
+            <th>
+                @Html.Label("Typ raportu")
+            </th>
+            <th>
+                @Html.Label("Opcje")
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Xmlvalues)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImportDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RaportType)
+                </td>
+                <td>
+                    <a asp-action="DeleteRaportById" asp-route-Id="@item.Id" asp-route-RaportData="@item.ImportDate">Usuń</a>
+                </td>
+            </tr>
+        }
+        @ViewBag.Data
+    </tbody>
+</table>
+<div>
+    <a asp-action="AllShowItemsViews">Wróć do menu</a>
+</div>

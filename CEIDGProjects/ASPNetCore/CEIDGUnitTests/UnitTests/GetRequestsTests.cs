@@ -21,7 +21,9 @@ namespace CEIDGUnitTests.UnitTests
         [TestMethod]
         public void ReturnNonEmptyValueForNIP()
         {
-            Assert.AreNotEqual(requests.GetValuesForDanePodmiotu(new ServiceReference1.ParametryWyszukiwania() {Regon = "8942867482" }), string.Empty);
+            string testRegon = "8942867482";
+
+            Assert.AreNotEqual(requests.GetValuesForDanePodmiotu(new ServiceReference1.ParametryWyszukiwania() {Regon = testRegon }), string.Empty);
         }
     }
 }
