@@ -36,7 +36,7 @@
             @Html.DisplayFor(model => model.RaportType)
         </dd>
         <dt class="col-sm-2">
-            <a asp-action="DeleteLastRaport" asp-route-lastId="@Model.Id"><b>Usuń ten rekord</b></a>
+            <a asp-action="DeleteRaportById" asp-route-Id="@Model.Id" asp-route-controllerChoose="2"><b>Usuń ten rekord</b></a>
         </dt>
     </dl>
 </div>

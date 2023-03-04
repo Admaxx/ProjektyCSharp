@@ -60,16 +60,18 @@ namespace CEIDGASPNetCore.Controllers
             ViewBag.ActionNameReturn = ActionToReturn;
             return View("Views/CEIDG/Read/NoRaportsView.cshtml");
         }
+        public IActionResult UpdateRaportData(int id)
+        {
+            return View("Views/CEIDG/Update/UpdateRaportData.cshtml", context.Gusvalues.Where(item => item.Id == id).First());
+        }
 
+        [HttpPost]
         public IActionResult UpdateRaportData(Gusvalue model)
         {
-            if (!ModelState.IsValid)
-                return View("Views/CEIDG/Update/UpdateRaportData.cshtml", context.Gusvalues.Where(item => item.Id == model.Id).First());
-            
+
             if (model.ImportDate > DateTime.Now.Date)
                 return RedirectToAction("NoRaportsView", new { MessageFromAction = "Data nie może być większa, od dzisiejszej!", ActionToReturn = "ViewLastRaport" });
 
-            
             context.Update(model);
             context.SaveChanges();
 
@@ -156,24 +158,18 @@ namespace CEIDGASPNetCore.Controllers
 
         public IActionResult DeleteRaportById(long Id, DateTime raportData, byte? controllerChoose, byte? raportType)
         {
-            string GetActionName = allData.RaportByData;
-            if (controllerChoose == 1)
-                GetActionName = allData.RaportByDateAndType;
-
             context.Gusvalues.Remove(context.Gusvalues.Where(item => item.Id == Id).First());
             context.SaveChanges();
 
-            return RedirectToAction(GetActionName, new { RaportData = raportData.ToString("dd-MM-yyyy"), RaportType = raportType });
-        }
+            string GetActionName = allData.RaportByData;
 
-        public IActionResult DeleteLastRaport(int lastId)
-        {
-            if (ModelState.IsValid)
-            {
-                context.Gusvalues.Remove(context.Gusvalues.Where(item => item.Id == lastId).First());
-                context.SaveChanges();
-            }
-            return RedirectToAction("ViewLastRaport", false);
+            if (controllerChoose == 1)
+                GetActionName = allData.RaportByDateAndType;
+
+            if (controllerChoose == 2)
+                return RedirectToAction(allData.LastRaport, false);
+
+            return RedirectToAction(GetActionName, new { RaportData = raportData.ToString("dd-MM-yyyy"), RaportType = raportType });
         }
         public IActionResult Privacy()
             =>
