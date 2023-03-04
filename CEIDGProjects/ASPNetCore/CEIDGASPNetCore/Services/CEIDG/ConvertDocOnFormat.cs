@@ -6,18 +6,16 @@ namespace CEIDGASPNetCore.Services.CEIDG
     public class ConvertDocOnFormat
     {
         XmlDocument doc;
-        bool JSONFormat;
-        public ConvertDocOnFormat(bool SetJSONFormat)
+        public ConvertDocOnFormat()
         {
-            JSONFormat = SetJSONFormat;
             doc = new XmlDocument();
         }
-        public string ChooseFormat(string Values)
+        public string ChooseFormat(string Values, bool SetJSONFormat)
         {
             if (string.IsNullOrEmpty(Values))
                 return "Brak danych";
 
-            if (JSONFormat)
+            if (SetJSONFormat)
                 return ToJSON(Values);
 
             return ToXML(Values);

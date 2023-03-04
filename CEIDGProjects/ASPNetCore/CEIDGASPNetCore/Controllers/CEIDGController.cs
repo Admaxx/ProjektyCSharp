@@ -11,12 +11,15 @@ namespace CEIDGASPNetCore.Controllers
     {
         CeidgregonContext context;
         GetInsertValues Get;
+
         ConvertDocOnFormat convert;
         ProgramGeneralData allData;
         public CEIDGController()
         {
             context = new CeidgregonContext();
             Get = new GetInsertValues();
+
+            convert = new ConvertDocOnFormat();
             allData = new ProgramGeneralData();
         }
         public IActionResult Index()
@@ -39,9 +42,8 @@ namespace CEIDGASPNetCore.Controllers
             ViewBag.IsJSON = SetJSONFormat;
 
             var RaportModel = context.Gusvalues.OrderBy(item => item.Id).Last();
-            convert = new ConvertDocOnFormat(SetJSONFormat);
 
-            RaportModel.Xmlvalues = convert.ChooseFormat(RaportModel.Xmlvalues);
+            RaportModel.Xmlvalues = convert.ChooseFormat(RaportModel.Xmlvalues, SetJSONFormat);
             return View("Views/CEIDG/Read/ViewLastRaport.cshtml", RaportModel);
         }
         public IActionResult AllShowItemsViews()

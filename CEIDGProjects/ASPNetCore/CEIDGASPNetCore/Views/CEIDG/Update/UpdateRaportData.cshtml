@@ -1,12 +1,11 @@
 ﻿@model CEIDGASPNetCore.DbModel.Gusvalue
 
 @{
-    ViewData["Title"] = "UpdateRaportData";
+    ViewData["Title"] = "Zmienianie daty raportu";
 }
 
-<h1>UpdateRaportData</h1>
+<h1>Zmień datę raportu</h1>
 
-<h4>Gusvalue</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -16,7 +15,6 @@
             <div class="form-group">
                 <label asp-for="Xmlvalues" class="control-label"></label>
                 <input asp-for="Xmlvalues" class="form-control" readonly="readonly" />
-                <span asp-validation-for="Xmlvalues" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ImportDate" class="control-label"></label>
@@ -32,7 +30,6 @@
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
-        @ViewBag.NJE
     </div>
 </div>
 
