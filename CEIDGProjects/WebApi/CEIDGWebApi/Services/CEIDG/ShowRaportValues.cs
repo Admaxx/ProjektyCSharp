@@ -9,20 +9,15 @@
             request = new GetRequests();
             Box = new GetFirstNonEmptyValue();
         }
-        internal string GetValuesAndInsertToDB(string GetRegonOrNIP, int RaportIndex, string? NazwaRaportu)
+        internal string GetValuesFromGus(string GetRegonOrNIP, int RaportIndex, string? NazwaRaportu)
         {
-            string GetValueFromAPI = string.Empty;
-
             if (RaportIndex == 0)
-                GetValueFromAPI = request.GetValuesForDanePodmiotu(Box.ReturnFirstNonEmpty(GetRegonOrNIP));
+                return request.GetValuesForDanePodmiotu(Box.ReturnFirstNonEmpty(GetRegonOrNIP));
 
             else if (RaportIndex == 1)
-                GetValueFromAPI = request.GetValuesForPelnyRaport(GetRegonOrNIP, NazwaRaportu);
+                return request.GetValuesForPelnyRaport(GetRegonOrNIP, NazwaRaportu);
 
-            else //(RaportIndex == 2)
-                GetValueFromAPI = request.GetValuesForZbiorczyRaport(GetRegonOrNIP, NazwaRaportu);
-
-            return GetValueFromAPI;
+            return request.GetValuesForZbiorczyRaport(GetRegonOrNIP, NazwaRaportu);
         }
     }
 }

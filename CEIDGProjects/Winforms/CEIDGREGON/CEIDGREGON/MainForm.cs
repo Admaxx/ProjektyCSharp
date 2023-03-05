@@ -30,6 +30,9 @@ namespace CEIDGREGON
         {
             SetLabelText(SelectedRaportIndex);
 
+            RegonBox.Visible = NIPBox.Visible = KRSBox.Visible = raportyPelne.Visible = false;
+            raportyZbiorcze.Visible = DataRaportPicker.Visible = true;
+
             if (SelectedRaportIndex == 0)
             {
                 RegonBox.Visible = NIPBox.Visible = KRSBox.Visible = true;
@@ -39,11 +42,6 @@ namespace CEIDGREGON
             {
                 RegonBox.Visible = raportyPelne.Visible = true;
                 NIPBox.Visible = KRSBox.Visible = raportyZbiorcze.Visible = DataRaportPicker.Visible = monthCalendar1.Visible = false;
-            }
-            else //(SelectedRaportIndex == 2)
-            {
-                RegonBox.Visible = NIPBox.Visible = KRSBox.Visible = raportyPelne.Visible = false;
-                raportyZbiorcze.Visible = DataRaportPicker.Visible = true;
             }
         }
         private void SetLabelText(int VersionOfText)

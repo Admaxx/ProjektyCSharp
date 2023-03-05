@@ -86,7 +86,7 @@ namespace CEIDGWebApi.Controllers
 
             RaportTypeNo = AllData.RaportTypes[RaportName];
 
-            GetValuesFromInsert = show.GetValuesAndInsertToDB(Value, RaportTypeNo, NazwaRaportu);
+            GetValuesFromInsert = show.GetValuesFromGus(Value, RaportTypeNo, NazwaRaportu);
             
             context.Add(new Gusvalue() { Xmlvalues = GetValuesFromInsert, ImportDate = DateTime.Now, RaportType = RaportTypeNo });
             context.SaveChanges();

@@ -12,8 +12,7 @@ namespace CEIDGREGON
             else if (!string.IsNullOrEmpty(Values[1]))
                 return new ParametryWyszukiwania() { Nip = Values[1] };
 
-            else
-                return new ParametryWyszukiwania() { Krs = Values[2] };
+            return new ParametryWyszukiwania() { Krs = Values[2] };
         }
     }
 }

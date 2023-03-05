@@ -161,15 +161,14 @@ namespace CEIDGASPNetCore.Controllers
             context.Gusvalues.Remove(context.Gusvalues.Where(item => item.Id == Id).First());
             context.SaveChanges();
 
-            string GetActionName = allData.RaportByData;
+            if (controllerChoose == 0)
+                return RedirectToAction(allData.RaportByData, new { RaportData = raportData.ToString("dd-MM-yyyy"), RaportType = raportType });
 
-            if (controllerChoose == 1)
-                GetActionName = allData.RaportByDateAndType;
+            else if (controllerChoose == 1)
+                return RedirectToAction(allData.RaportByDateAndType, new { RaportData = raportData.ToString("dd-MM-yyyy"), RaportType = raportType });
 
-            if (controllerChoose == 2)
-                return RedirectToAction(allData.LastRaport, false);
+            return RedirectToAction(allData.LastRaport, false);
 
-            return RedirectToAction(GetActionName, new { RaportData = raportData.ToString("dd-MM-yyyy"), RaportType = raportType });
         }
         public IActionResult Privacy()
             =>

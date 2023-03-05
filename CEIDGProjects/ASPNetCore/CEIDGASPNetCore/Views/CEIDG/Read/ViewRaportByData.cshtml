@@ -44,11 +44,10 @@
                     @Html.DisplayFor(modelItem => item.RaportType)
                 </td>
                 <td>
-                    <a asp-action="DeleteRaportById" asp-route-Id="@item.Id" asp-route-RaportData="@item.ImportDate">Usuń</a>
+                    <a asp-action="DeleteRaportById" asp-route-Id="@item.Id" asp-route-RaportData="@item.ImportDate" asp-route-controllerChoose="0">Usuń</a>
                 </td>
             </tr>
         }
-        @ViewBag.Data
     </tbody>
 </table>
 <div>
