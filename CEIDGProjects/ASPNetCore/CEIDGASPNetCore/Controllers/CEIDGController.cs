@@ -39,6 +39,9 @@ namespace CEIDGASPNetCore.Controllers
 
         public IActionResult ViewLastRaport(bool SetJSONFormat)
         {
+            if (context.Gusvalues.IsNullOrEmpty())
+                return RedirectToAction("NoRaportsView", new { MessageFromAction = "Nie zostały wystawione żadne raporty", ActionToReturn = "Index" });
+
             ViewBag.IsJSON = SetJSONFormat;
 
             var RaportModel = context.Gusvalues.OrderBy(item => item.Id).Last();

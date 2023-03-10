@@ -4,7 +4,7 @@ namespace CEIDGREGON
     public class ProgramGeneralData
     {
         //Jest to token do testowego servera usługi GUS, dlatego jest podany w plainText
-        public readonly string GusToken = "abcde12345abcde12345";
+        public readonly static string GusToken = "abcde12345abcde12345";
 
         public readonly string LastRaport = "ViewLastRaport";
         public readonly string RaportByData = "ViewRaportByData";
