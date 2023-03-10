@@ -1,4 +1,5 @@
-﻿namespace CEIDGREGON
+﻿
+namespace CEIDGREGON
 {
     public class ProgramGeneralData
     {
@@ -9,7 +10,7 @@
         public readonly string RaportByData = "ViewRaportByData";
         public readonly string RaportByDateAndType = "ViewRaportByDateAndType";
 
-        internal Dictionary<string, byte> RaportTypes = new Dictionary<string, byte>()
+        internal readonly Dictionary<string, byte> RaportTypes = new Dictionary<string, byte>()
         {
             {"DanePrzedmiotu",0},
             {"PelnyRaport",1},
@@ -26,7 +27,7 @@
             {87 ,"Wystąpił błąd związany z siecią lub instancją podczas nawiązywania połączenia z SQL Server. Serwer nie został znaleziony lub nie był dostępny. Sprawdź, czy nazwa instancji jest poprawna i czy program SQL Server jest skonfigurowany do zezwalania na połączenia zdalne"},
             {25 ,"Wystąpił błąd związany z siecią lub instancją podczas nawiązywania połączenia z SQL Server. Serwer nie został znaleziony lub nie był dostępny. Sprawdź, czy nazwa instancji jest poprawna i czy program SQL Server jest skonfigurowany do zezwalania na połączenia zdalne"}
         };
-        internal readonly Dictionary<string, Dictionary<int, string>> KomunikatyBłędów = new Dictionary<string, Dictionary<int, string>>()
+        internal readonly Dictionary<string, Dictionary<int, string>> ErrorMessages = new Dictionary<string, Dictionary<int, string>>()
         {
             {"StatusSesji", new Dictionary<int, string>() { { 0, "Sesja nie istnieje" }, { 1, "Sesja istnieje" } } },
 

@@ -1,6 +1,8 @@
-﻿namespace CEIDGREGON
+﻿using CEIDGASPNetCore.Services.CEIDG.Interfaces;
+
+namespace CEIDGREGON
 {
-    public class ShowRaportValues : ProgramGeneralData
+    public class ShowRaportValues : ProgramGeneralData, IGusGetValues
     {
         GetRequests request;
         GetFirstNonEmptyValue Box;
@@ -9,6 +11,7 @@
             request = new GetRequests();
             Box = new GetFirstNonEmptyValue();
         }
+        #region Getting values from GUS 
         public string GetValuesFromGUS(int ActionName, List<string> BoxList, string AdditionalValue = null)
         {
             if (ActionName == 0)
@@ -19,5 +22,6 @@
 
             return request.GetValuesForZbiorczyRaport(BoxList[0], AdditionalValue);
         }
+        #endregion
     }
 }

@@ -1,10 +1,12 @@
 ﻿using CEIDGASPNetCore.Models;
+using CEIDGASPNetCore.Services.CEIDG.Interfaces;
 using ServiceReference1;
 
 namespace CEIDGREGON
 {
-    public class GetFirstNonEmptyValue
+    public class GetFirstNonEmptyValue : IGetFirstNonEmptyValue
     {
+        #region getting first value from list that is not empty
         public ParametryWyszukiwania ReturnFirstNonEmpty(List<string> ModelValues)
         {
             if (Convert.ToInt64(ModelValues[0]) != 0)
@@ -15,5 +17,6 @@ namespace CEIDGREGON
 
             return new ParametryWyszukiwania() { Krs = ModelValues[2] };
         }
+        #endregion
     }
 }
