@@ -2,6 +2,22 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "Autofac/7.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Diagnostics.DiagnosticSource": "4.7.1"
+        },
+        "compile": {
+          "lib/net6.0/Autofac.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Autofac.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Azure.Core/1.24.0": {
         "type": "package",
         "dependencies": {
@@ -3961,6 +3977,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Autofac": "7.0.0",
           "Microsoft.EntityFrameworkCore": "7.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.12",
@@ -3985,6 +4002,27 @@
     }
   },
   "libraries": {
+    "Autofac/7.0.0": {
+      "sha512": "phR/GEk5h2kQWbMl70cZzCW5ysGxmz2ClaX5CuTw9qc3wtdDu3l9GAhWiWmZLltCytEIxIw98NtAraiOxazqLg==",
+      "type": "package",
+      "path": "autofac/7.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "autofac.7.0.0.nupkg.sha512",
+        "autofac.nuspec",
+        "icon.png",
+        "lib/net6.0/Autofac.dll",
+        "lib/net6.0/Autofac.xml",
+        "lib/net7.0/Autofac.dll",
+        "lib/net7.0/Autofac.xml",
+        "lib/netstandard2.0/Autofac.dll",
+        "lib/netstandard2.0/Autofac.xml",
+        "lib/netstandard2.1/Autofac.dll",
+        "lib/netstandard2.1/Autofac.xml"
+      ]
+    },
     "Azure.Core/1.24.0": {
       "sha512": "+/qI1j2oU1S4/nvxb2k/wDsol00iGf1AyJX5g3epV7eOpQEP/2xcgh/cxgKMeFgn3U2fmgSiBnQZdkV+l5y0Uw==",
       "type": "package",
@@ -11642,11 +11680,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jakub\\source\\repos\\CEIDGASPNetCore\\CEIDGUnitTests\\CEIDGUnitTests.csproj",
+      "projectUniqueName": "C:\\Users\\Jakub\\OneDrive\\Pulpit\\ProjektyCSharp\\CEIDGProjects\\ASPNetCore\\CEIDGUnitTests\\CEIDGUnitTests.csproj",
       "projectName": "CEIDGUnitTests",
-      "projectPath": "C:\\Users\\Jakub\\source\\repos\\CEIDGASPNetCore\\CEIDGUnitTests\\CEIDGUnitTests.csproj",
+      "projectPath": "C:\\Users\\Jakub\\OneDrive\\Pulpit\\ProjektyCSharp\\CEIDGProjects\\ASPNetCore\\CEIDGUnitTests\\CEIDGUnitTests.csproj",
       "packagesPath": "C:\\Users\\Jakub\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jakub\\source\\repos\\CEIDGASPNetCore\\CEIDGUnitTests\\obj\\",
+      "outputPath": "C:\\Users\\Jakub\\OneDrive\\Pulpit\\ProjektyCSharp\\CEIDGProjects\\ASPNetCore\\CEIDGUnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -11660,14 +11698,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Users\\Jakub\\AppData\\Roaming\\Cosmos User Kit\\packages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Jakub\\source\\repos\\CEIDGASPNetCore\\CEIDGASPNetCore\\CEIDGASPNetCore.csproj": {
-              "projectPath": "C:\\Users\\Jakub\\source\\repos\\CEIDGASPNetCore\\CEIDGASPNetCore\\CEIDGASPNetCore.csproj"
+            "C:\\Users\\Jakub\\OneDrive\\Pulpit\\ProjektyCSharp\\CEIDGProjects\\ASPNetCore\\CEIDGASPNetCore\\CEIDGASPNetCore.csproj": {
+              "projectPath": "C:\\Users\\Jakub\\OneDrive\\Pulpit\\ProjektyCSharp\\CEIDGProjects\\ASPNetCore\\CEIDGASPNetCore\\CEIDGASPNetCore.csproj"
             }
           }
         }
@@ -11719,7 +11758,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,17 +1,18 @@
 ﻿using CEIDGASPNetCore.DbModel;
+using CEIDGASPNetCore.Services.CEIDG.Interfaces;
 using CEIDGASPNetCore.Services.CEIDG.Interfaces.Abstract;
 using CEIDGREGON;
 
 namespace CEIDGASPNetCore.Services.CEIDG
 {
-    public class GetInsertValues : InsertValues
+    public class GetInsertValues : IValuesInsert
     {
-        ShowRaportValues show;
-        public GetInsertValues()
+        IGusGetValues show;
+        public GetInsertValues(IGusGetValues gus)
         {
-            show = new ShowRaportValues();
+            this.show = gus;
         }
-        internal override Gusvalue LastInsertValues(byte ActionName, List<string> ModelValues, string AdditionalValue = null)
+        public Gusvalue LastInsertValues(byte ActionName, List<string> ModelValues, string AdditionalValue = null)
         {
             string GetValue = show.GetValuesFromGUS(ActionName, ModelValues, AdditionalValue);
 

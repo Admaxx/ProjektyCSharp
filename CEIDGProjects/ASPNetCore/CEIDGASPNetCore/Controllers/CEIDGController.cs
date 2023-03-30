@@ -1,6 +1,8 @@
-﻿using CEIDGASPNetCore.DbModel;
+﻿using Autofac;
+using CEIDGASPNetCore.DbModel;
 using CEIDGASPNetCore.Models;
 using CEIDGASPNetCore.Services.CEIDG;
+using CEIDGASPNetCore.Services.CEIDG.Interfaces.Abstract;
 using CEIDGREGON;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -9,15 +11,16 @@ namespace CEIDGASPNetCore.Controllers
 {
     public class CEIDGController : Controller
     {
-        CeidgregonContext context;
-        GetInsertValues Get;
+        //Its sometimes hard to refactor code with IoC contrainter
+        CeidgregonContext context = null;
+        ContrainerResolve resolve = null;
 
-        ConvertDocOnFormat convert;
-        ProgramGeneralData allData;
+        ConvertDocOnFormat convert = null;
+        ProgramGeneralData allData = null;
         public CEIDGController()
         {
             context = new CeidgregonContext();
-            Get = new GetInsertValues();
+            resolve = new ContrainerResolve();
 
             convert = new ConvertDocOnFormat();
             allData = new ProgramGeneralData();
@@ -26,6 +29,7 @@ namespace CEIDGASPNetCore.Controllers
             =>
             View();
 
+        
         public IActionResult ViewRaportByData(DateTime RaportData)
             => 
             View("Views/CEIDG/Read/ViewRaportByData.cshtml", context.Gusvalues.Where(item => item.ImportDate == RaportData.Date).ToList());
@@ -96,7 +100,7 @@ namespace CEIDGASPNetCore.Controllers
         {
             if (ModelState.IsValid)
             {
-                Gusvalue GusValue = Get.LastInsertValues(0, new List<string>() { model.Regon, model.NIP, model.KRS });
+                Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(0, new List<string>() { model.Regon, model.NIP, model.KRS });
 
                 if (GusValue.Xmlvalues.Contains("ErrorCode"))
                     return RedirectToAction("RaportNotFound", "CEIDGErrorHandling", GusValue);
@@ -118,7 +122,7 @@ namespace CEIDGASPNetCore.Controllers
         {
             if (ModelState.IsValid)
             {
-                Gusvalue GusValue = Get.LastInsertValues(1, new List<string>() { model.Regon }, model.NazwaRaportu);
+                Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(1, new List<string>() { model.Regon }, model.NazwaRaportu);
 
                 if (GusValue.Xmlvalues.Contains("ErrorCode"))
                     return RedirectToAction("RaportNotFound", "CEIDGErrorHandling", GusValue);
@@ -143,7 +147,7 @@ namespace CEIDGASPNetCore.Controllers
         {
             if (ModelState.IsValid)
             {
-                Gusvalue GusValue = Get.LastInsertValues(2, new List<string>() { model.DataRaportu.ToString("yyyy-MM-dd") }, model.NazwaRaportu );
+                Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(2, new List<string>() { model.DataRaportu.ToString("yyyy-MM-dd") }, model.NazwaRaportu );
 
                 if (GusValue.Xmlvalues.Contains("ErrorCode"))
                     return RedirectToAction("RaportNotFound","CEIDGErrorHandling", GusValue);

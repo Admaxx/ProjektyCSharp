@@ -5,11 +5,11 @@ namespace CEIDGREGON
     public class ShowRaportValues : ProgramGeneralData, IGusGetValues
     {
         GetRequests request;
-        GetFirstNonEmptyValue Box;
-        public ShowRaportValues()
+        IGetFirstNonEmptyValue Box;
+        public ShowRaportValues(GetRequests requests, IGetFirstNonEmptyValue Boxes)
         {
-            request = new GetRequests();
-            Box = new GetFirstNonEmptyValue();
+            request = requests;
+            Box = Boxes;
         }
         #region Getting values from GUS 
         public string GetValuesFromGUS(int ActionName, List<string> BoxList, string AdditionalValue = null)

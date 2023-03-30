@@ -2,8 +2,8 @@
 
 namespace CEIDGASPNetCore.Services.CEIDG.Interfaces.Abstract
 {
-    public abstract class InsertValues
+    public interface IValuesInsert
     {
-        internal abstract Gusvalue LastInsertValues(byte ActionName, List<string> ModelValues, string AdditionalValue = null);
+        public Gusvalue LastInsertValues(byte ActionName, List<string> ModelValues, string AdditionalValue = null);
     }
 }

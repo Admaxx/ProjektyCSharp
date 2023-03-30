@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "corf7HdW9yPgrKV0M7BSC1PauSqbcf+q+VW3bV1LAtbcfCF4vhZqkQBn7XM0eA0zphCX3LdB4D7Xq+aDWxmvbA==",
+  "dgSpecHash": "hhvyy7zQalyFyo2OP9ZQeKWGHj3QZhnE/H/7Ilpj+JJzksvcuowfG4JgRHUZtDBcTFtqGne97aChrNCLinLczQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jakub\\source\\repos\\CEIDGASPNetCore\\CEIDGASPNetCore\\CEIDGASPNetCore.csproj",
+  "projectFilePath": "C:\\Users\\Jakub\\OneDrive\\Pulpit\\ProjektyCSharp\\CEIDGProjects\\ASPNetCore\\CEIDGASPNetCore\\CEIDGASPNetCore.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Jakub\\.nuget\\packages\\autofac\\7.0.0\\autofac.7.0.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

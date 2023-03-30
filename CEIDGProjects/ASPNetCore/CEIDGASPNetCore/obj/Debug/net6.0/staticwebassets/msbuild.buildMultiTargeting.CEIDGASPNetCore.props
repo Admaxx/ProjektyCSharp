@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\CEIDGASPNetCore.props" />
+</Project>
