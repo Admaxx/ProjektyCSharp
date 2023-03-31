@@ -297,14 +297,6 @@ C:\Users\Jakub\source\repos\CEIDGASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\ref
 C:\Users\Jakub\source\repos\CEIDGASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\CEIDGASPNetCore.pdb
 C:\Users\Jakub\source\repos\CEIDGASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\CEIDGASPNetCore.genruntimeconfig.cache
 C:\Users\Jakub\source\repos\CEIDGASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\ref\CEIDGASPNetCore.dll
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\CEIDGASPNetCore.csproj.AssemblyReference.cache
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\CEIDGASPNetCore.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\CEIDGASPNetCore.AssemblyInfoInputs.cache
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\CEIDGASPNetCore.AssemblyInfo.cs
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\CEIDGASPNetCore.csproj.CoreCompileInputs.cache
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\CEIDGASPNetCore.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\CEIDGASPNetCore.RazorAssemblyInfo.cache
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\CEIDGASPNetCore.RazorAssemblyInfo.cs
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\bin\Debug\net6.0\appsettings.json
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\bin\Debug\net6.0\Connected Services\ServiceReference1\ConnectedService.json
@@ -314,6 +306,7 @@ C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPN
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\bin\Debug\net6.0\CEIDGASPNetCore.runtimeconfig.json
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\bin\Debug\net6.0\CEIDGASPNetCore.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\bin\Debug\net6.0\CEIDGASPNetCore.pdb
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\bin\Debug\net6.0\Autofac.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\bin\Debug\net6.0\Azure.Core.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\bin\Debug\net6.0\Azure.Identity.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\bin\Debug\net6.0\Humanizer.dll
@@ -585,6 +578,14 @@ C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPN
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\CEIDGASPNetCore.csproj.AssemblyReference.cache
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\CEIDGASPNetCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\CEIDGASPNetCore.AssemblyInfoInputs.cache
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\CEIDGASPNetCore.AssemblyInfo.cs
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\CEIDGASPNetCore.csproj.CoreCompileInputs.cache
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\CEIDGASPNetCore.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\CEIDGASPNetCore.RazorAssemblyInfo.cache
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\CEIDGASPNetCore.RazorAssemblyInfo.cs
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\staticwebassets\msbuild.CEIDGASPNetCore.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\staticwebassets\msbuild.build.CEIDGASPNetCore.props
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.CEIDGASPNetCore.props
@@ -601,4 +602,3 @@ C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPN
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\CEIDGASPNetCore.pdb
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\CEIDGASPNetCore.genruntimeconfig.cache
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\ref\CEIDGASPNetCore.dll
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\bin\Debug\net6.0\Autofac.dll

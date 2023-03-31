@@ -4,9 +4,12 @@ using System.Xml;
 
 namespace CEIDGASPNetCore.Services.CEIDG.Abstract
 {
-    public abstract class FormatOptions : IConvertToJson, IConvertToXML
+    public class FormatOptions : IConvertToJson, IConvertToXML
     {
         XmlDocument doc = new XmlDocument();
+        
+
+
 
         //I haven't got an idea, to make a virtual method example
         // at this project, so i think it will be the best shot...

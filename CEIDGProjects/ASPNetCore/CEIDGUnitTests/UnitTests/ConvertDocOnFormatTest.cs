@@ -1,4 +1,6 @@
-﻿using CEIDGASPNetCore.Services.CEIDG;
+﻿using Autofac;
+using CEIDGASPNetCore.Services.CEIDG;
+using CEIDGASPNetCore.Services.CEIDG.Interfaces;
 using System.Xml;
 
 namespace CEIDGUnitTests
@@ -6,24 +8,21 @@ namespace CEIDGUnitTests
     [TestClass]
     public class ConvertDocOnFormatTest
     {
-        ConvertDocOnFormat docFormat;
+        ContrainerResolve resolve = new ContrainerResolve();
+        string NoDateAnswer = "Brak danych";
 
         [TestMethod]
         public void ReturnEmptyStringMessage()
         {
-            docFormat = new ConvertDocOnFormat(true);
-            string NoDateAnswer = "Brak danych";
-
-            Assert.AreEqual(docFormat.ChooseFormat(string.Empty), NoDateAnswer);
+            var docFormat = resolve.ContainerResolve(new ContainerBuilder()).Resolve<ConvertDocOnFormat>();  
+            Assert.AreEqual(docFormat.ChooseFormat(string.Empty, true), NoDateAnswer);
         }
 
         [TestMethod]
         public void ReturnJsonReaderException()
         {
-            docFormat = new ConvertDocOnFormat(false);
-            string randomNonXMLString = "Empty string";
-
-            Assert.ThrowsException<XmlException>(() => docFormat.ToJSON(randomNonXMLString));
+            var docFormat = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IConvertToJson>();
+            Assert.ThrowsException<XmlException>(() => docFormat.ToJSON(NoDateAnswer));
         }
     }
 }

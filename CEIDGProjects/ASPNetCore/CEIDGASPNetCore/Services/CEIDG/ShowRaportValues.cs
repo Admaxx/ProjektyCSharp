@@ -16,11 +16,12 @@ namespace CEIDGREGON
         {
             if (ActionName == 0)
                 return request.GetValuesForDanePodmiotu(Box.ReturnFirstNonEmpty(BoxList));
-
             else if (ActionName == 1)
                 return request.GetValuesForPelnyRaport(BoxList[0], AdditionalValue);
+            else if (ActionName == 2)
+                return request.GetValuesForZbiorczyRaport(BoxList[0], AdditionalValue);
 
-            return request.GetValuesForZbiorczyRaport(BoxList[0], AdditionalValue);
+            return string.Empty;
         }
         #endregion
     }
