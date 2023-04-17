@@ -17,13 +17,13 @@ namespace CEIDGASPNetCore.Controllers
 
         ConvertDocOnFormat convert = null;
         ProgramGeneralData allData = null;
-        public CEIDGController()
+        public CEIDGController(CeidgregonContext conn, ContrainerResolve ress, ConvertDocOnFormat converts, ProgramGeneralData all )
         {
-            context = new CeidgregonContext();
-            resolve = new ContrainerResolve();
+            this.context = conn;
+            this.resolve = ress;
 
-            convert = new ConvertDocOnFormat();
-            allData = new ProgramGeneralData();
+            this.convert = converts;
+            this.allData = all;
         }
         public IActionResult Index()
             =>
