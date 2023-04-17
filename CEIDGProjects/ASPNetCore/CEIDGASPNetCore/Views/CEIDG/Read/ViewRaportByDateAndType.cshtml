@@ -7,7 +7,7 @@
     {
         <input type="date" name="RaportData">
         @Html.DropDownList("RaportType", new SelectList(ViewBag.RaportTypeTable, "RaportType", "RaportTypeName"))
-        <input type="submit" value="Wybierz">
+        <button class="btn btn-secondary">Wybierz</button>
     } 
 
 }
