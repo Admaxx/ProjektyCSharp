@@ -3,12 +3,21 @@ namespace CEIDGREGON
 {
     public class ProgramGeneralData
     {
+        //
         //Jest to token do testowego servera usługi GUS, dlatego jest podany w plainText
         public readonly static string GusToken = "abcde12345abcde12345";
 
-        public readonly string LastRaport = "ViewLastRaport";
-        public readonly string RaportByData = "ViewRaportByData";
-        public readonly string RaportByDateAndType = "ViewRaportByDateAndType";
+        public readonly string DataGreaterThanTodays = "Data nie może być większa, od dzisiejszej!";
+        public readonly string NoRaportsInDB = "Nie zostały wystawione żadne raporty";
+        public readonly string RaiseErrorMessage = "CEIDGErrorHandling";
+
+        internal readonly string MainPage = "Index";
+        internal readonly string SettingNoRaports = "NoRaportsView";
+        internal readonly string LastRaport = "ViewLastRaport";
+
+        internal readonly string NotFoundRaportPage = "RaportNotFound";
+        internal readonly string RaportByData = "ViewRaportByData";
+        internal readonly string RaportByDateAndType = "ViewRaportByDateAndType";
 
         internal readonly Dictionary<string, byte> RaportTypes = new Dictionary<string, byte>()
         {
@@ -16,7 +25,8 @@ namespace CEIDGREGON
             {"PelnyRaport",1},
             {"ZbiorczyRaport",2}
         };
-        //Lista błędów, jakie można spotkać przy łączeniu się z bazą
+
+        //Error lists u can recevied from DB - error message in polish
         internal readonly Dictionary<int, string> SqlErrorsNumbers = new Dictionary<int, string>()
         {
             {40197,"Usługa napotkała błąd podczas przetwarzania Twojego żądania. Proszę spróbuj ponownie." },

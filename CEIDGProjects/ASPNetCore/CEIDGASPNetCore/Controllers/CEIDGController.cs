@@ -33,21 +33,23 @@ namespace CEIDGASPNetCore.Controllers
         public IActionResult ViewRaportByData(DateTime RaportData)
             =>
             View("Views/CEIDG/Read/ViewRaportByData.cshtml", context.Gusvalues.Where(
-                item => item.ImportDate == (RaportData.Date != DateTime.MinValue ? RaportData.Date : DateTime.Now.Date)));
+                item => 
+                item.ImportDate == (RaportData.Date != DateTime.MinValue ? RaportData.Date : DateTime.Now.Date)));
         
         public IActionResult ViewRaportByDateAndType(DateTime RaportData, byte RaportType)
         {
             ViewBag.RaportTypeTable = context.RaportTypeNames;
 
             return View("Views/CEIDG/Read/ViewRaportByDateAndType.cshtml", context.Gusvalues.Where(
-                item => item.RaportType == RaportType && 
+                item => 
+                item.RaportType == RaportType && 
                 item.ImportDate == (RaportData.Date != DateTime.MinValue ? RaportData.Date : DateTime.Now.Date)));
         }
 
         public IActionResult ViewLastRaport(bool SetJSONFormat)
         {
             if (context.Gusvalues.IsNullOrEmpty())
-                return RedirectToAction("NoRaportsView", new { MessageFromAction = "Nie zostały wystawione żadne raporty", ActionToReturn = "Index" });
+                return RedirectToAction(allData.SettingNoRaports, new { MessageFromAction = allData.NoRaportsInDB, ActionToReturn = allData.MainPage });
 
             ViewBag.IsJSON = SetJSONFormat;
 
@@ -59,7 +61,7 @@ namespace CEIDGASPNetCore.Controllers
         public IActionResult AllShowItemsViews()
         {
             if (context.Gusvalues.IsNullOrEmpty())
-                return RedirectToAction("NoRaportsView", new { MessageFromAction = "Nie zostały wystawione żadne raporty", ActionToReturn = "Index" });
+                return RedirectToAction(allData.SettingNoRaports, new { MessageFromAction = allData.NoRaportsInDB, ActionToReturn = allData.MainPage });
 
             return View("Views/CEIDG/Read/AllShowItemsViews.cshtml");
         }
@@ -80,13 +82,13 @@ namespace CEIDGASPNetCore.Controllers
         {
 
             if (model.ImportDate > DateTime.Now.Date)
-                return RedirectToAction("NoRaportsView", new { MessageFromAction = "Data nie może być większa, od dzisiejszej!", ActionToReturn = "ViewLastRaport" });
+                return RedirectToAction(allData.SettingNoRaports, new { MessageFromAction = allData.DataGreaterThanTodays, ActionToReturn = allData.LastRaport });
 
             context.Update(model);
             context.SaveChanges();
 
 
-            return RedirectToAction("ViewLastRaport", new { SetJSONFormat = false });
+            return RedirectToAction(allData.LastRaport, new { SetJSONFormat = false });
         }
 
 
@@ -106,7 +108,7 @@ namespace CEIDGASPNetCore.Controllers
                 Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(0, new List<string>() { model.Regon, model.NIP, model.KRS });
 
                 if (GusValue.Xmlvalues.Contains("ErrorCode"))
-                    return RedirectToAction("RaportNotFound", "CEIDGErrorHandling", GusValue);
+                    return RedirectToAction(allData.NotFoundRaportPage, allData.RaiseErrorMessage, GusValue);
 
                 context.Add(GusValue);
                 context.SaveChanges();
@@ -128,7 +130,7 @@ namespace CEIDGASPNetCore.Controllers
                 Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(1, new List<string>() { model.Regon }, model.NazwaRaportu);
 
                 if (GusValue.Xmlvalues.Contains("ErrorCode"))
-                    return RedirectToAction("RaportNotFound", "CEIDGErrorHandling", GusValue);
+                    return RedirectToAction(allData.NotFoundRaportPage, allData.RaiseErrorMessage, GusValue);
 
                 context.Add(GusValue);
                 context.SaveChanges();
@@ -153,7 +155,7 @@ namespace CEIDGASPNetCore.Controllers
                 Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(2, new List<string>() { model.DataRaportu.ToString("yyyy-MM-dd") }, model.NazwaRaportu );
 
                 if (GusValue.Xmlvalues.Contains("ErrorCode"))
-                    return RedirectToAction("RaportNotFound","CEIDGErrorHandling", GusValue);
+                    return RedirectToAction(allData.NotFoundRaportPage, allData.RaiseErrorMessage, GusValue);
 
                 context.Add(GusValue);
                 context.SaveChanges();
