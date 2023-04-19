@@ -29,16 +29,19 @@ namespace CEIDGASPNetCore.Controllers
             =>
             View();
 
-        
+
         public IActionResult ViewRaportByData(DateTime RaportData)
-            => 
-            View("Views/CEIDG/Read/ViewRaportByData.cshtml", context.Gusvalues.Where(item => item.ImportDate == RaportData.Date).ToList());
-        
+            =>
+            View("Views/CEIDG/Read/ViewRaportByData.cshtml", context.Gusvalues.Where(
+                item => item.ImportDate == (RaportData.Date != DateTime.MinValue ? RaportData.Date : DateTime.Now.Date)));
         
         public IActionResult ViewRaportByDateAndType(DateTime RaportData, byte RaportType)
         {
             ViewBag.RaportTypeTable = context.RaportTypeNames;
-            return View("Views/CEIDG/Read/ViewRaportByDateAndType.cshtml", context.Gusvalues.Where(item => item.RaportType == RaportType && item.ImportDate == RaportData.Date));
+
+            return View("Views/CEIDG/Read/ViewRaportByDateAndType.cshtml", context.Gusvalues.Where(
+                item => item.RaportType == RaportType && 
+                item.ImportDate == (RaportData.Date != DateTime.MinValue ? RaportData.Date : DateTime.Now.Date)));
         }
 
         public IActionResult ViewLastRaport(bool SetJSONFormat)
@@ -163,16 +166,16 @@ namespace CEIDGASPNetCore.Controllers
         }
 
 
-        public IActionResult DeleteRaportById(long Id, DateTime raportData, byte? controllerChoose, byte? raportType)
+        public IActionResult DeleteRaportById(long Id, string raportData, byte? controllerChoose, byte? raportType)
         {
             context.Gusvalues.Remove(context.Gusvalues.Where(item => item.Id == Id).First());
             context.SaveChanges();
 
             if (controllerChoose == 0)
-                return RedirectToAction(allData.RaportByData, new { RaportData = raportData.ToString("dd-MM-yyyy"), RaportType = raportType });
+                return RedirectToAction(allData.RaportByData, new { RaportData = Convert.ToDateTime(raportData)});
 
             else if (controllerChoose == 1)
-                return RedirectToAction(allData.RaportByDateAndType, new { RaportData = raportData.ToString("dd-MM-yyyy"), RaportType = raportType });
+                return RedirectToAction(allData.RaportByDateAndType, new { RaportData = Convert.ToDateTime(raportData), RaportType = raportType });
 
             return RedirectToAction(allData.LastRaport, false);
 
