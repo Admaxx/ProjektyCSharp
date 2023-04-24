@@ -1,6 +1,6 @@
 ﻿namespace CEIDGREGON
 {
-    internal class ProgramGeneralData
+    public class ProgramGeneralData
     {
         //Jest to token do testowego servera usługi GUS, dlatego jest podany w plainText
         internal readonly string GusToken = "abcde12345abcde12345";

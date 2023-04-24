@@ -17,34 +17,39 @@ namespace CEIDGWebApi.Controllers
         byte RaportTypeNo;
         string GetValuesFromInsert;
 
-        public CEIDGController() 
+        public CEIDGController(CeidgregonContext context, ProgramGeneralData program, ShowRaportValues raports) 
         {
-            context = new CeidgregonContext();
-
-            AllData = new ProgramGeneralData();
-            show = new ShowRaportValues();
+            this.context = context;
+            this.show = raports;
+            this.AllData = program;
+            
         }
 
         [HttpGet]
         [Route("[controller]/GetRaport/{Id}")]
-        public string GetRaport(int id)
+        public IActionResult GetRaport(int id)
         {
             try
             {
-                return context.Gusvalues.Where(item => item.Id == id).Single().Xmlvalues;
+                return Ok(context.Gusvalues.Where(item => item.Id == id).Single().Xmlvalues);
             }
-            catch (InvalidOperationException ex) { return "Nie znaleziono podanych danych, wybierz inne Id"; }
-            catch (Exception e) { }
-
-            return string.Empty;
+            catch (InvalidOperationException ex) { return NotFound("Nie znaleziono podanych danych, wybierz inne Id"); }
+            catch (Exception e) { return Problem($"Wystąpił błąd: {e}", statusCode: 500); }
         }
 
         [HttpGet]
         [Route("[controller]/GetRaportByType/{raportType}")]
-        public List<string> GetRaportByType(byte raportType)
-            =>
-            context.Gusvalues.Where(item => item.RaportType == raportType).
-                OrderByDescending(item => item.Id).Select(item => item.Xmlvalues).ToList();
+        public IActionResult GetRaportByType(byte raportType)
+        {
+            try
+            {
+               return Ok(context.Gusvalues.Where(item => item.RaportType == raportType).
+                    OrderByDescending(item => item.Id).Select(item => item.Xmlvalues).ToList());
+            }
+            catch (InvalidOperationException ex) { return NotFound("Nie znaleziono podanych danych, wybierz inny typ"); }
+            catch (Exception e) { return Problem($"Wystąpił błąd: {e}", statusCode: 500); }
+
+        }
 
         [HttpGet]
         [Route("[controller]/GetLastRaport/{FormatType?}")]
@@ -57,56 +62,63 @@ namespace CEIDGWebApi.Controllers
 
         [HttpGet]
         [Route("[controller]/GetRaportByDate/{Date}")]
-        public List<string> GetRaportByDate(DateTime Date)
-            => 
-            context.Gusvalues.Where(item => item.ImportDate == Date).
-                OrderByDescending(item => item.Id).Select(item => item.Xmlvalues).ToList();
+        public IActionResult GetRaportByDate(DateTime Date)
+        {
+            try
+            {
+                return Ok(context.Gusvalues.Where(item => item.ImportDate == Date).
+                OrderByDescending(item => item.Id).Select(item => item.Xmlvalues).ToList());
+            }
+            catch (InvalidOperationException ex) { return NotFound("Nie znaleziono podanych danych, wybierz inny typ"); }
+            catch (Exception e) { return Problem($"Wystąpił błąd: {e}", statusCode: 500); }
+
+        }
 
         [HttpPut]
         [Route("[controller]/UpdateRaport/{Id}/{UpdatedValue}")]
-        public string UpdateRaport(int id, string UpdatedValue)
+        public async Task<IActionResult> UpdateRaport(int id, string UpdatedValue)
         {
             try
             {
                 context.Gusvalues.Where(item => item.Id == id).Single().Xmlvalues = UpdatedValue;
-                context.SaveChanges();
-            }
-            catch (InvalidOperationException ex) { return "Nie znaleziono podanych danych, wybierz inne Id"; }
-            catch (Exception e) { }
+                await context.SaveChangesAsync();
 
-            return $"Zmieniono dane o indeksie {id}";
+                return Ok($"Zmieniono dane o indeksie {id}");
+            }
+            catch (InvalidOperationException ex) { return NotFound("Nie znaleziono podanych danych, wybierz inne Id"); }
+            catch (Exception e) { return Problem($"Wystąpił błąd: {e}", statusCode: 500); }
         }
 
         [HttpPost]
         [Route("[controller]/InsertRaport/{RaportName}/{Value}/{NazwaRaportu?}")]
-        public string InsertRaport(string RaportName, string Value, string? NazwaRaportu)
+        public async Task<IActionResult> InsertRaport(string RaportName, string Value, string? NazwaRaportu)
         {
             if (!AllData.RaportTypes.ContainsKey($"{RaportName}"))
-                return "Nie znaleziono podanego raportu, sprawdź swoją pisownię...";
+                return NotFound("Nie znaleziono podanego raportu, sprawdź swoją pisownię...");
 
             RaportTypeNo = AllData.RaportTypes[RaportName];
 
             GetValuesFromInsert = show.GetValuesFromGus(Value, RaportTypeNo, NazwaRaportu);
             
-            context.Add(new Gusvalue() { Xmlvalues = GetValuesFromInsert, ImportDate = DateTime.Now, RaportType = RaportTypeNo });
-            context.SaveChanges();
+            await context.AddAsync(new Gusvalue() { Xmlvalues = GetValuesFromInsert, ImportDate = DateTime.Now, RaportType = RaportTypeNo });
+            await context.SaveChangesAsync();
 
-            return $"Wpisano poprawnie do bazy";
+            return Ok($"Wpisano poprawnie do bazy");
         }
 
         [HttpDelete]
         [Route("[controller]/DeleteRaport/{Id}")]
-        public string DeleteRaport(int id)
+        public async Task<IActionResult> DeleteRaport(int id)
         {
             try
             {
                 context.Remove(context.Gusvalues.Where(item => item.Id == id).First());
-                context.SaveChanges();
-            }
-            catch (InvalidOperationException ex) { return "Podany model, jest pusty. Wybierz inne id"; }
-            catch (Exception e) { }
+                await context.SaveChangesAsync();
 
-            return $"Usunięto dane o indeksie {id}";
+                return Ok($"Usunięto dane o indeksie {id}");
+            }
+            catch (InvalidOperationException ex) { return NotFound("Nie znaleziono podanych danych, wybierz inne Id"); }
+            catch (Exception e) { return Problem($"Wystąpił błąd: {e}", statusCode: 500); }
         }
     }
 }

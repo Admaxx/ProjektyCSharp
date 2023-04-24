@@ -1,6 +1,6 @@
 ﻿namespace CEIDGREGON
 {
-    internal class ShowRaportValues : ProgramGeneralData
+    public class ShowRaportValues : ProgramGeneralData
     {
         GetRequests request;
         GetFirstNonEmptyValue Box;

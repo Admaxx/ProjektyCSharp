@@ -1,3 +1,6 @@
+using CEIDGREGON;
+using CEIDGWebApi.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +9,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<CeidgregonContext>();
+builder.Services.AddScoped<ProgramGeneralData>();
+builder.Services.AddScoped<ShowRaportValues>();
 
 var app = builder.Build();
 
