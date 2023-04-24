@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "scpWBrwwwPBkVTAjbGh/bFlETDWolskxupMIO/G5bEkJKH+2k11mqZ1R+8w9Jed8wkRYFBq34DDLGy9SOfK21g==",
+  "dgSpecHash": "qQaB5yhnLmnK2o1TWwnyBwQuOtWTqOa29w++inm7uEa5HS0KxmVDr1r5Q7PUhX8fhWd57QLQXIVrW/xaqkEWmA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jakub\\source\\repos\\CEIDGWebApi\\CEIDGWebApi\\CEIDGWebApi.csproj",
+  "projectFilePath": "C:\\Users\\Jakub\\OneDrive\\Pulpit\\ProjektyCSharp\\CEIDGProjects\\WebApi\\CEIDGWebApi\\CEIDGWebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jakub\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
@@ -162,7 +162,11 @@
     "C:\\Users\\Jakub\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Jakub\\.nuget\\packages\\wcfcoremtomencoder\\0.1.16\\wcfcoremtomencoder.0.1.16.nupkg.sha512"
+    "C:\\Users\\Jakub\\.nuget\\packages\\wcfcoremtomencoder\\0.1.16\\wcfcoremtomencoder.0.1.16.nupkg.sha512",
+    "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.16\\microsoft.windowsdesktop.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.16\\microsoft.netcore.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.16\\microsoft.aspnetcore.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.16\\microsoft.netcore.app.host.win-x64.6.0.16.nupkg.sha512"
   ],
   "logs": []
 }

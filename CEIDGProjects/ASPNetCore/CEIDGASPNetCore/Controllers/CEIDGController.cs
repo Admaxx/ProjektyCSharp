@@ -101,21 +101,22 @@ namespace CEIDGASPNetCore.Controllers
             View("Views/CEIDG/Create/InsertDaneSzukajPodmioty.cshtml");
 
         [HttpPost]
-        public IActionResult InsertDaneSzukajPodmioty(DaneSzukajPodmiotyModel model)
+        public async Task<IActionResult> InsertDaneSzukajPodmioty(DaneSzukajPodmiotyModel model)
         {
-            if (ModelState.IsValid)
-            {
-                Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(0, new List<string>() { model.Regon, model.NIP, model.KRS });
+            if (!ModelState.IsValid)
+                return View("Views/CEIDG/Create/InsertDaneSzukajPodmioty.cshtml");
 
-                if (GusValue.Xmlvalues.Contains("ErrorCode"))
-                    return RedirectToAction(allData.NotFoundRaportPage, allData.RaiseErrorMessage, GusValue);
+            Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(0, new List<string>() { model.Regon, model.NIP, model.KRS });
 
-                context.Add(GusValue);
-                context.SaveChanges();
+            if (GusValue.Xmlvalues.Contains("ErrorCode"))
+                return RedirectToAction(allData.NotFoundRaportPage, allData.RaiseErrorMessage, GusValue);
 
-                return RedirectToAction("InsertSuccess", GusValue);
-            }
-            return View("Views/CEIDG/Create/InsertDaneSzukajPodmioty.cshtml");
+            await context.AddAsync(GusValue);
+            await context.SaveChangesAsync();
+
+            return RedirectToAction("InsertSuccess", GusValue);
+
+
         }
         public IActionResult InsertPelnyRaport()
         {
@@ -123,21 +124,19 @@ namespace CEIDGASPNetCore.Controllers
             return View("Views/CEIDG/Create/InsertPelnyRaport.cshtml");
         }
         [HttpPost]
-        public IActionResult InsertPelnyRaport(DanePobierzPelnyRaport model)
+        public async Task<IActionResult> InsertPelnyRaport(DanePobierzPelnyRaport model)
         {
-            if (ModelState.IsValid)
-            {
-                Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(1, new List<string>() { model.Regon }, model.NazwaRaportu);
-
-                if (GusValue.Xmlvalues.Contains("ErrorCode"))
-                    return RedirectToAction(allData.NotFoundRaportPage, allData.RaiseErrorMessage, GusValue);
-
-                context.Add(GusValue);
-                context.SaveChanges();
-
+            Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(1, new List<string>() { model.Regon }, model.NazwaRaportu);
+            
+            if (!ModelState.IsValid)
                 return RedirectToAction("InsertSuccess", GusValue);
-            }
 
+
+            if (GusValue.Xmlvalues.Contains("ErrorCode"))
+                return RedirectToAction(allData.NotFoundRaportPage, allData.RaiseErrorMessage, GusValue);
+
+            await context.AddAsync(GusValue);
+            await context.SaveChangesAsync();
 
             return View("Views/CEIDG/Create/InsertPelnyRaport.cshtml");
         }
@@ -148,30 +147,28 @@ namespace CEIDGASPNetCore.Controllers
         }
 
         [HttpPost]
-        public IActionResult InsertRaportZbiorczy(DanePobierzRaportZbiorczy model)
+        public async Task<IActionResult> InsertRaportZbiorczy(DanePobierzRaportZbiorczy model)
         {
-            if (ModelState.IsValid)
-            {
-                Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(2, new List<string>() { model.DataRaportu.ToString("yyyy-MM-dd") }, model.NazwaRaportu );
+            if (!ModelState.IsValid)
+                return View("Views/CEIDG/Create/InsertRaportZbiorczy.cshtml");
 
-                if (GusValue.Xmlvalues.Contains("ErrorCode"))
-                    return RedirectToAction(allData.NotFoundRaportPage, allData.RaiseErrorMessage, GusValue);
+            Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(2, new List<string>() { model.DataRaportu.ToString("yyyy-MM-dd") }, model.NazwaRaportu);
 
-                context.Add(GusValue);
-                context.SaveChanges();
+            if (GusValue.Xmlvalues.Contains("ErrorCode"))
+                return RedirectToAction(allData.NotFoundRaportPage, allData.RaiseErrorMessage, GusValue);
 
-                return RedirectToAction("InsertSuccess", GusValue);
+            await context.AddAsync(model);
+            await context.SaveChangesAsync();
 
+            return RedirectToAction("InsertSuccess", GusValue);
 
-            }
-            return View("Views/CEIDG/Create/InsertRaportZbiorczy.cshtml");
         }
 
 
-        public IActionResult DeleteRaportById(long Id, string raportData, byte? controllerChoose, byte? raportType)
+        public async Task<IActionResult> DeleteRaportById(long Id, string raportData, byte? controllerChoose, byte? raportType)
         {
             context.Gusvalues.Remove(context.Gusvalues.Where(item => item.Id == Id).First());
-            context.SaveChanges();
+            await context.SaveChangesAsync();
 
             if (controllerChoose == 0)
                 return RedirectToAction(allData.RaportByData, new { RaportData = Convert.ToDateTime(raportData)});
