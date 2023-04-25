@@ -15,16 +15,16 @@ namespace CEIDGASPNetCore.Controllers
         //Its sometimes hard to refactor code with IoC contrainter
         readonly IContainerResolve resolve = null;
 
+        readonly ProgramGeneralData allData = null;
         readonly CeidgregonContext context = null;
         readonly FormatOptions convert = null;
-        readonly ProgramGeneralData allData = null;
         public CEIDGController(IContainerResolve container)
         {
             this.resolve = container;
 
+            allData = resolve.ContainerResolve(new ContainerBuilder()).Resolve<ProgramGeneralData>();
             context = resolve.ContainerResolve(new ContainerBuilder()).Resolve<CeidgregonContext>();
             convert = resolve.ContainerResolve(new ContainerBuilder()).Resolve<FormatOptions>();
-            allData = resolve.ContainerResolve(new ContainerBuilder()).Resolve<ProgramGeneralData>();
         }
         public async Task<IActionResult> Index()
             =>

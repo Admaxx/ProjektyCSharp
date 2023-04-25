@@ -11,9 +11,5 @@ namespace CEIDGASPNetCore.Services.CEIDG
 
             return builder.Build();
         }
-
-
-
-
     }
 }

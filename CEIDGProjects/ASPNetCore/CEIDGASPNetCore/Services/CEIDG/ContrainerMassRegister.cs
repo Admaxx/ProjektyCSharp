@@ -19,7 +19,6 @@ namespace CEIDGASPNetCore.Services.CEIDG
                 .WithParameter("all",new ProgramGeneralData());
 
             builder.RegisterType<GetInsertValues>().As<IValuesInsert>().WithParameter("gus", new ShowRaportValues(new GetRequests(), new GetFirstNonEmptyValue()));
-            builder.RegisterType<FormatOptions>().As<IConvertToJson>();
 
             builder.RegisterType<ConvertDocOnFormat>().As<FormatOptions>();
             builder.RegisterType<CeidgregonContext>();
