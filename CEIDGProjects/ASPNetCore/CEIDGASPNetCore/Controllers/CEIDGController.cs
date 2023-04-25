@@ -25,103 +25,116 @@ namespace CEIDGASPNetCore.Controllers
             this.convert = converts;
             this.allData = all;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
             =>
-            View();
+            await Task.Run(() => View());
 
 
-        public IActionResult ViewRaportByData(DateTime RaportData)
-            =>
+        public async Task<IActionResult> ViewRaportByData(DateTime RaportData)
+            => await Task.Run(() => 
             View("Views/CEIDG/Read/ViewRaportByData.cshtml", context.Gusvalues.Where(
                 item => 
-                item.ImportDate == (RaportData.Date != DateTime.MinValue ? RaportData.Date : DateTime.Now.Date)));
+                item.ImportDate == (RaportData.Date != DateTime.MinValue ? RaportData.Date : DateTime.Now.Date))));
         
-        public IActionResult ViewRaportByDateAndType(DateTime RaportData, byte RaportType)
+        public async Task<IActionResult> ViewRaportByDateAndType(DateTime RaportData, byte RaportType)
         {
             ViewBag.RaportTypeTable = context.RaportTypeNames;
 
-            return View("Views/CEIDG/Read/ViewRaportByDateAndType.cshtml", context.Gusvalues.Where(
+            return await Task.Run(() => 
+            View("Views/CEIDG/Read/ViewRaportByDateAndType.cshtml", context.Gusvalues.Where(
                 item => 
                 item.RaportType == RaportType && 
-                item.ImportDate == (RaportData.Date != DateTime.MinValue ? RaportData.Date : DateTime.Now.Date)));
+                item.ImportDate == (RaportData.Date != DateTime.MinValue ? RaportData.Date : DateTime.Now.Date))));
         }
 
-        public IActionResult ViewLastRaport(bool SetJSONFormat)
+        public async Task<IActionResult> ViewLastRaport(bool SetJSONFormat)
         {
             if (context.Gusvalues.IsNullOrEmpty())
-                return RedirectToAction(allData.SettingNoRaports, new { MessageFromAction = allData.NoRaportsInDB, ActionToReturn = allData.MainPage });
+                return await Task.Run(() => 
+                RedirectToAction(allData.SettingNoRaports, new { MessageFromAction = allData.NoRaportsInDB, ActionToReturn = allData.MainPage }));
 
             ViewBag.IsJSON = SetJSONFormat;
 
             var RaportModel = context.Gusvalues.OrderBy(item => item.Id).Last();
 
             RaportModel.Xmlvalues = convert.ChooseFormat(RaportModel.Xmlvalues, SetJSONFormat);
-            return View("Views/CEIDG/Read/ViewLastRaport.cshtml", RaportModel);
+            return await Task.Run(() => 
+            View("Views/CEIDG/Read/ViewLastRaport.cshtml", RaportModel));
         }
-        public IActionResult AllShowItemsViews()
+        public async Task<IActionResult> AllShowItemsViews()
         {
             if (context.Gusvalues.IsNullOrEmpty())
-                return RedirectToAction(allData.SettingNoRaports, new { MessageFromAction = allData.NoRaportsInDB, ActionToReturn = allData.MainPage });
+                return await Task.Run(() => 
+                RedirectToAction(allData.SettingNoRaports, new { MessageFromAction = allData.NoRaportsInDB, ActionToReturn = allData.MainPage }));
+            
 
-            return View("Views/CEIDG/Read/AllShowItemsViews.cshtml");
+            return await Task.Run(() => 
+            View("Views/CEIDG/Read/AllShowItemsViews.cshtml"));
         }
 
-        public IActionResult NoRaportsView(string MessageFromAction, string ActionToReturn)
+        public async Task<IActionResult> NoRaportsView(string MessageFromAction, string ActionToReturn)
         {
             ViewBag.Message = MessageFromAction;
             ViewBag.ActionNameReturn = ActionToReturn;
-            return View("Views/CEIDG/Read/NoRaportsView.cshtml");
+            return await Task.Run(() =>
+                View("Views/CEIDG/Read/NoRaportsView.cshtml"));
         }
-        public IActionResult UpdateRaportData(int id)
+        public async Task<IActionResult> UpdateRaportData(int id)
         {
-            return View("Views/CEIDG/Update/UpdateRaportData.cshtml", context.Gusvalues.Where(item => item.Id == id).First());
+            return await Task.Run(() =>
+                View("Views/CEIDG/Update/UpdateRaportData.cshtml", context.Gusvalues.Where(item => item.Id == id).First()));
         }
 
         [HttpPost]
-        public IActionResult UpdateRaportData(Gusvalue model)
+        public async Task<IActionResult> UpdateRaportData(Gusvalue model)
         {
 
             if (model.ImportDate > DateTime.Now.Date)
-                return RedirectToAction(allData.SettingNoRaports, new { MessageFromAction = allData.DataGreaterThanTodays, ActionToReturn = allData.LastRaport });
+                return await Task.Run(() => 
+                RedirectToAction(allData.SettingNoRaports, new { MessageFromAction = allData.DataGreaterThanTodays, ActionToReturn = allData.LastRaport }));
 
-            context.Update(model);
-            context.SaveChanges();
+            await Task.Run(() => context.Update(model));
+            await context.SaveChangesAsync();
 
 
-            return RedirectToAction(allData.LastRaport, new { SetJSONFormat = false });
+            return await Task.Run(() => RedirectToAction(allData.LastRaport, new { SetJSONFormat = false }));
         }
 
 
-        public IActionResult InsertSuccess(Gusvalue LastInsertedValues)
-            => 
-            View("Views/CEIDG/Create/InsertSuccess.cshtml", LastInsertedValues);
+        public async Task<IActionResult> InsertSuccess(Gusvalue LastInsertedValues)
+            => await Task.Run(() =>
+            View("Views/CEIDG/Create/InsertSuccess.cshtml", LastInsertedValues));
         
-        public IActionResult InsertDaneSzukajPodmioty()
-            =>
-            View("Views/CEIDG/Create/InsertDaneSzukajPodmioty.cshtml");
+        public async Task<IActionResult> InsertDaneSzukajPodmioty()
+            => await Task.Run(() =>
+            View("Views/CEIDG/Create/InsertDaneSzukajPodmioty.cshtml"));
 
         [HttpPost]
         public async Task<IActionResult> InsertDaneSzukajPodmioty(DaneSzukajPodmiotyModel model)
         {
             if (!ModelState.IsValid)
-                return View("Views/CEIDG/Create/InsertDaneSzukajPodmioty.cshtml");
+                return await Task.Run(() => 
+                View("Views/CEIDG/Create/InsertDaneSzukajPodmioty.cshtml"));
 
             Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(0, new List<string>() { model.Regon, model.NIP, model.KRS });
 
             if (GusValue.Xmlvalues.Contains("ErrorCode"))
-                return RedirectToAction(allData.NotFoundRaportPage, allData.RaiseErrorMessage, GusValue);
+                return await Task.Run(() =>  
+                RedirectToAction(allData.NotFoundRaportPage, allData.RaiseErrorMessage, GusValue));
 
             await context.AddAsync(GusValue);
             await context.SaveChangesAsync();
 
-            return RedirectToAction("InsertSuccess", GusValue);
+            return await Task.Run(() => 
+            RedirectToAction("InsertSuccess", GusValue));
 
 
         }
-        public IActionResult InsertPelnyRaport()
+        public async Task<IActionResult> InsertPelnyRaport()
         {
             ViewBag.RaportsList = context.RaportyNames.Where(item => item.typRaportu == 0).ToList();
-            return View("Views/CEIDG/Create/InsertPelnyRaport.cshtml");
+            return await Task.Run(() => 
+            View("Views/CEIDG/Create/InsertPelnyRaport.cshtml"));
         }
         [HttpPost]
         public async Task<IActionResult> InsertPelnyRaport(DanePobierzPelnyRaport model)
@@ -129,38 +142,45 @@ namespace CEIDGASPNetCore.Controllers
             Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(1, new List<string>() { model.Regon }, model.NazwaRaportu);
             
             if (!ModelState.IsValid)
-                return RedirectToAction("InsertSuccess", GusValue);
+                return await Task.Run(() => 
+                RedirectToAction("InsertSuccess", GusValue));
 
 
             if (GusValue.Xmlvalues.Contains("ErrorCode"))
-                return RedirectToAction(allData.NotFoundRaportPage, allData.RaiseErrorMessage, GusValue);
+                return await Task.Run(() => 
+                RedirectToAction(allData.NotFoundRaportPage, allData.RaiseErrorMessage, GusValue));
 
             await context.AddAsync(GusValue);
             await context.SaveChangesAsync();
 
-            return View("Views/CEIDG/Create/InsertPelnyRaport.cshtml");
+            return await Task.Run(() => 
+            View("Views/CEIDG/Create/InsertPelnyRaport.cshtml"));
         }
-        public IActionResult InsertRaportZbiorczy()
+        public async Task<IActionResult> InsertRaportZbiorczy()
         {
             ViewBag.RaportsList = context.RaportyNames.Where(item => item.typRaportu == 1).ToList();
-            return View("Views/CEIDG/Create/InsertRaportZbiorczy.cshtml");
+            return await Task.Run(() => 
+            View("Views/CEIDG/Create/InsertRaportZbiorczy.cshtml"));
         }
 
         [HttpPost]
         public async Task<IActionResult> InsertRaportZbiorczy(DanePobierzRaportZbiorczy model)
         {
             if (!ModelState.IsValid)
-                return View("Views/CEIDG/Create/InsertRaportZbiorczy.cshtml");
+                return await Task.Run(() => 
+                View("Views/CEIDG/Create/InsertRaportZbiorczy.cshtml"));
 
             Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(2, new List<string>() { model.DataRaportu.ToString("yyyy-MM-dd") }, model.NazwaRaportu);
 
             if (GusValue.Xmlvalues.Contains("ErrorCode"))
-                return RedirectToAction(allData.NotFoundRaportPage, allData.RaiseErrorMessage, GusValue);
+                return await Task.Run(() => 
+                RedirectToAction(allData.NotFoundRaportPage, allData.RaiseErrorMessage, GusValue));
 
             await context.AddAsync(model);
             await context.SaveChangesAsync();
 
-            return RedirectToAction("InsertSuccess", GusValue);
+            return await Task.Run(() => 
+            RedirectToAction("InsertSuccess", GusValue));
 
         }
 
@@ -171,16 +191,19 @@ namespace CEIDGASPNetCore.Controllers
             await context.SaveChangesAsync();
 
             if (controllerChoose == 0)
-                return RedirectToAction(allData.RaportByData, new { RaportData = Convert.ToDateTime(raportData)});
+                return await Task.Run(() => 
+                RedirectToAction(allData.RaportByData, new { RaportData = Convert.ToDateTime(raportData)}));
 
             else if (controllerChoose == 1)
-                return RedirectToAction(allData.RaportByDateAndType, new { RaportData = Convert.ToDateTime(raportData), RaportType = raportType });
+                return await Task.Run(() => 
+                RedirectToAction(allData.RaportByDateAndType, new { RaportData = Convert.ToDateTime(raportData), RaportType = raportType }));
 
-            return RedirectToAction(allData.LastRaport, false);
+            return await Task.Run(() => 
+            RedirectToAction(allData.LastRaport, false));
 
         }
-        public IActionResult Privacy()
+        public async Task<IActionResult> Privacy()
             =>
-            View();
+            await Task.Run(() => View());
     }
 }
