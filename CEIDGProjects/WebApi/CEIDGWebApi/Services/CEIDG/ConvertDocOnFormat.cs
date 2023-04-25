@@ -1,42 +1,17 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Http.Features;
+using Newtonsoft.Json;
 using System.Xml;
 
 namespace CEIDGASPNetCore.Services.CEIDG
 {
-    public class ConvertDocOnFormat
+    public class ConvertDocOnFormat : FormatOptions
     {
-        XmlDocument doc;
-        bool JSONFormat;
-        public ConvertDocOnFormat(bool SetJSONFormat)
+        public override string ChooseFormat(string Values, bool SetJSONFormat)
         {
-            JSONFormat = SetJSONFormat;
-            doc = new XmlDocument();
-        }
-        public string ChooseFormat(string Values)
-        {
-            if (JSONFormat)
-                return ToJSON(Values);
+            if (string.IsNullOrEmpty(Values))
+                return "Brak danych";
 
-            return ToXML(Values);
+            return base.ChooseFormat(Values, SetJSONFormat);
         }
-        public string ToJSON(string Values)
-        {
-            try
-            {
-                doc.LoadXml(Values);
-                return JsonConvert.SerializeXmlNode(doc);
-            }catch(JsonReaderException ex) { }
-            return Values;
-        }
-        public string ToXML(string Values)
-        {
-            try
-            {
-                return JsonConvert.DeserializeXmlNode(Values).ToString();
-            }catch(JsonReaderException ex) { }
-            return Values;
-        }
-
-
     }
 }
