@@ -1,29 +1,30 @@
 ﻿using Autofac;
 using CEIDGASPNetCore.DbModel;
 using CEIDGASPNetCore.Models;
-using CEIDGASPNetCore.Services.CEIDG;
 using CEIDGASPNetCore.Services.CEIDG.Interfaces.Abstract;
-using CEIDGREGON;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using CEIDGASPNetCore.Services.CEIDG.Interfaces;
+using CEIDGREGON;
+using CEIDGASPNetCore.Services.CEIDG.Abstract;
 
 namespace CEIDGASPNetCore.Controllers
 {
     public class CEIDGController : Controller
     {
         //Its sometimes hard to refactor code with IoC contrainter
-        CeidgregonContext context = null;
-        ContrainerResolve resolve = null;
+        readonly IContainerResolve resolve = null;
 
-        ConvertDocOnFormat convert = null;
-        ProgramGeneralData allData = null;
-        public CEIDGController(CeidgregonContext conn, ContrainerResolve ress, ConvertDocOnFormat converts, ProgramGeneralData all )
+        readonly CeidgregonContext context = null;
+        readonly FormatOptions convert = null;
+        readonly ProgramGeneralData allData = null;
+        public CEIDGController(IContainerResolve container)
         {
-            this.context = conn;
-            this.resolve = ress;
+            this.resolve = container;
 
-            this.convert = converts;
-            this.allData = all;
+            context = resolve.ContainerResolve(new ContainerBuilder()).Resolve<CeidgregonContext>();
+            convert = resolve.ContainerResolve(new ContainerBuilder()).Resolve<FormatOptions>();
+            allData = resolve.ContainerResolve(new ContainerBuilder()).Resolve<ProgramGeneralData>();
         }
         public async Task<IActionResult> Index()
             =>
