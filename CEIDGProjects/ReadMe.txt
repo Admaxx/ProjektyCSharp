@@ -1,3 +1,5 @@
+[PL]
+
 Jest to aplikacja, która pobiera dane z GUS-u.
 Jest ona oparta na API, które zostało publicznie udostępnione(wersja testowa).
 Zostały udostępnione pliki typu WSDL, które posiadają gotowe metody, które można sprzężeć z różnymi technologiami (w moim przypadku, są to: Winforms, ASP NET WEB API oraz ASP NET CORE)
