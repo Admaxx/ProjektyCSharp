@@ -115,9 +115,7 @@ namespace CEIDGASPNetCore.Controllers
         {
             if (!ModelState.IsValid)
                 return await Task.Run(() =>
-                View("Views/CEIDG/Create/InsertDaneSzukajPodmioty.cshtml"));
-            
-
+                RedirectToAction("InsertDaneSzukajPodmioty"));
 
             Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(0, new List<string>() { model.Regon, model.NIP, model.KRS });
 
@@ -170,8 +168,7 @@ namespace CEIDGASPNetCore.Controllers
         {
             if (!ModelState.IsValid)
                 return await Task.Run(() =>
-                View("Views/CEIDG/Create/InsertRaportZbiorczy.cshtml"));
-            
+                RedirectToAction("InsertRaportZbiorczy"))
 
             Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(2, new List<string>() { model.DataRaportu.ToString("yyyy-MM-dd") }, model.NazwaRaportu);
 
