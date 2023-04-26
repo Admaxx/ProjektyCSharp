@@ -18,6 +18,7 @@ namespace CEIDGREGON
         internal readonly string NotFoundRaportPage = "RaportNotFound";
         internal readonly string RaportByData = "ViewRaportByData";
         internal readonly string RaportByDateAndType = "ViewRaportByDateAndType";
+        internal readonly string RaportInsertFailed = "Raport nie został wpisany, na wskutek błędu, sprawdź ponownie wartości";
 
         internal readonly Dictionary<string, byte> RaportTypes = new Dictionary<string, byte>()
         {

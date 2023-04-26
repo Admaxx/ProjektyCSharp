@@ -114,8 +114,10 @@ namespace CEIDGASPNetCore.Controllers
         public async Task<IActionResult> InsertDaneSzukajPodmioty(DaneSzukajPodmiotyModel model)
         {
             if (!ModelState.IsValid)
-                return await Task.Run(() => 
+                return await Task.Run(() =>
                 View("Views/CEIDG/Create/InsertDaneSzukajPodmioty.cshtml"));
+            
+
 
             Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(0, new List<string>() { model.Regon, model.NIP, model.KRS });
 
@@ -140,12 +142,11 @@ namespace CEIDGASPNetCore.Controllers
         [HttpPost]
         public async Task<IActionResult> InsertPelnyRaport(DanePobierzPelnyRaport model)
         {
-            Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(1, new List<string>() { model.Regon }, model.NazwaRaportu);
-            
             if (!ModelState.IsValid)
-                return await Task.Run(() => 
-                RedirectToAction("InsertSuccess", GusValue));
-
+                return await Task.Run(() =>
+                RedirectToAction("InsertPelnyRaport"));
+            
+            Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(1, new List<string>() { model.Regon }, model.NazwaRaportu);
 
             if (GusValue.Xmlvalues.Contains("ErrorCode"))
                 return await Task.Run(() => 
@@ -154,8 +155,8 @@ namespace CEIDGASPNetCore.Controllers
             await context.AddAsync(GusValue);
             await context.SaveChangesAsync();
 
-            return await Task.Run(() => 
-            View("Views/CEIDG/Create/InsertPelnyRaport.cshtml"));
+            return await Task.Run(() =>
+            RedirectToAction("InsertSuccess", GusValue));
         }
         public async Task<IActionResult> InsertRaportZbiorczy()
         {
@@ -168,8 +169,9 @@ namespace CEIDGASPNetCore.Controllers
         public async Task<IActionResult> InsertRaportZbiorczy(DanePobierzRaportZbiorczy model)
         {
             if (!ModelState.IsValid)
-                return await Task.Run(() => 
+                return await Task.Run(() =>
                 View("Views/CEIDG/Create/InsertRaportZbiorczy.cshtml"));
+            
 
             Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(2, new List<string>() { model.DataRaportu.ToString("yyyy-MM-dd") }, model.NazwaRaportu);
 
