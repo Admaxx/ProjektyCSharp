@@ -14,13 +14,15 @@ namespace CEIDGASPNetCore.Controllers
     {
         //Its sometimes hard to refactor code with IoC contrainter
         readonly IContainerResolve resolve = null;
+        readonly ILogger<CEIDGController> logger = null;
 
         readonly ProgramGeneralData allData = null;
         readonly CeidgregonContext context = null;
         readonly FormatOptions convert = null;
-        public CEIDGController(IContainerResolve container)
+        public CEIDGController(IContainerResolve container, ILogger<CEIDGController> log)
         {
             this.resolve = container;
+            this.logger = log;
 
             allData = resolve.ContainerResolve(new ContainerBuilder()).Resolve<ProgramGeneralData>();
             context = resolve.ContainerResolve(new ContainerBuilder()).Resolve<CeidgregonContext>();
@@ -40,7 +42,6 @@ namespace CEIDGASPNetCore.Controllers
         public async Task<IActionResult> ViewRaportByDateAndType(DateTime RaportData, byte RaportType)
         {
             ViewBag.RaportTypeTable = context.RaportTypeNames;
-
             return await Task.Run(() => 
             View("Views/CEIDG/Read/ViewRaportByDateAndType.cshtml", context.Gusvalues.Where(
                 item => 
@@ -105,17 +106,20 @@ namespace CEIDGASPNetCore.Controllers
         public async Task<IActionResult> InsertSuccess(Gusvalue LastInsertedValues)
             => await Task.Run(() =>
             View("Views/CEIDG/Create/InsertSuccess.cshtml", LastInsertedValues));
-        
-        public async Task<IActionResult> InsertDaneSzukajPodmioty()
-            => await Task.Run(() =>
+
+        public async Task<IActionResult> InsertDaneSzukajPodmioty(string ErrorMessage)
+        {
+            ViewBag.ErrorMessage = ErrorMessage;
+            return await Task.Run(() =>
             View("Views/CEIDG/Create/InsertDaneSzukajPodmioty.cshtml"));
 
+        }
         [HttpPost]
         public async Task<IActionResult> InsertDaneSzukajPodmioty(DaneSzukajPodmiotyModel model)
         {
             if (!ModelState.IsValid)
                 return await Task.Run(() =>
-                RedirectToAction("InsertDaneSzukajPodmioty"));
+                RedirectToAction("InsertDaneSzukajPodmioty", new { ErrorMessage = allData.RaportInsertFailed }));
 
             Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(0, new List<string>() { model.Regon, model.NIP, model.KRS });
 
@@ -131,8 +135,9 @@ namespace CEIDGASPNetCore.Controllers
 
 
         }
-        public async Task<IActionResult> InsertPelnyRaport()
+        public async Task<IActionResult> InsertPelnyRaport(string ErrorMessage)
         {
+            ViewBag.ErrorMessage = ErrorMessage;
             ViewBag.RaportsList = context.RaportyNames.Where(item => item.typRaportu == 0).ToList();
             return await Task.Run(() => 
             View("Views/CEIDG/Create/InsertPelnyRaport.cshtml"));
@@ -142,7 +147,8 @@ namespace CEIDGASPNetCore.Controllers
         {
             if (!ModelState.IsValid)
                 return await Task.Run(() =>
-                RedirectToAction("InsertPelnyRaport"));
+                RedirectToAction("InsertPelnyRaport", new {ErrorMessage = allData.RaportInsertFailed }));
+            
             
             Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(1, new List<string>() { model.Regon }, model.NazwaRaportu);
 
@@ -156,8 +162,9 @@ namespace CEIDGASPNetCore.Controllers
             return await Task.Run(() =>
             RedirectToAction("InsertSuccess", GusValue));
         }
-        public async Task<IActionResult> InsertRaportZbiorczy()
+        public async Task<IActionResult> InsertRaportZbiorczy(string ErrorMessage)
         {
+            ViewBag.ErrorMessage = ErrorMessage;
             ViewBag.RaportsList = context.RaportyNames.Where(item => item.typRaportu == 1).ToList();
             return await Task.Run(() => 
             View("Views/CEIDG/Create/InsertRaportZbiorczy.cshtml"));
@@ -168,7 +175,7 @@ namespace CEIDGASPNetCore.Controllers
         {
             if (!ModelState.IsValid)
                 return await Task.Run(() =>
-                RedirectToAction("InsertRaportZbiorczy"))
+                RedirectToAction("InsertRaportZbiorczy", new { ErrorMessage = allData.RaportInsertFailed }));
 
             Gusvalue GusValue = resolve.ContainerResolve(new ContainerBuilder()).Resolve<IValuesInsert>().LastInsertValues(2, new List<string>() { model.DataRaportu.ToString("yyyy-MM-dd") }, model.NazwaRaportu);
 
@@ -187,7 +194,7 @@ namespace CEIDGASPNetCore.Controllers
 
         public async Task<IActionResult> DeleteRaportById(long Id, string raportData, byte? controllerChoose, byte? raportType)
         {
-            context.Gusvalues.Remove(context.Gusvalues.Where(item => item.Id == Id).First());
+            await Task.Run(() => context.Gusvalues.Remove(context.Gusvalues.Where(item => item.Id == Id).First()));
             await context.SaveChangesAsync();
 
             if (controllerChoose == 0)

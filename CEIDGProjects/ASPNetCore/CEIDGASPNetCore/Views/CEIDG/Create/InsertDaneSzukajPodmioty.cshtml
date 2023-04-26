@@ -25,6 +25,7 @@
                 @Html.TextBoxFor(item => item.KRS, new {@class="form-control", @type = "number"})
                 <span asp-validation-for="KRS" class="text-danger"></span>
             </div>
+            @Html.Label($"{@ViewBag.ErrorMessage}")
             <div class="form-group">
                 <button class="btn btn-secondary">Wybierz</button>
             </div>
