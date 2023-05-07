@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2pW4Nbvh/1IJv0oD29gAa/RWaD6T+lCHeSoYZgGQ5mFZSnves+Nd24ejRuv300gQT/3VGwdp/OpSM0Whdhv/LQ==",
+  "dgSpecHash": "8YdKwbFABIMqWEqtAOjIYiukE3IhSgb9/6cssaZhnsdjYL1qanlK7b0TQDzB9LSi/GFKx8mJTiPZtSVN6U0Imw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jakub\\source\\repos\\PaperStore\\PaperStore\\PaperStore.csproj",
+  "projectFilePath": "C:\\Users\\Jakub\\OneDrive\\Pulpit\\ProjektyCSharp\\PaperStore\\PaperStore\\PaperStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jakub\\.nuget\\packages\\autofac\\7.0.1\\autofac.7.0.1.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",

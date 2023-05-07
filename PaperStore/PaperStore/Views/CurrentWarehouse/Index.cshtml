@@ -5,9 +5,9 @@
 }
 
 <h1>Index</h1>
-@ViewBag.Message
+@ViewBag.ActionMessage
 <p>
-    <a asp-action="CreateItem">Create New</a>
+    <a asp-action="CreateItem"><input type="submit" value="Dodaj" class="btn btn-outline-success" /></a>
 </p>
 <table class="table">
     <thead>
@@ -25,23 +25,24 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AddtionalInfoId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Qty)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddtionalInfoId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Qty)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-CurrentStock="@item.Id"><input type="submit" value="Zmień" class="btn btn-outline-warning" /></a>
+                    <a asp-action="Details" asp-route-Id="@item.Id"><input type="submit" value="Szczegóły" class="btn btn-outline-info" /></a>
+                    <a asp-action="DeleteItem" asp-route-Id="@item.Id"><input type="submit" value="Usuń" class="btn btn-outline-danger" /></a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

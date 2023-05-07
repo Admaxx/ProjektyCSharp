@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jakub\\source\\repos\\PaperStore\\PaperStore\\PaperStore.csproj": {}
+    "C:\\Users\\Jakub\\OneDrive\\Pulpit\\ProjektyCSharp\\PaperStore\\PaperStore\\PaperStore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jakub\\source\\repos\\PaperStore\\PaperStore\\PaperStore.csproj": {
+    "C:\\Users\\Jakub\\OneDrive\\Pulpit\\ProjektyCSharp\\PaperStore\\PaperStore\\PaperStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jakub\\source\\repos\\PaperStore\\PaperStore\\PaperStore.csproj",
+        "projectUniqueName": "C:\\Users\\Jakub\\OneDrive\\Pulpit\\ProjektyCSharp\\PaperStore\\PaperStore\\PaperStore.csproj",
         "projectName": "PaperStore",
-        "projectPath": "C:\\Users\\Jakub\\source\\repos\\PaperStore\\PaperStore\\PaperStore.csproj",
+        "projectPath": "C:\\Users\\Jakub\\OneDrive\\Pulpit\\ProjektyCSharp\\PaperStore\\PaperStore\\PaperStore.csproj",
         "packagesPath": "C:\\Users\\Jakub\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jakub\\source\\repos\\PaperStore\\PaperStore\\obj\\",
+        "outputPath": "C:\\Users\\Jakub\\OneDrive\\Pulpit\\ProjektyCSharp\\PaperStore\\PaperStore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

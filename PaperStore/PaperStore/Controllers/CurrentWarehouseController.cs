@@ -13,10 +13,11 @@ namespace PaperStore.Controllers
             this.context = _context;
         }
 
-        public IActionResult Index(string Message)
+        public IActionResult Index(string ActionMessage)
         {
-            ViewBag.Message = Message;
-            return View(context.CurrentStocks.Include(item => item.items));
+            var GetCurrentStock = context.CurrentStocks.Where(item => item.Archive == false);
+            ViewBag.ActionMessage = ActionMessage;
+            return View(GetCurrentStock);
         }
         public IActionResult CreateItem(string ErrorMsg)
         {
@@ -25,16 +26,27 @@ namespace PaperStore.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult CreateItem(CurrentStock model)
+        public async Task<IActionResult> CreateItem(CurrentStock model)
         {
             if (!ModelState.IsValid)
                 return RedirectToAction("CreateItem", new { ErrorMsg = "Wystąpił bład" });
 
-            context.Add(model);
-            context.SaveChanges();
+            await context.AddAsync(model);
+            await context.SaveChangesAsync();
 
 
-            return RedirectToAction("Index", new { Message = "Dodano poprawnie" });
+            return RedirectToAction("Index", new { ActionMessage = "Dodano poprawnie" });
+        }
+        public async Task<IActionResult> DeleteItem(long Id)
+        {
+            
+            await Task.Run(() =>
+            {
+                context.Remove(context.CurrentStocks.Where(item => item.Id == Id).First());
+            });
+            await context.SaveChangesAsync();
+
+            return RedirectToAction("Index", new { ActionMessage = "Usunięto poprawnie" });
         }
     }
 }

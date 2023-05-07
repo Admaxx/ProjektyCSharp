@@ -18,7 +18,4 @@ public partial class CurrentStock
     public bool? Archive { get; set; }
 
     public int Qty { get; set; }
-
-    public StockAdditionalInfo? additionalInfos { get; set; }
-    public StockItem? items { get; set; }
 }
