@@ -10,19 +10,22 @@ namespace CEIDGWebApi.Controllers
     
     public class CEIDGController : ControllerBase
     {
-        readonly IContainerResolve resolve = null;
+        readonly IContainerResolve resolve = null!;
+        readonly ILogger<CEIDGController> logger = null!;
 
-        readonly ProgramGeneralData AllData = null;
-        readonly CeidgregonContext context = null;
-        readonly FormatOptions convert = null;
-        readonly ShowRaportValues show = null;
+        readonly ProgramGeneralData AllData = null!;
+        readonly CeidgregonContext context = null!;
+        readonly FormatOptions convert = null!;
+        readonly ShowRaportValues show = null!;
+
 
         byte RaportTypeNo;
         string GetValuesFromInsert;
 
-        public CEIDGController(IContainerResolve container)
+        public CEIDGController(IContainerResolve container, ILogger<CEIDGController> log)
         {
             this.resolve = container;
+            this.logger = log;
 
             AllData = resolve.ContainerResolve(new ContainerBuilder()).Resolve<ProgramGeneralData>();
             context = resolve.ContainerResolve(new ContainerBuilder()).Resolve<CeidgregonContext>();
@@ -40,7 +43,7 @@ namespace CEIDGWebApi.Controllers
                 return await Task.Run(() => 
                 Ok(context.Gusvalues.Where(item => item.Id == id).Single().Xmlvalues));
             }
-            catch (InvalidOperationException ex) { return NotFound("Nie znaleziono podanych danych, wybierz inne Id"); }
+            catch (InvalidOperationException) { return NotFound("Nie znaleziono podanych danych, wybierz inne Id"); }
             catch (Exception e) { return Problem($"Wystąpił błąd: {e}", statusCode: 500); }
         }
 
@@ -54,7 +57,7 @@ namespace CEIDGWebApi.Controllers
                Ok(context.Gusvalues.Where(item => item.RaportType == raportType).
                     OrderByDescending(item => item.Id).Select(item => item.Xmlvalues).ToList()));
             }
-            catch (InvalidOperationException ex) { return NotFound("Nie znaleziono podanych danych, wybierz inny typ"); }
+            catch (InvalidOperationException) { return NotFound("Nie znaleziono podanych danych, wybierz inny typ"); }
             catch (Exception e) { return Problem($"Wystąpił błąd: {e}", statusCode: 500); }
 
         }
@@ -80,7 +83,7 @@ namespace CEIDGWebApi.Controllers
                 Ok(context.Gusvalues.Where(item => item.ImportDate == Date).
                 OrderByDescending(item => item.Id).Select(item => item.Xmlvalues).ToList()));
             }
-            catch (InvalidOperationException ex) { return NotFound("Nie znaleziono podanych danych, wybierz inny typ"); }
+            catch (InvalidOperationException) { return NotFound("Nie znaleziono podanych danych, wybierz inny typ"); }
             catch (Exception e) { return Problem($"Wystąpił błąd: {e}", statusCode: 500); }
 
         }
@@ -96,7 +99,7 @@ namespace CEIDGWebApi.Controllers
 
                 return Ok($"Zmieniono dane o indeksie {id}");
             }
-            catch (InvalidOperationException ex) { return NotFound("Nie znaleziono podanych danych, wybierz inne Id"); }
+            catch (InvalidOperationException) { return NotFound("Nie znaleziono podanych danych, wybierz inne Id"); }
             catch (Exception e) { return Problem($"Wystąpił błąd: {e}", statusCode: 500); }
         }
 
@@ -131,7 +134,7 @@ namespace CEIDGWebApi.Controllers
 
                 return Ok($"Usunięto dane o indeksie {id}");
             }
-            catch (InvalidOperationException ex) { return NotFound("Nie znaleziono podanych danych, wybierz inne Id"); }
+            catch (InvalidOperationException) { return NotFound("Nie znaleziono podanych danych, wybierz inne Id"); }
             catch (Exception e) { return Problem($"Wystąpił błąd: {e}", statusCode: 500); }
         }
     }

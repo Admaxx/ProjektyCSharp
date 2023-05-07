@@ -42,7 +42,7 @@ namespace CEIDGASPNetCore.Services.CEIDG
             {
                 return JsonConvert.DeserializeXmlNode(Values).ToString();
             }
-            catch (JsonReaderException ex) { }
+            catch (JsonReaderException) { }
             return Values;
         }
         #endregion
