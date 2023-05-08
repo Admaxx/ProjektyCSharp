@@ -1,0 +1,54 @@
+﻿@model PaperStore.WareHouseData.CurrentStock
+
+@{
+    ViewData["Title"] = "ItemsDetails";
+}
+
+<h1>ItemsDetails</h1>
+
+<div>
+    <h4>CurrentStock</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AddtionalInfoId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AddtionalInfoId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.InputData)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.InputData)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UpdateData)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UpdateData)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Archive)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Archive)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Qty)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Qty)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="UpdateItem" asp-route-id="@Model?.Id">Zmień</a> |
+    <a asp-action="Index">Wróć do listy</a>
+</div>
