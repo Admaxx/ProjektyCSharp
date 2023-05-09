@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<PaperStore.WareHouseData.CurrentStock>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Strona główna";
+    var r = 2;
 }
 
-<h1>Index</h1>
+<h1>Wykaz dostępnych towarów</h1>
 @ViewBag.ActionMessage
 <p>
     <a asp-action="CreateItem"><input type="submit" value="Dodaj" class="btn btn-outline-success" /></a>

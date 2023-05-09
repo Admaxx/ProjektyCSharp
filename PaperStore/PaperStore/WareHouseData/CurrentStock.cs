@@ -18,7 +18,7 @@ public partial class CurrentStock
 
     public bool? Archive { get; set; }
 
-    [Required(ErrorMessage = "Ilość nie może być pusta!")]
+    [Required(ErrorMessage = "Wartość nie może być pusta!")]
     [Range(1, int.MaxValue, ErrorMessage = "Wartość musi być większa od 0!")]
     public int Qty { get; set; }
 }

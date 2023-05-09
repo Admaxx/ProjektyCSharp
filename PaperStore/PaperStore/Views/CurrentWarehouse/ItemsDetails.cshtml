@@ -2,6 +2,10 @@
 
 @{
     ViewData["Title"] = "ItemsDetails";
+    
+    var IsArchive = @Model.Archive == false ? "Nie" : "Tak";
+
+
 }
 
 <h1>ItemsDetails</h1>
@@ -11,37 +15,37 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProductName)
+            @Html.DisplayName("Nazwa")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.ProductName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AddtionalInfoId)
+            @Html.DisplayName("Dodatkowe informacje")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.AddtionalInfoId)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.InputData)
+            @Html.DisplayName("Data dodania")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.InputData)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UpdateData)
+            @Html.DisplayName("Data zmiany")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.UpdateData)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Archive)
+            @Html.DisplayName("Czy archiwalny?")
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Archive)
+            @Html.Label(IsArchive)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Qty)
+            @Html.DisplayName("Ilość")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Qty)
@@ -49,6 +53,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="UpdateItem" asp-route-id="@Model?.Id">Zmień</a> |
-    <a asp-action="Index">Wróć do listy</a>
+    <a asp-action="UpdateItem" asp-route-id="@Model?.Id"> <input type="submit" value="Zmień" class="btn btn-outline-warning" /></a>
+    <a asp-action="Index"> <input type="submit" value="Wróć do listy" class="btn btn-outline-info" /></a>
 </div>

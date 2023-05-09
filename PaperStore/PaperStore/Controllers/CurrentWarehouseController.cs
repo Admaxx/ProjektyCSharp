@@ -19,12 +19,11 @@ namespace PaperStore.Controllers
             ViewBag.ActionMessage = ActionMessage;
             return View(GetCurrentStock);
         }
-        public IActionResult CreateItem(string ErrorMsg)
+        public async Task<IActionResult> CreateItem(string ErrorMsg)
         {
-            ViewBag.ProductList = context.StockItems.ToListAsync();
-            ViewBag.AdditionalInfo = context.StockAdditionalInfos.ToListAsync();
+            ViewBag.ProductList = await context.StockItems.ToListAsync();
+            ViewBag.AdditionalInfo = await context.StockAdditionalInfos.ToListAsync();
             ViewBag.ErrorMsg = ErrorMsg;
-
             return View();
         }
         [HttpPost]
@@ -33,19 +32,22 @@ namespace PaperStore.Controllers
             if (!ModelState.IsValid)
                 return RedirectToAction("CreateItem", new { ErrorMsg = "Wystąpił bład" });
 
+            model.Archive = false;
+            model.InputData = DateTime.Now;
+
             await context.AddAsync(model);
             await context.SaveChangesAsync();
 
 
             return RedirectToAction("Index", new { ActionMessage = "Dodano poprawnie" });
         }
-        public IActionResult UpdateItem(long Id, string ErrorMsg)
+        public async Task<IActionResult> UpdateItem(long Id, string ErrorMsg)
         {
-            ViewBag.ProductList = context.StockItems.ToListAsync();
-            ViewBag.AdditionalInfo = context.StockAdditionalInfos.ToListAsync();
+            ViewBag.ProductList = await context.StockItems.ToListAsync();
+            ViewBag.AdditionalInfo = await context.StockAdditionalInfos.ToListAsync();
             ViewBag.ErrorMsg = ErrorMsg;
 
-            return View(context.CurrentStocks.Where(item => item.Id == Id).FirstAsync());
+            return View(await context.CurrentStocks.Where(item => item.Id == Id).FirstAsync());
         }
         [HttpPost]
         public async Task<IActionResult> UpdateItem(CurrentStock model)
@@ -53,6 +55,7 @@ namespace PaperStore.Controllers
             if (!ModelState.IsValid)
                 return RedirectToAction("UpdateItem", new { model.Id, ErrorMsg = "Wystąpił bład" });
 
+            model.UpdateData = DateTime.Now;
             await Task.Run(() =>
             {
                 context.Update(model);
@@ -67,14 +70,19 @@ namespace PaperStore.Controllers
         
         public async Task<IActionResult> DeleteItem(long Id)
         {
-            
+            var model = await context.CurrentStocks.Where(item => item.Id == Id).FirstAsync();
+
+            model.Archive = true;
             await Task.Run(() =>
             {
-                context.Remove(context.CurrentStocks.Where(item => item.Id == Id).FirstAsync());
+                context.Update(model);
             });
             await context.SaveChangesAsync();
 
             return RedirectToAction("Index", new { ActionMessage = "Usunięto poprawnie" });
         }
+        public IActionResult Privacy()
+            =>
+            View();
     }
 }
