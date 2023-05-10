@@ -1,30 +1,29 @@
 ﻿@model PaperStore.WareHouseData.CurrentStock
 
 @{
-    ViewData["Title"] = "ItemsDetails";
+    ViewData["Title"] = "Szczegóły towaru";
     
-    var IsArchive = @Model.Archive == false ? "Nie" : "Tak";
+    string IsArchive = @Model.Archive == false ? "Nie" : "Tak";
 
 
 }
 
-<h1>ItemsDetails</h1>
+<h1>Szczegóły towaru</h1>
 
 <div>
-    <h4>CurrentStock</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayName("Nazwa")
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProductName)
+            @Html.DisplayFor(model => model.ProductNameNavigation.ItemName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayName("Dodatkowe informacje")
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AddtionalInfoId)
+            @Html.DisplayFor(model => model.AddtionalInfoNavigation.AdditionalInfo)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayName("Data dodania")
@@ -42,7 +41,7 @@
             @Html.DisplayName("Czy archiwalny?")
         </dt>
         <dd class = "col-sm-10">
-            @Html.Label(IsArchive)
+            @Html.DisplayName(IsArchive)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayName("Ilość")

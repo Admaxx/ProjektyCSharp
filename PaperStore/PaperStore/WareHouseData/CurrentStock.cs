@@ -6,8 +6,11 @@ namespace PaperStore.WareHouseData;
 
 public partial class CurrentStock
 {
+    [Key]
     public long Id { get; set; }
+
     [Required(ErrorMessage = "Nazwa produktu nie może być pusta!")]
+
     public long ProductName { get; set; }
 
     public long? AddtionalInfoId { get; set; }
@@ -21,4 +24,8 @@ public partial class CurrentStock
     [Required(ErrorMessage = "Wartość nie może być pusta!")]
     [Range(1, int.MaxValue, ErrorMessage = "Wartość musi być większa od 0!")]
     public int Qty { get; set; }
+
+    public virtual StockAdditionalInfo AddtionalInfoNavigation { get; set; } = null!;
+
+    public virtual StockItem ProductNameNavigation { get; set; } = null!;
 }

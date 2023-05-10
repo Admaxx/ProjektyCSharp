@@ -31,11 +31,7 @@ public partial class PaperWarehouseContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PK__current___3214EC07C15014C7");
 
-            entity.ToTable("current_stock", tb =>
-                {
-                    tb.HasTrigger("set_input_date");
-                    tb.HasTrigger("set_update_date");
-                });
+            entity.ToTable("current_stock");
 
             entity.Property(e => e.AddtionalInfoId).HasColumnName("addtional_info_Id");
             entity.Property(e => e.Archive).HasColumnName("archive");
@@ -46,6 +42,15 @@ public partial class PaperWarehouseContext : DbContext
             entity.Property(e => e.UpdateData)
                 .HasColumnType("datetime")
                 .HasColumnName("update_data");
+
+            entity.HasOne(d => d.AddtionalInfoNavigation).WithMany(p => p.CurrentStocks)
+                .HasForeignKey(d => d.AddtionalInfoId)
+                .HasConstraintName("FK_current_stock_stock_additional_info");
+
+            entity.HasOne(d => d.ProductNameNavigation).WithMany(p => p.CurrentStocks)
+                .HasForeignKey(d => d.ProductName)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_current_stock_stock_items");
         });
 
         modelBuilder.Entity<StockAdditionalInfo>(entity =>

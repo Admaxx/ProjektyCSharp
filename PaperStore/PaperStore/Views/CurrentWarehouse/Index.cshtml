@@ -2,7 +2,6 @@
 
 @{
     ViewData["Title"] = "Strona główna";
-    var r = 2;
 }
 
 <h1>Wykaz dostępnych towarów</h1>
@@ -14,13 +13,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ProductName)
+                @Html.DisplayName("Nazwa produktu")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AddtionalInfoId)
+                @Html.DisplayName("Informacja dodatkowa")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Qty)
+                @Html.DisplayName("Ilość")
             </th>
             <th></th>
         </tr>
@@ -30,10 +29,10 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ProductName)
+                    @Html.DisplayFor(modelItem => item.ProductNameNavigation.ItemName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.AddtionalInfoId)
+                    @Html.DisplayFor(modelItem => item.AddtionalInfoNavigation.AdditionalInfo)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Qty)
