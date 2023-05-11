@@ -4,7 +4,8 @@ View for item details
 
 TODO:
 -Login/registration page,
--Companies list from who importing avaible items
+-Companies list from who importing avaible items,
+-CheckBox for many updates
 No new ideas, maybe soon
 
 
