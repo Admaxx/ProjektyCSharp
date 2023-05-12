@@ -16,6 +16,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStore
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Jakub/OneDrive/Pulpit/ProjektyCSharp/PaperStore/PaperStore/Views/CurrentWarehouse/ChooseCompany.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VycmVudFdhcmVob3VzZVxDaG9vc2VDb21wYW55LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jakub/OneDrive/Pulpit/ProjektyCSharp/PaperStore/PaperStore/Views/CurrentWarehouse/ChooseDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VycmVudFdhcmVob3VzZVxDaG9vc2VEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Jakub/OneDrive/Pulpit/ProjektyCSharp/PaperStore/PaperStore/Views/CurrentWarehouse/Contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VycmVudFdhcmVob3VzZVxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

@@ -7,9 +7,9 @@
 <h1>Wykaz dostępnych towarów</h1>
 @ViewBag.ActionMessage
 <p>
-    <a asp-action="CreateItem"><input type="submit" value="Dodaj" class="btn btn-outline-success" /></a>
+    <a asp-action="ChooseCompany"><input type="submit" value="Dodaj" class="btn btn-outline-success" /></a>
 </p>
-<table class="table">
+<table class="table table-hover table-striped table-bordered">
     <thead>
         <tr>
             <th>
@@ -20,6 +20,9 @@
             </th>
             <th>
                 @Html.DisplayName("Ilość")
+            </th>
+            <th>
+                @Html.DisplayName("Dostępne akcje")
             </th>
             <th></th>
         </tr>

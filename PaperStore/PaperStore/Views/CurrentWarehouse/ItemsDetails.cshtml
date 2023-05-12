@@ -19,6 +19,12 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.ProductNameNavigation.ItemName)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Firma")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductNameNavigation.Company.CompanyName)
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayName("Dodatkowe informacje")
         </dt>

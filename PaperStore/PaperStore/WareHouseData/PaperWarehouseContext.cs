@@ -15,6 +15,8 @@ public partial class PaperWarehouseContext : DbContext
     {
     }
 
+    public virtual DbSet<CompaniesList> CompaniesLists { get; set; }
+
     public virtual DbSet<CurrentStock> CurrentStocks { get; set; }
 
     public virtual DbSet<StockAdditionalInfo> StockAdditionalInfos { get; set; }
@@ -27,11 +29,19 @@ public partial class PaperWarehouseContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<CompaniesList>(entity =>
+        {
+            entity.ToTable("companiesList");
+
+            entity.Property(e => e.CompanyName)
+                .IsUnicode(false)
+                .HasColumnName("company_name");
+        });
         modelBuilder.Entity<CurrentStock>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__current___3214EC07C15014C7");
 
-            entity.ToTable("current_stock");
+            entity.ToTable("current_stock", t => t.HasTrigger("SetBasicsDataToNewItems"));
 
             entity.Property(e => e.AddtionalInfoId).HasColumnName("addtional_info_Id");
             entity.Property(e => e.Archive).HasColumnName("archive");
@@ -71,9 +81,14 @@ public partial class PaperWarehouseContext : DbContext
 
             entity.ToTable("stock_items");
 
+            entity.Property(e => e.CompanyId).HasColumnName("company_Id");
             entity.Property(e => e.ItemName)
                 .IsUnicode(false)
                 .HasColumnName("item_name");
+
+            entity.HasOne(d => d.Company).WithMany(p => p.StockItems)
+                .HasForeignKey(d => d.CompanyId)
+                .HasConstraintName("FK_stock_items_companiesList");
         });
 
         OnModelCreatingPartial(modelBuilder);

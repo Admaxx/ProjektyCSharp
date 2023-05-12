@@ -2,6 +2,11 @@
 
 @{
     ViewData["Title"] = "Dodaj";
+
+
+
+
+
 }
 
 <h1>Dodaj nowy produkt</h1>
@@ -21,6 +26,7 @@
                 @Html.DropDownListFor(item => item.ProductName, new SelectList(@ViewBag.ProductList, "Id", "ItemName"))
                 <span asp-validation-for="ProductName" class="text-danger"></span>
             </div>
+            
             <div class="form-group">
                 @Html.DisplayName("Informacja dodatkowa")
                 @Html.DropDownListFor(item => item.AddtionalInfoId, new SelectList(@ViewBag.AdditionalInfo, "Id", "AdditionalInfo"))
