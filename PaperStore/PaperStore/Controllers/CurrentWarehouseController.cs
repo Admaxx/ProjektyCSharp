@@ -1,108 +1,81 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Autofac;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using NuGet.Protocol;
+using PaperStore.Services;
+using PaperStore.Services.Create;
+using PaperStore.Services.Delete;
+using PaperStore.Services.Details;
+using PaperStore.Services.Options;
+using PaperStore.Services.Read;
+using PaperStore.Services.Update;
 using PaperStore.WareHouseData;
-using System.Diagnostics;
 
 namespace PaperStore.Controllers
 {
     public class CurrentWarehouseController : Controller
     {
-        PaperWarehouseContext context;
-        string resultMessage = string.Empty;
-        public CurrentWarehouseController(PaperWarehouseContext _context)
-            =>
-            this.context = _context;
+        RegisterTypesContainer conn;
+        IContainer container;
+        public CurrentWarehouseController(RegisterTypesContainer conn)
+        {
+            this.conn = new RegisterTypesContainer();
+            this.container = 
+                conn.ResolveContainer(new ContainerBuilder());
+        }
         
         public async Task<IActionResult> Index(string ActionMessage)
         {
             ViewBag.ActionMessage = ActionMessage;
 
-            var GetCurrentStock = await context.CurrentStocks.Where(item => item.Archive == false)
-                .Include(item => item.ProductNameNavigation)
-                .Include(item => item.AddtionalInfoNavigation)
-                .ToListAsync();
-
-            return View(GetCurrentStock);
+            return View(await container.Resolve<IGetItem>().Item());
         }
         public async Task<IActionResult> ChooseCompany()
         {
-            ViewBag.ProductList = await context.CompaniesLists
-                .ToListAsync();
+            ViewBag.ProductList = 
+                await container.Resolve<IChooseCompany>().Company();
 
             return View();
         }
         public async Task<IActionResult> ChooseDetails(CompaniesList model)
         {
-            ViewBag.ProductList = await context.StockItems.Where(item => item.CompanyId == model.Id)
-                .ToListAsync();
-            ViewBag.AdditionalInfo = await context.StockAdditionalInfos
-                .ToListAsync();
+            ViewBag.ProductList = 
+                await container.Resolve<IChooseDetails>().ChooseStockItem(model);
+
+            ViewBag.AdditionalInfo = 
+                await container.Resolve<IChooseDetails>().ChooseAdditionalInfo();
 
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> CreateItem(CurrentStock model)
-        {
-            await context.AddAsync(model);
-            resultMessage = await context.SaveChangesAsync() > 0 
-                ? "Dodano poprawie" : string.Empty;
-
-
-            return RedirectToAction("Index", new { ActionMessage = resultMessage });
-        }
+            => 
+            RedirectToAction("Index", new { ActionMessage = await container.Resolve<ICreateItem>().Item(model) }) ;
+        
         public async Task<IActionResult> UpdateItem(long Id, string ErrorMsg)
         {
-            var GetCurrentStock = await context.CurrentStocks.Where(item => item.Id == Id)
-                .Include(item => item.ProductNameNavigation)
-                .FirstAsync();
-
-            ViewBag.AdditionalInfo = await context.StockAdditionalInfos
-                .ToListAsync();
+            ViewBag.AdditionalInfo =
+                await container.Resolve<IChooseDetails>().ChooseAdditionalInfo();
 
             ViewBag.ErrorMsg = ErrorMsg;
 
-            return View(GetCurrentStock);
+            return View(await container.Resolve<IGetUpdatedItem>().Item(Id));
         }
         [HttpPost]
         public async Task<IActionResult> UpdateItem(CurrentStock model)
-        {
-            model.UpdateData = DateTime.Now;
-
-            await Task.Run(() =>
-            {
-                context.Update(model);
-            });
-            resultMessage = await context.SaveChangesAsync() > 0 
-                ? "Zmieniono poprawnie" : string.Empty;
-
-            return RedirectToAction("Index", new { ActionMessage = resultMessage });
-        }
+            => 
+            RedirectToAction("Index", new { ActionMessage = await container.Resolve<IUpdateItem>().Item(model) });
+        
         public async Task<IActionResult> ItemsDetails(long Id)
         {
-            var GetItemDetails = await context.CurrentStocks.Where(item => item.Id == Id)
-                .Include(item => item.ProductNameNavigation).ThenInclude(item => item.Company)
-                .Include(item => item.AddtionalInfoNavigation)
-                .FirstAsync();
+            ViewBag.NoCompanyAttach = 
+                AllData.CompanyIsNotValidMessage;
 
-            return View(GetItemDetails);
+            return View(await container.Resolve<IGetDetails>().Item(Id));
         }
         public async Task<IActionResult> DeleteItem(long Id)
-        {
-            var model = await context.CurrentStocks.Where(item => item.Id == Id)
-                .FirstAsync();
-            model.Archive = true;
-
-            await Task.Run(() =>
-            {
-                context.Update(model);
-            });
-            resultMessage = await context.SaveChangesAsync() > 0 
-                ? "Usunięto poprawnie" : string.Empty;
-
-            return RedirectToAction("Index", new { ActionMessage = resultMessage });
-        }
+            => 
+            RedirectToAction("Index", new { ActionMessage = await container.Resolve<IRemoveItem>().Item(Id) });
+        
         public IActionResult Contact()
             =>
             View();

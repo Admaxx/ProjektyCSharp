@@ -1,11 +1,13 @@
 using PaperStore.WareHouseData;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using PaperStore.Services.Options;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<PaperWarehouseContext>();
+builder.Services.AddScoped<RegisterTypesContainer>();
 
 var app = builder.Build();
 

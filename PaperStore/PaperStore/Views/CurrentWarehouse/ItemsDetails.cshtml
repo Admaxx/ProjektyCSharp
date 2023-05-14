@@ -2,14 +2,16 @@
 
 @{
     ViewData["Title"] = "Szczegóły towaru";
-    
-    string IsArchive = @Model.Archive == false ? "Nie" : "Tak";
 
+    string IsArchive = @Model.Archive == false ? "Nie" : "Tak";
+    string IsCompanyValid = string.Empty;
+    if (string.IsNullOrEmpty(@Model.ProductNameNavigation.Company.CompanyName) || (bool)@Model.ProductNameNavigation.Company.IsArchive)
+        IsCompanyValid = @ViewBag.NoCompanyAttach;
 
 }
 
-<h1>Szczegóły towaru</h1>
-
+<h2>Szczegóły towaru</h2>
+<h1>@IsCompanyValid</h1>
 <div>
     <hr />
     <dl class="row">
