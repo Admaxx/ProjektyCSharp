@@ -18,9 +18,9 @@ namespace PaperStore.Controllers
         IContainer container;
         public CurrentWarehouseController(RegisterTypesContainer conn)
         {
-            this.conn = new RegisterTypesContainer();
+            this.conn = new();
             this.container = 
-                conn.ResolveContainer(new ContainerBuilder());
+                conn.ResolveContainer(new());
         }
         
         public async Task<IActionResult> Index(string ActionMessage)

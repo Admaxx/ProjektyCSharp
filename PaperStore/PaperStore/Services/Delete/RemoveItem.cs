@@ -21,7 +21,7 @@ namespace PaperStore.Services.Delete
             });
             return await 
                 context.SaveChangesAsync() > 0
-                ? "Usunięto poprawnie" : string.Empty;
+                ? AllData.SuccessfullDeleted : string.Empty;
         }
     }
 }

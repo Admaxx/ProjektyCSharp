@@ -18,7 +18,7 @@ namespace PaperStore.Services.Update
                 context.Update(model);
             });
             return await context.SaveChangesAsync() > 0
-                ? "Zmieniono poprawnie" : string.Empty;
+                ? AllData.SuccessfullUpdated : string.Empty;
         }
     }
 }

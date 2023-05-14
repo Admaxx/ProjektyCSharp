@@ -15,7 +15,7 @@ namespace PaperStore.Services.Create
             await context.AddAsync(model);
 
             return await context.SaveChangesAsync() > 0
-                ? "Dodano poprawie" : string.Empty;
+                ? AllData.SuccessfullCreated : string.Empty;
         }
 
 
