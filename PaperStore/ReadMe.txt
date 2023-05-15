@@ -9,7 +9,8 @@ TODO:
 -Login/registration page,
 -Companies list from who importing avaible items - code optimalization needed,
 -CheckBox for many updates,
--Administrator pages
+-Administrator pages,
+-Export data to PDF or smth
 No new ideas, maybe soon...
 
 
