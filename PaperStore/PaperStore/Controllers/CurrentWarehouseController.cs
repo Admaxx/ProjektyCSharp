@@ -7,7 +7,7 @@ using PaperStore.Services.Delete;
 using PaperStore.Services.Details;
 using PaperStore.Services.Options;
 using PaperStore.Services.Read;
-using PaperStore.Services.Update;
+using PaperStore.Services.Update.Single;
 using PaperStore.WareHouseData;
 
 namespace PaperStore.Controllers
@@ -23,11 +23,11 @@ namespace PaperStore.Controllers
                 conn.ResolveContainer(new());
         }
         
-        public async Task<IActionResult> Index(string ActionMessage)
+        public async Task<IActionResult> Index(string ActionMessage, string productName)
         {
             ViewBag.ActionMessage = ActionMessage;
 
-            return View(await container.Resolve<IGetItem>().Item());
+            return View(await container.Resolve<IGetItem>().Item(productName));
         }
         public async Task<IActionResult> ChooseCompany()
         {

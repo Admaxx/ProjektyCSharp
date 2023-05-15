@@ -13,7 +13,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 @Html.DisplayName("Ilość")
-                <input asp-for="Qty" class="form-control" />
+                <input asp-for="Qty" class="form-control" placeholder="Wpisz ilość, np 5" />
                 <span asp-validation-for="Qty" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -36,6 +36,7 @@
 
 <div>
     <a asp-action="Index"> <input type="submit" value="Wróć do listy" class="btn btn-outline-info" /></a>
+    <a asp-action="ChooseCompany"> <input type="submit" value="Wybór firmy" class="btn btn-outline-warning" /></a>
 </div>
 
 @section Scripts {
