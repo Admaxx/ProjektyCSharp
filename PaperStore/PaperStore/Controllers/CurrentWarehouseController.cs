@@ -14,8 +14,8 @@ namespace PaperStore.Controllers
 {
     public class CurrentWarehouseController : Controller
     {
-        RegisterTypesContainer conn;
-        IContainer container;
+        readonly RegisterTypesContainer conn;
+        readonly IContainer container;
         public CurrentWarehouseController(RegisterTypesContainer conn)
         {
             this.conn = new();

@@ -2,16 +2,10 @@
 
 @{
     ViewData["Title"] = "Strona główna";
-
-
-    string EmptyModel = string.Empty;
-    if (Model.Count() == 0)
-        EmptyModel = "Brak elementów";
 }
 
 <h1>Wykaz dostępnych towarów</h1>
 @ViewBag.ActionMessage
-@ViewBag.Ids
 <p>
     <a asp-action="ChooseCompany"><input type="submit" value="Dodaj" class="btn btn-outline-success" /></a>
     <form asp-action="Index">
@@ -25,13 +19,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayName("Nazwa produktu")
+                @Html.DisplayName($"Nazwa produktu ({Model.Count()})")
             </th>
             <th>
                 @Html.DisplayName("Informacja dodatkowa")
             </th>
             <th>
-                @Html.DisplayName("Ilość")
+                @Html.DisplayName($"Ilość ({Model.Aggregate(0, (x, y) => x += y.Qty)})")
             </th>
             <th>
                 @Html.DisplayName("Dostępne akcje")
@@ -60,4 +54,4 @@
         }
     </tbody>
 </table>
-<h3>@Html.DisplayName(EmptyModel)</h3>
+<h3>@Html.DisplayName(Model.Count() == 0 ? "Brak elementów" : string.Empty)</h3>
