@@ -8,6 +8,8 @@
         public static readonly string SuccessfullUpdated = "Zmieniono poprawnie";
         public static readonly string SuccessfullDeleted = "Usunięto poprawnie";
 
+        public static readonly string logsFile = "Logs.txt";
+
 
     }
 }

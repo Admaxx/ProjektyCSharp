@@ -25,7 +25,7 @@
                 @Html.DisplayName("Informacja dodatkowa")
             </th>
             <th>
-                @Html.DisplayName($"Ilość ({Model.Aggregate(0, (x, y) => x += y.Qty)})")
+                @Html.DisplayName($"Ilość ({Model.Aggregate(0, (SumOfQty, item) => SumOfQty += item.Qty)})")
             </th>
             <th>
                 @Html.DisplayName("Dostępne akcje")

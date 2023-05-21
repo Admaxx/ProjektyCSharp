@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using PaperStore.Controllers;
 using PaperStore.Services.Create;
 using PaperStore.Services.Delete;
 using PaperStore.Services.Details;
@@ -22,6 +23,7 @@ namespace PaperStore.Services.Options
 
             builder.RegisterType<ChooseCompany>().As<IChooseCompany>().WithParameter("_context", new PaperWarehouseContext());
             builder.RegisterType<ChooseDetails>().As<IChooseDetails>().WithParameter("_context", new PaperWarehouseContext());
+            builder.RegisterType<Logger>().As<ILogging>();
 
 
         }
