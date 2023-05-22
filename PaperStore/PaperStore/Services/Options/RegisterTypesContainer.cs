@@ -6,7 +6,8 @@ namespace PaperStore.Services.Options
     {
         public IContainer ResolveContainer(ContainerBuilder builder)
         {
-            builder.RegisterModule<MassRegistration>();
+            builder.RegisterModule<CurrentWarehouse.MassRegistration>();
+            builder.RegisterModule<Login.MassRegistration>();
 
             return builder.Build();
         }

@@ -1,13 +1,13 @@
 ﻿using Autofac;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using PaperStore.Services;
-using PaperStore.Services.Create;
-using PaperStore.Services.Delete;
-using PaperStore.Services.Details;
+using PaperStore.Services.CurrentWarehouse.Create;
+using PaperStore.Services.CurrentWarehouse.Delete;
+using PaperStore.Services.CurrentWarehouse.Details;
+using PaperStore.Services.CurrentWarehouse.Read;
+using PaperStore.Services.CurrentWarehouse.Update.Single;
 using PaperStore.Services.Options;
-using PaperStore.Services.Read;
-using PaperStore.Services.Update.Single;
 using PaperStore.WareHouseData;
 
 namespace PaperStore.Controllers
@@ -29,6 +29,7 @@ namespace PaperStore.Controllers
             container.Resolve<ILogging>().WriteLog("Main page");
             return View(await container.Resolve<IGetItem>().Item(productName));
         }
+        [Authorize]
         public async Task<IActionResult> ChooseCompany()
         {
             ViewBag.ProductList = 
@@ -52,7 +53,7 @@ namespace PaperStore.Controllers
             container.Resolve<ILogging>().WriteLog("Creating a new item");
             return RedirectToAction("Index", new { ActionMessage = await container.Resolve<ICreateItem>().Item(model) });
         }
-        
+        [Authorize]
         public async Task<IActionResult> UpdateItem(long Id, string ErrorMsg)
         {
             ViewBag.AdditionalInfo =
@@ -68,7 +69,6 @@ namespace PaperStore.Controllers
             container.Resolve<ILogging>().WriteLog("Item updating");
             return RedirectToAction("Index", new { ActionMessage = await container.Resolve<IUpdateItem>().Item(model) });
         }
-        
         public async Task<IActionResult> ItemsDetails(long Id)
         {
             ViewBag.NoCompanyAttach = 
@@ -76,6 +76,7 @@ namespace PaperStore.Controllers
             container.Resolve<ILogging>().WriteLog("Getting item details");
             return View(await container.Resolve<IGetDetails>().Item(Id));
         }
+        [Authorize]
         public async Task<IActionResult> DeleteItem(long Id)
         {
             container.Resolve<ILogging>().WriteLog("Deleting one item");
