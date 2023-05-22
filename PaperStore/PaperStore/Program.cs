@@ -15,7 +15,7 @@ builder.Services.AddAuthentication(options =>
 })
 .AddCookie(IdentityConstants.ApplicationScheme, o =>
 {
-    o.LoginPath = new PathString("/Login/Login");
+    o.LoginPath = new PathString("/Account/Login");
     o.Events = new CookieAuthenticationEvents
     {
         OnValidatePrincipal = SecurityStampValidator.ValidatePrincipalAsync
@@ -31,6 +31,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();
