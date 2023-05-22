@@ -21,6 +21,7 @@ namespace PaperStore.Controllers
         public IActionResult Login(string Message)
         {
             ViewBag.LoginNotExists = Message;
+            container.Resolve<ILogging>().WriteLog("Input values for login");
             return View();
         }
         [HttpPost]
@@ -29,11 +30,14 @@ namespace PaperStore.Controllers
             if (!container.Resolve<IAccountLogin>().SetLogIn(model))
                 return RedirectToAction("Login", new { Message = AllData.WrongLogin });
 
+            container.Resolve<ILogging>().WriteLog("Attempt to login");
+
             return RedirectToAction("Index", "CurrentWarehouse", new {ActionMessage = AllData.SuccessfullLogin });
         }
         public IActionResult Register(string Message)
         {
             ViewBag.LoginExists = Message;
+            container.Resolve<ILogging>().WriteLog("Input values for register");
             return View();
         }
         [HttpPost]
@@ -43,11 +47,16 @@ namespace PaperStore.Controllers
             if(!container.Resolve<IAccountRegistration>().SetRegistration(model).Result)
                 return RedirectToAction("Register", new { Message = AllData.EmailIsAlreadyTakenMess });
 
+            container.Resolve<ILogging>().WriteLog("Attempt to login");
+
             return RedirectToAction("RegisterSuccess", new {Message = AllData.SuccessfullLogin });
         }
         public IActionResult RegisterSuccess(string Message)
         {
             ViewBag.RegistrationResult = Message;
+
+            container.Resolve<ILogging>().WriteLog("SuccesfullRegistration");
+
             return View();
         }
     }

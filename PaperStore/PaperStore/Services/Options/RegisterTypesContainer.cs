@@ -11,8 +11,5 @@ namespace PaperStore.Services.Options
 
             return builder.Build();
         }
-
-
-
     }
 }

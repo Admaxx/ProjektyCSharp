@@ -16,6 +16,7 @@ namespace PaperStore.Services.Login
 
             builder.RegisterType<AccountRegistration>().As<IAccountRegistration>().WithParameter("_context", new PaperWarehouseContext()).WithParameter("_conn", new RegisterTypesContainer());
             builder.RegisterType<AccountLogin>().As<IAccountLogin>().WithParameter("_conn", new RegisterTypesContainer());
+            builder.RegisterType<Logger>().As<ILogging>();
         }
 
 
