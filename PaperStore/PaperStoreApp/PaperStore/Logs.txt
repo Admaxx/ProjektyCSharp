@@ -1,0 +1,5 @@
+26.05.2023 18:00:03,Main page
+26.05.2023 18:00:09,Company choosing
+26.05.2023 18:00:09,Details choosing
+26.05.2023 18:00:12,Creating a new item
+26.05.2023 18:00:12,Main page
