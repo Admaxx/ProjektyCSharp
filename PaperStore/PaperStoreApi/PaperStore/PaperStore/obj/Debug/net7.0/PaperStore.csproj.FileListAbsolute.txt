@@ -30,7 +30,6 @@ C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStor
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Mono.TextTemplating.dll
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll

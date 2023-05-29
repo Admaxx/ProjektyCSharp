@@ -1,4 +1,4 @@
-﻿using PaperStore.Services.ActualInventory.CreateOptions;
+﻿using PaperStore.Services.ActualInventory.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,13 +10,13 @@ namespace PaperStoreTests.TestCreate
     [TestClass]
     public class GetAdditionalInfoTest
     {
-        GetAdditionalInfo get = new GetAdditionalInfo(new PaperStore.PaperStoreModel.PaperWarehouseContext());
+        IGetAdditionalInfo get = new GetAdditionalInfo(new PaperStore.PaperStoreModel.PaperWarehouseContext());
         string RandomDetailName = "NullName";
 
         [TestMethod]
         public void shouldReturnZeroBecouseOfFakeDetailName()
         {
-            Assert.AreEqual(get.ByName(RandomDetailName).Result, 0);
+            Assert.AreEqual(get.ByName(RandomDetailName).Result, null);
         }
     }
 }

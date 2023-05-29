@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+Sc7M0ku9pz+vIB6xzL2zsQHz4yS/Lu7iqo286YOgTSp4seuTH0ZkGjm1uJXVW9OxZZivYA1AZr6WDDjdN/3iw==",
+  "dgSpecHash": "xIn6bqgdNoeptb/Ema8wbTza+iyYlAzzo/40yVi6prTqsiHyvMRBgLoKDtSX4My6s0mre9opb4c7eyj2OrL5kg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jakub\\OneDrive\\Pulpit\\ProjektyCSharp\\PaperStore\\PaperStoreApi\\PaperStore\\PaperStore\\PaperStore.csproj",
   "expectedPackageFiles": [
@@ -46,7 +46,6 @@
     "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
-    "C:\\Users\\Jakub\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",

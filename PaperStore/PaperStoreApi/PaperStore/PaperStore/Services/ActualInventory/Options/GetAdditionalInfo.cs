@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PaperStore.PaperStoreModel;
 
-namespace PaperStore.Services.ActualInventory.CreateOptions
+namespace PaperStore.Services.ActualInventory.Options
 {
     public class GetAdditionalInfo : IGetAdditionalInfo
     {
@@ -11,7 +11,7 @@ namespace PaperStore.Services.ActualInventory.CreateOptions
             _context = conn ?? throw new ArgumentNullException(nameof(conn));
 
 
-        public async Task<long> ByName(string AdditionalInfoName)
+        public async Task<long?> ByName(string AdditionalInfoName)
         {
             try
             {
@@ -20,8 +20,9 @@ namespace PaperStore.Services.ActualInventory.CreateOptions
                 .Where(item => item.AdditionalInfo.ToLower() == AdditionalInfoName.ToLower())
                 .Select(item => item.Id)
                 .FirstAsync();
-            }catch (Exception) { }
-            return 0;
+            }
+            catch (Exception) { }
+            return null;
         }
     }
 

@@ -5,7 +5,7 @@ namespace PaperStoreTests.TestCreate
     [TestClass]
     public class GetProductsTest
     {
-        GetProductId get = new GetProductId(new PaperStore.PaperStoreModel.PaperWarehouseContext());
+        IGetProduct get = new GetProductId(new PaperStore.PaperStoreModel.PaperWarehouseContext());
         string RandomName = "NullName";
         string RandomCompany = "NullCompany";
 
