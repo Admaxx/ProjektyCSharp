@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using Microsoft.EntityFrameworkCore;
 using PaperStore.PaperStoreModel;
 
 namespace PaperStore.Services.OptionsForServices

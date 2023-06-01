@@ -16,15 +16,14 @@ namespace PaperStore.Services.ActualInventory.CreateOptions
             try
             {
                 return await
-                _context.CurrentStocks
-                .AsNoTracking()
-                .Include(item => item.ProductNameNavigation)
-                .ThenInclude(item => item.Company)
-                .Where(item => item.ProductNameNavigation.ItemName.ToLower() == ProductName.ToLower() &&
-                item.ProductNameNavigation.Company.CompanyName.ToLower() == CompanyName.ToLower())
-
-                .Select(item => item.ProductNameNavigation.Id)
-                .FirstAsync();
+                    _context.CurrentStocks
+                    .AsNoTracking()
+                    .Include(item => item.ProductNameNavigation)
+                    .ThenInclude(item => item.Company)
+                    .Where(item => item.ProductNameNavigation.ItemName.ToLower() == ProductName.ToLower() &&
+                    item.ProductNameNavigation.Company.CompanyName.ToLower() == CompanyName.ToLower())
+                    .Select(item => item.ProductNameNavigation.Id)
+                    .FirstAsync();
             }catch(Exception) {}
             return 0;
         }

@@ -10,7 +10,7 @@ namespace PaperStore.Services.ActualInventory.DeleteOptions
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<DeleteItem>().As<IDeleteItem>().WithParameter("conn", new PaperWarehouseContext()).WithParameter("_container", new Container());
+            //builder.RegisterType<DeleteItem>().As<IDeleteItem>().WithParameter("conn", new PaperWarehouseContext()).WithParameter("_container", new Container());
         }
     }
 }

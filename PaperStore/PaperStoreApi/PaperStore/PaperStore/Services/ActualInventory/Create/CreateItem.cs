@@ -1,10 +1,8 @@
 ﻿using Autofac;
-using Microsoft.EntityFrameworkCore;
 using PaperStore.PaperStoreModel;
 using PaperStore.Services.ActualInventory.CreateOptions;
 using PaperStore.Services.ActualInventory.Options;
 using PaperStore.Services.OptionsForServices;
-using System.Diagnostics;
 
 namespace PaperStore.Services.ActualInventory.Create
 {
@@ -29,10 +27,7 @@ namespace PaperStore.Services.ActualInventory.Create
                     AddtionalInfoId = _conn.Resolve<IGetAdditionalInfo>().ByName(model.AdditionalDetail ?? string.Empty).Result
                 });
                 return await _context.SaveChangesAsync() > 0;
-            }
-            catch (Exception) { }
-            return false;
-
+            }catch (Exception) { return false; }
         }
     }
 }

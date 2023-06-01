@@ -16,7 +16,6 @@ namespace PaperStore.Controllers
             this._actualContainer = conn.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(conn));
             this._logger = logger;
         }
-
         [HttpGet]
         public IActionResult GetActualItems()
         {
@@ -24,7 +23,6 @@ namespace PaperStore.Controllers
 
             return Ok(_actualContainer.Resolve<IReadAllItems>().GetAllItems(IsArchive: false));
         }
-
         [HttpPost]
         public IActionResult CreateItem(ModifyItemModel model)
         {
@@ -46,10 +44,8 @@ namespace PaperStore.Controllers
         {
             _logger.LogInformation("Attempting to delete item");
 
-
             return _actualContainer.Resolve<IDeleteItem>().ItemById(Id, false).Result ?
             StatusCode(200, AllData.DeleteSuccessMessage) : BadRequest(AllData.BadRequestMessage);
-
         }
     }
 }
