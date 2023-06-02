@@ -1,29 +1,24 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PaperStore.PaperStoreModel;
+﻿namespace PaperStore.Services.ActualInventory.Options;
 
-namespace PaperStore.Services.ActualInventory.Options
+public class GetAdditionalInfo : IGetAdditionalInfo
 {
-    public class GetAdditionalInfo : IGetAdditionalInfo
+    PaperWarehouseContext _context;
+    public GetAdditionalInfo(PaperWarehouseContext conn)
+        =>
+        _context = conn ?? throw new ArgumentNullException(nameof(conn));
+
+
+    public async Task<long?> ByName(string AdditionalInfoName)
     {
-        PaperWarehouseContext _context;
-        public GetAdditionalInfo(PaperWarehouseContext conn)
-            =>
-            _context = conn ?? throw new ArgumentNullException(nameof(conn));
-
-
-        public async Task<long?> ByName(string AdditionalInfoName)
+        try
         {
-            try
-            {
-                return await _context.StockAdditionalInfos
-                .AsNoTracking()
-                .Where(item => item.AdditionalInfo.ToLower() == AdditionalInfoName.ToLower())
-                .Select(item => item.Id)
-                .FirstAsync();
-            }
-            catch (Exception) { }
-            return null;
+            return await _context.StockAdditionalInfos
+            .AsNoTracking()
+            .Where(item => item.AdditionalInfo.ToLower() == AdditionalInfoName.ToLower())
+            .Select(item => item.Id)
+            .FirstAsync();
         }
+        catch (Exception) { }
+        return null;
     }
-
 }

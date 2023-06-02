@@ -1,9 +1,6 @@
-﻿using PaperStore.PaperStoreModel;
+﻿namespace PaperStore.Services.ActualInventory.UpdateOptions;
 
-namespace PaperStore.Services.ActualInventory.UpdateOptions
+public interface IGetModel
 {
-    public interface IGetModel
-    {
-        Task<CurrentStock> ModelById(long Id);
-    }
+    Task<CurrentStock> ModelById(long Id);
 }

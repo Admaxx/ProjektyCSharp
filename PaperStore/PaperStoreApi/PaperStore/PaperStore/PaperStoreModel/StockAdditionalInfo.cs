@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace PaperStore.PaperStoreModel;
+﻿namespace PaperStore.PaperStoreModel;
 
 public partial class StockAdditionalInfo
 {

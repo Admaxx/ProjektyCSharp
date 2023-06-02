@@ -1,7 +1,5 @@
-﻿namespace PaperStore.Services.ActualInventory.Options
+﻿namespace PaperStore.Services.ActualInventory.Options;
+public interface IGetAdditionalInfo
 {
-    public interface IGetAdditionalInfo
-    {
-        Task<long?> ByName(string AdditionalInfoName);
-    }
+    Task<long?> ByName(string AdditionalInfoName);
 }

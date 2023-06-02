@@ -1,19 +1,17 @@
-﻿using Autofac;
+﻿namespace PaperStore.Services.OptionsForServices;
 
-namespace PaperStore.Services.OptionsForServices
+public class Container
 {
-    public class Container
+    public IContainer RegistrationContainer(ContainerBuilder builder)
     {
-        public IContainer RegistrationContainer(ContainerBuilder builder)
-        {
-            builder.RegisterModule<OptionsForServices.Registration>();
-            builder.RegisterModule<ActualInventory.UpdateOptions.DeleteRegistration>();
-            builder.RegisterModule<ActualInventory.Options.ShareRegistration>();
+        builder.RegisterModule<OptionsForServices.Registration>();
+        builder.RegisterModule<ActualInventory.UpdateOptions.DeleteRegistration>();
+        builder.RegisterModule<ActualInventory.Options.ShareRegistration>();
 
-            builder.RegisterModule<ActualInventory.CreateOptions.CreateRegistration>();
-            builder.RegisterModule<ActualInventory.DeleteOptions.DeleteRegistration>();
+        builder.RegisterModule<ActualInventory.CreateOptions.CreateRegistration>();
+        builder.RegisterModule<ActualInventory.DeleteOptions.DeleteRegistration>();
 
-            return builder.Build();
-        }
+        return builder.Build();
     }
 }
+

@@ -1,7 +1,6 @@
-﻿namespace PaperStore.Services.ActualInventory.Delete
+﻿namespace PaperStore.Services.ActualInventory.Delete;
+
+public interface IDeleteItem
 {
-    public interface IDeleteItem
-    {
-        Task<bool> ItemById(long id, bool IsArchive);
-    }
+    Task<bool> ItemById(long id, bool IsArchive);
 }

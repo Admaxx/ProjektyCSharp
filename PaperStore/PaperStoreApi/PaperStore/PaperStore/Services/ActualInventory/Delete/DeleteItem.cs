@@ -1,24 +1,21 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PaperStore.PaperStoreModel;
+﻿namespace PaperStore.Services.ActualInventory.Delete;
 
-namespace PaperStore.Services.ActualInventory.Delete
+public class DeleteItem : IDeleteItem
 {
-    public class DeleteItem : IDeleteItem
+    readonly PaperWarehouseContext _context;
+    public DeleteItem(PaperWarehouseContext conn)
     {
-        readonly PaperWarehouseContext _context;
-        public DeleteItem(PaperWarehouseContext conn)
+        this._context = conn;
+    }
+    public async Task<bool> ItemById(long id, bool IsArchive)
+    {
+        try
         {
-            this._context = conn;
+            return await
+            _context.CurrentStocks
+            .Where(item => item.Id == id && item.Archive == IsArchive)
+            .ExecuteDeleteAsync() > 0;
         }
-        public async Task<bool> ItemById(long id, bool IsArchive)
-        {
-            try
-            {
-                return await 
-                _context.CurrentStocks
-                .Where(item => item.Id == id && item.Archive == IsArchive)
-                .ExecuteDeleteAsync() > 0;
-            }catch (Exception) { return false; }
-        }
+        catch (Exception) { return false; }
     }
 }

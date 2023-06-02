@@ -1,8 +1,4 @@
-﻿using System.Web;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-
-namespace PaperStore.PaperStoreModel;
+﻿namespace PaperStore.PaperStoreModel;
 
 public partial class PaperWarehouseContext : DbContext
 {
@@ -34,7 +30,6 @@ public partial class PaperWarehouseContext : DbContext
             $"{jsonData["ConnectionStrings:password"]}" +
             $"{jsonData["ConnectionStrings:trustservercertificate"]}" 
             );
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<CompaniesList>(entity =>

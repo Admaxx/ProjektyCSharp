@@ -1,9 +1,6 @@
-﻿using PaperStore.PaperStoreModel;
+﻿namespace PaperStore.Services.OptionsForServices;
 
-namespace PaperStore.Services.OptionsForServices
+public interface IReadAllItems
 {
-    public interface IReadAllItems
-    {
-        Task<List<CurrentStock>> GetAllItems(bool? IsArchive);
-    }
+    Task<List<CurrentStock>> GetAllItems(bool? IsArchive);
 }

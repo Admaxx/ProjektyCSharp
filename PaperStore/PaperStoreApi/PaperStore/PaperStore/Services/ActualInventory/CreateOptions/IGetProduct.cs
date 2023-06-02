@@ -1,7 +1,6 @@
-﻿namespace PaperStore.Services.ActualInventory.CreateOptions
+﻿namespace PaperStore.Services.ActualInventory.CreateOptions;
+
+public interface IGetProduct
 {
-    public interface IGetProduct
-    {
-        Task<long> ByNameAndCompany(string ProductName, string CompanyName);
-    }
+    Task<long> ByNameAndCompany(string ProductName, string CompanyName);
 }

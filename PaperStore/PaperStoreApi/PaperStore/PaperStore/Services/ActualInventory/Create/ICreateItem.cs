@@ -1,10 +1,7 @@
-﻿using PaperStore.PaperStoreModel;
-using PaperStore.Services.OptionsForServices;
+﻿using PaperStore.Services.OptionsForServices;
 
-namespace PaperStore.Services.ActualInventory.Create
+namespace PaperStore.Services.ActualInventory.Create;
+public interface ICreateItem
 {
-    public interface ICreateItem
-    {
-        Task<bool> CreateItemByName(ModifyItemModel model);
-    }
+    Task<bool> CreateItemByName(ModifyItemModel model);
 }

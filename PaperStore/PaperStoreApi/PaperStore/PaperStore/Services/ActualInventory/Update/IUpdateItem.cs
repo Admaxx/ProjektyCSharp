@@ -1,9 +1,6 @@
-﻿using PaperStore.Services.OptionsForServices;
+﻿namespace PaperStore.Services.ActualInventory.Update;
 
-namespace PaperStore.Services.ActualInventory.Update
+public interface IUpdateItem
 {
-    public interface IUpdateItem
-    {
-        Task<bool> UpdateItemByName(long Id, int? Qty, string AdditionalInfo);
-    }
+    Task<bool> UpdateItemByName(long Id, int? Qty, string AdditionalInfo);
 }
