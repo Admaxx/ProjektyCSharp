@@ -1,4 +1,6 @@
-﻿namespace PaperStore.PaperStoreModel;
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace PaperStore.PaperStoreModel;
 
 public partial class PaperWarehouseContext : DbContext
 {

@@ -1,4 +1,6 @@
-﻿namespace PaperStore.Services.OptionsForServices;
+﻿using PaperStore.PaperStoreModel;
+
+namespace PaperStore.Services.OptionsForServices;
 
 public interface IReadAllItems
 {

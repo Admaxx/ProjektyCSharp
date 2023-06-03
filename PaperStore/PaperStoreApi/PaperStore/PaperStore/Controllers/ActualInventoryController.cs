@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Autofac;
+using Microsoft.AspNetCore.Mvc;
 using PaperStore.Services.ActualInventory.Create;
 using PaperStore.Services.ActualInventory.Delete;
 using PaperStore.Services.ActualInventory.Update;

@@ -1,4 +1,7 @@
-﻿namespace PaperStore.Services.ActualInventory.Options;
+﻿using Microsoft.EntityFrameworkCore;
+using PaperStore.PaperStoreModel;
+
+namespace PaperStore.Services.ActualInventory.Options;
 
 public class GetAdditionalInfo : IGetAdditionalInfo
 {

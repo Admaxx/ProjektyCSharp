@@ -1,4 +1,7 @@
-﻿namespace PaperStore.Services.ActualInventory.CreateOptions;
+﻿using Microsoft.EntityFrameworkCore;
+using PaperStore.PaperStoreModel;
+
+namespace PaperStore.Services.ActualInventory.CreateOptions;
 
 public class GetProductId : IGetProduct
 {

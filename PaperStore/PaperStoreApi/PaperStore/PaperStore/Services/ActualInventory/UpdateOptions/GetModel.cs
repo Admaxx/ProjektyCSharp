@@ -1,4 +1,7 @@
-﻿namespace PaperStore.Services.ActualInventory.UpdateOptions;
+﻿using Microsoft.EntityFrameworkCore;
+using PaperStore.PaperStoreModel;
+
+namespace PaperStore.Services.ActualInventory.UpdateOptions;
 
 public class GetModel : IGetModel
 {

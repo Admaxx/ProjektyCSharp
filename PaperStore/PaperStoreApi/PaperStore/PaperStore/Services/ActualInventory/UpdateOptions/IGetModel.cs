@@ -1,4 +1,6 @@
-﻿namespace PaperStore.Services.ActualInventory.UpdateOptions;
+﻿using PaperStore.PaperStoreModel;
+
+namespace PaperStore.Services.ActualInventory.UpdateOptions;
 
 public interface IGetModel
 {

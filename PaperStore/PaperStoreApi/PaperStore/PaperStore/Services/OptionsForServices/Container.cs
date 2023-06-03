@@ -1,4 +1,6 @@
-﻿namespace PaperStore.Services.OptionsForServices;
+﻿using Autofac;
+
+namespace PaperStore.Services.OptionsForServices;
 
 public class Container
 {

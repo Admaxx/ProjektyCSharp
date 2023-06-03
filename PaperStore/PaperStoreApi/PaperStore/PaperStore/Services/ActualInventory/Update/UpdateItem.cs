@@ -1,4 +1,7 @@
-﻿using PaperStore.Services.ActualInventory.Options;
+﻿using Autofac;
+using Microsoft.EntityFrameworkCore;
+using PaperStore.PaperStoreModel;
+using PaperStore.Services.ActualInventory.Options;
 using PaperStore.Services.ActualInventory.UpdateOptions;
 using PaperStore.Services.OptionsForServices;
 
@@ -19,11 +22,13 @@ public class UpdateItem : IUpdateItem
         try
         {
             var updateModel = _conn.Resolve<IGetModel>().ModelById(Id).Result;
+
             return await _context.CurrentStocks.Where(item => item.Id == Id)
                 .ExecuteUpdateAsync
                 (
                     item => item
                     .SetProperty(item => item.Qty, item => Qty ?? updateModel.Qty)
+                    .SetProperty(item => item.UpdateData, item => DateTime.Now)
                     .SetProperty(item => item.AddtionalInfoId,
                     item => _conn.Resolve<IGetAdditionalInfo>()
                     .ByName(AdditionalInfo ?? string.Empty).Result ?? updateModel.AddtionalInfoId)

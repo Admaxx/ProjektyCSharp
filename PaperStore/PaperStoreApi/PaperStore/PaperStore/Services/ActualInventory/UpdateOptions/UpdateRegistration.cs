@@ -1,4 +1,6 @@
-﻿using PaperStore.Services.ActualInventory.Update;
+﻿using Autofac;
+using PaperStore.PaperStoreModel;
+using PaperStore.Services.ActualInventory.Update;
 using PaperStore.Services.OptionsForServices;
 
 namespace PaperStore.Services.ActualInventory.UpdateOptions;

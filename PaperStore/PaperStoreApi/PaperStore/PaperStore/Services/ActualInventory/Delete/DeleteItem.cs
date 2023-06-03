@@ -1,4 +1,7 @@
-﻿namespace PaperStore.Services.ActualInventory.Delete;
+﻿using Microsoft.EntityFrameworkCore;
+using PaperStore.PaperStoreModel;
+
+namespace PaperStore.Services.ActualInventory.Delete;
 
 public class DeleteItem : IDeleteItem
 {

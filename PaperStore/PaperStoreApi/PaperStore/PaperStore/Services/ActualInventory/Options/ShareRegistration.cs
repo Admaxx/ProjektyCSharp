@@ -1,4 +1,7 @@
-﻿namespace PaperStore.Services.ActualInventory.Options;
+﻿using Autofac;
+using PaperStore.PaperStoreModel;
+
+namespace PaperStore.Services.ActualInventory.Options;
 
 public class ShareRegistration : Module
 {

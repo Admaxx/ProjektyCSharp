@@ -1,4 +1,7 @@
-﻿namespace PaperStore.Services.OptionsForServices;
+﻿using Autofac;
+using PaperStore.PaperStoreModel;
+
+namespace PaperStore.Services.OptionsForServices;
 
 public class Registration : Module
 {

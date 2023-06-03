@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using PaperStore.PaperStoreModel;
+
 namespace PaperStore.Services.OptionsForServices;
 
 public class ReadAllItems : IReadAllItems

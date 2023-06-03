@@ -1,4 +1,6 @@
-﻿using PaperStore.Services.ActualInventory.Create;
+﻿using Autofac;
+using PaperStore.PaperStoreModel;
+using PaperStore.Services.ActualInventory.Create;
 using PaperStore.Services.OptionsForServices;
 
 namespace PaperStore.Services.ActualInventory.CreateOptions;
