@@ -1,11 +1,11 @@
-﻿using PaperStore.Services.ActualInventory.Options;
+﻿using PaperStoreApplication.Services.ActualInventory.Options;
 
 namespace PaperStoreTests.TestCreate;
 
 [TestClass]
 public class GetAdditionalInfoTest
 {
-    IGetAdditionalInfo get = new GetAdditionalInfo(new PaperStore.PaperStoreModel.PaperWarehouseContext());
+    IGetAdditionalInfo get = new GetAdditionalInfo(new PaperStoreApplication.Contexts.PaperWarehouseContext());
     string RandomDetailName = "NullName";
 
     [TestMethod]

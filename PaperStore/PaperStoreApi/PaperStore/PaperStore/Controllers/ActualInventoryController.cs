@@ -1,10 +1,9 @@
 ﻿using Autofac;
 using Microsoft.AspNetCore.Mvc;
-using PaperStore.Services.ActualInventory.Create;
-using PaperStore.Services.ActualInventory.Delete;
-using PaperStore.Services.ActualInventory.Update;
-using PaperStore.Services.OptionsForServices;
-
+using PaperStoreApplication.Services.ActualInventory.Create;
+using PaperStoreApplication.Services.ActualInventory.Delete;
+using PaperStoreApplication.Services.ActualInventory.Update;
+using PaperStoreApplication.Services.OptionsForServices;
 namespace PaperStore.Controllers;
 
 [Route("api/[controller]")]

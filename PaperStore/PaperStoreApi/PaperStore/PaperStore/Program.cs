@@ -1,4 +1,4 @@
-using PaperStore.Services.OptionsForServices;
+using PaperStoreApplication.Services.OptionsForServices;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);

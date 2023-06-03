@@ -1,17 +1,11 @@
-﻿using PaperStore.Services.ActualInventory.CreateOptions;
-using PaperStore.Services.ActualInventory.UpdateOptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PaperStoreApplication.Services.ActualInventory.UpdateOptions;
 
 namespace PaperStoreTests.TestUpdate
 {
     [TestClass]
     public class GetUpdatingModelTest
     {
-        IGetModel get = new GetModel(new PaperStore.PaperStoreModel.PaperWarehouseContext());
+        IGetModel get = new GetModel(new PaperStoreApplication.Contexts.PaperWarehouseContext());
 
         int ModelQty = 0;
 

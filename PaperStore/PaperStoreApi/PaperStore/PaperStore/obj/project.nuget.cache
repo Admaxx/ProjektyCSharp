@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xIn6bqgdNoeptb/Ema8wbTza+iyYlAzzo/40yVi6prTqsiHyvMRBgLoKDtSX4My6s0mre9opb4c7eyj2OrL5kg==",
+  "dgSpecHash": "KNc8y5Bv1u0Rfe1vWfKlGYp/UgvZ07yf0Jl5oKEPZ+ZAxCLMP1lXCvdASd6/HOitO7IYtgxakyHL+U3p0TR+Ag==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jakub\\OneDrive\\Pulpit\\ProjektyCSharp\\PaperStore\\PaperStoreApi\\PaperStore\\PaperStore\\PaperStore.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,8 @@
     "C:\\Users\\Jakub\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Jakub\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",
+    "C:\\Users\\Jakub\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.5\\microsoft.aspnetcore.openapi.7.0.5.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

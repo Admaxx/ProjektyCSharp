@@ -1,11 +1,11 @@
-using PaperStore.Services.ActualInventory.CreateOptions;
+using PaperStoreApplication.Services.ActualInventory.CreateOptions;
 
 namespace PaperStoreTests.TestCreate;
 
 [TestClass]
 public class GetProductsTest
 {
-    IGetProduct get = new GetProductId(new PaperStore.PaperStoreModel.PaperWarehouseContext());
+    IGetProduct get = new GetProductId(new PaperStoreApplication.Contexts.PaperWarehouseContext());
     string RandomName = "NullName";
     string RandomCompany = "NullCompany";
 
