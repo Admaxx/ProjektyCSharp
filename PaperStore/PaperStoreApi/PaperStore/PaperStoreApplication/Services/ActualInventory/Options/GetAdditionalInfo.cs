@@ -3,13 +3,9 @@ using PaperStoreApplication.Contexts;
 
 namespace PaperStoreApplication.Services.ActualInventory.Options;
 
-public class GetAdditionalInfo : IGetAdditionalInfo
+public class GetAdditionalInfo(PaperWarehouseContext conn) : IGetAdditionalInfo
 {
-    PaperWarehouseContext _context;
-    public GetAdditionalInfo(PaperWarehouseContext conn)
-        =>
-        _context = conn ?? throw new ArgumentNullException(nameof(conn));
-
+    PaperWarehouseContext _context { get; init; } = conn ?? throw new ArgumentNullException(nameof(conn));
 
     public async Task<long?> ByName(string AdditionalInfoName)
     {

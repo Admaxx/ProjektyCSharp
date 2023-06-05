@@ -31,11 +31,18 @@ builder.Services.AddScoped<Container>();
 builder.Services.AddControllersWithViews()
     .AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
-
 builder.Services.AddAutoMapper(typeof(DTOProfiles));
 
 var app = builder.Build();
 
+app.UseExceptionHandler(builder => builder.Use(async (context, next) =>
+{
+    try
+    {
+        await next.Invoke(context);
+    }
+    catch (Exception ex){}
+}));
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

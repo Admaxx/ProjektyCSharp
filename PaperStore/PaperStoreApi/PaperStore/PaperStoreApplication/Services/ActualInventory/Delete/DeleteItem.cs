@@ -3,13 +3,10 @@ using PaperStoreApplication.Contexts;
 
 namespace PaperStoreApplication.Services.ActualInventory.Delete;
 
-public class DeleteItem : IDeleteItem
+public class DeleteItem(PaperWarehouseContext conn) : IDeleteItem
 {
-    readonly PaperWarehouseContext _context;
-    public DeleteItem(PaperWarehouseContext conn)
-    {
-        this._context = conn;
-    }
+    PaperWarehouseContext _context { get; init; } = conn ?? throw new ArgumentNullException(nameof(conn));
+
     public async Task<bool> ItemById(long id, bool IsArchive)
     {
         try

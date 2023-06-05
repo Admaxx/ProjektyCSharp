@@ -96,6 +96,14 @@
         }
       },
       "coverlet.collector/6.0.0": {},
+      "Cryptography/1.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/GoldenCompany.Cryptography.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "MediatR/12.0.1": {
         "dependencies": {
           "MediatR.Contracts": "2.0.1",
@@ -1216,8 +1224,10 @@
       },
       "PaperStore/1.0.0": {
         "dependencies": {
+          "AutoMapper": "12.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "Autofac": "7.0.1",
+          "Cryptography": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.5",
           "Microsoft.AspNetCore.OpenApi": "7.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5",
@@ -1316,6 +1326,13 @@
       "sha512": "sha512-tW3lsNS+dAEII6YGUX/VMoJjBS1QvsxqJeqLaJXub08y1FSjasFPtQ4UBUsudE9PNrzLjooClMsPtY2cZLdXpQ==",
       "path": "coverlet.collector/6.0.0",
       "hashPath": "coverlet.collector.6.0.0.nupkg.sha512"
+    },
+    "Cryptography/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FFxCKZY8Cp6IFryMqBkQNaylQdEXjQq2lNVn8GbOk6E+slCE3DpS+9T//uOi0lHYStBPHm9FHNhrzOWwId92gA==",
+      "path": "cryptography/1.0.0",
+      "hashPath": "cryptography.1.0.0.nupkg.sha512"
     },
     "MediatR/12.0.1": {
       "type": "package",

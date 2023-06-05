@@ -5,18 +5,16 @@ using PaperStoreApplication.Contexts;
 
 namespace PaperStoreApplication.Services.OptionsForServices;
 
-public class ReadAllItems : IReadAllItems
+public class ReadAllItems(PaperWarehouseContext conn) : IReadAllItems
 {
-    readonly PaperWarehouseContext context;
-    public ReadAllItems(PaperWarehouseContext _context)
-        =>
-        context = _context ?? throw new ArgumentNullException(nameof(_context));
+    PaperWarehouseContext _context { get; init; } = conn ?? throw new ArgumentNullException(nameof(conn));
 
-    [HttpGet]
     public async Task<List<CurrentStock>> GetAllItems(bool? IsArchive)
         => await
-             context.CurrentStocks.AsNoTracking()
+             _context.CurrentStocks.AsNoTracking()
             .Include(item => item.AddtionalInfoNavigation)
             .Include(item => item.ProductNameNavigation)
             .Where(item => item.Archive == IsArchive).ToListAsync();
+
+    
 }

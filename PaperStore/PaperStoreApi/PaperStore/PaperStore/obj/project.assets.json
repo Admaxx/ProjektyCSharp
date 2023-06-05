@@ -104,6 +104,19 @@
           }
         }
       },
+      "Cryptography/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/GoldenCompany.Cryptography.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/GoldenCompany.Cryptography.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -1958,6 +1971,19 @@
         "lib/netstandard2.1/BCrypt.Net-Next.dll",
         "lib/netstandard2.1/BCrypt.Net-Next.xml",
         "readme.md"
+      ]
+    },
+    "Cryptography/1.0.0": {
+      "sha512": "FFxCKZY8Cp6IFryMqBkQNaylQdEXjQq2lNVn8GbOk6E+slCE3DpS+9T//uOi0lHYStBPHm9FHNhrzOWwId92gA==",
+      "type": "package",
+      "path": "cryptography/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "cryptography.1.0.0.nupkg.sha512",
+        "cryptography.nuspec",
+        "lib/netstandard2.0/GoldenCompany.Cryptography.dll",
+        "lib/netstandard2.0/GoldenCompany.Cryptography.runtimeconfig.json"
       ]
     },
     "Humanizer.Core/2.14.1": {
@@ -5080,6 +5106,7 @@
       "AutoMapper >= 12.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
       "Autofac >= 7.0.1",
+      "Cryptography >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 7.0.5",
       "Microsoft.AspNetCore.OpenApi >= 7.0.5",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.5",
@@ -5149,6 +5176,10 @@
           "Autofac": {
             "target": "Package",
             "version": "[7.0.1, )"
+          },
+          "Cryptography": {
+            "target": "Package",
+            "version": "[1.0.0, )"
           },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",

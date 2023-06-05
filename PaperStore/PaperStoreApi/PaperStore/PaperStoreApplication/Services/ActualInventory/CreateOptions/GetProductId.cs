@@ -1,16 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PaperStoreApplication.Contexts;
-using PaperStoreApplication.Services.ActualInventory.CreateOptions;
 
 namespace PaperStoreApplication.Services.ActualInventory.CreateOptions;
 
-public class GetProductId : IGetProduct
+public class GetProductId(PaperWarehouseContext conn) : IGetProduct
 {
-    PaperWarehouseContext _context;
-    public GetProductId(PaperWarehouseContext conn)
-    {
-        _context = conn ?? throw new ArgumentNullException(nameof(conn));
-    }
+    PaperWarehouseContext _context { get; init; } = conn ?? throw new ArgumentNullException(nameof(conn));
 
     public async Task<long> ByNameAndCompany(string ProductName, string CompanyName)
     {

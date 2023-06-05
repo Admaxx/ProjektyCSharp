@@ -110,6 +110,19 @@
           "build/netstandard1.0/coverlet.collector.targets": {}
         }
       },
+      "Cryptography/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/GoldenCompany.Cryptography.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/GoldenCompany.Cryptography.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        }
+      },
       "MediatR/12.0.1": {
         "type": "package",
         "dependencies": {
@@ -2113,6 +2126,7 @@
           "AutoMapper": "12.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "Autofac": "7.0.1",
+          "Cryptography": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.5",
           "Microsoft.AspNetCore.OpenApi": "7.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5",
@@ -2336,6 +2350,19 @@
         "coverlet-icon.png",
         "coverlet.collector.6.0.0.nupkg.sha512",
         "coverlet.collector.nuspec"
+      ]
+    },
+    "Cryptography/1.0.0": {
+      "sha512": "FFxCKZY8Cp6IFryMqBkQNaylQdEXjQq2lNVn8GbOk6E+slCE3DpS+9T//uOi0lHYStBPHm9FHNhrzOWwId92gA==",
+      "type": "package",
+      "path": "cryptography/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "cryptography.1.0.0.nupkg.sha512",
+        "cryptography.nuspec",
+        "lib/netstandard2.0/GoldenCompany.Cryptography.dll",
+        "lib/netstandard2.0/GoldenCompany.Cryptography.runtimeconfig.json"
       ]
     },
     "MediatR/12.0.1": {

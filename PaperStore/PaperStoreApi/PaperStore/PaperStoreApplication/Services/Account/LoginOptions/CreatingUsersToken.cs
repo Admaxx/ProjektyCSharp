@@ -7,9 +7,9 @@ using System.Text;
 
 namespace PaperStoreApplication.Services.Account.LoginOptions
 {
-    internal class CreatingUsersToken
+    internal class CreatingUsersToken : ICreatingUsersToken
     {
-        internal string CreateToken(UserCredentialsModel userData)
+        public string CreateToken(UserCredentialsModel userData)
         {
             var creds = new SigningCredentials(
                 new SymmetricSecurityKey(Encoding.UTF8.GetBytes
@@ -26,8 +26,5 @@ namespace PaperStoreApplication.Services.Account.LoginOptions
                 ) //Getting token security
                 );
         }
-
-
-
     }
 }

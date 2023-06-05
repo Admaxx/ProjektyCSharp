@@ -8,8 +8,10 @@
     ".NETCoreApp,Version=v7.0": {
       "PaperStore/1.0.0": {
         "dependencies": {
+          "AutoMapper": "12.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "Autofac": "7.0.1",
+          "Cryptography": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.5",
           "Microsoft.AspNetCore.OpenApi": "7.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5",
@@ -95,6 +97,14 @@
           "lib/net6.0/BCrypt.Net-Next.dll": {
             "assemblyVersion": "4.0.3.0",
             "fileVersion": "4.0.3.0"
+          }
+        }
+      },
+      "Cryptography/1.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/GoldenCompany.Cryptography.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -1011,6 +1021,13 @@
       "sha512": "sha512-W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
       "path": "bcrypt.net-next/4.0.3",
       "hashPath": "bcrypt.net-next.4.0.3.nupkg.sha512"
+    },
+    "Cryptography/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FFxCKZY8Cp6IFryMqBkQNaylQdEXjQq2lNVn8GbOk6E+slCE3DpS+9T//uOi0lHYStBPHm9FHNhrzOWwId92gA==",
+      "path": "cryptography/1.0.0",
+      "hashPath": "cryptography.1.0.0.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",

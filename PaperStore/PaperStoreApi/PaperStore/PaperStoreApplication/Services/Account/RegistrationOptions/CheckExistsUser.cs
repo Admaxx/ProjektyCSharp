@@ -7,7 +7,7 @@ namespace PaperStoreApplication.Services.Account.RegistrationOptions
     {
         public async Task<bool> CheckIfUsersExists(PaperWarehouseContext _context, string Email)
             => await
-            _context.LoginOptions.AsNoTracking().Where(item => item.Email.ToLower() == Email.ToLower()).CountAsync() == 0 ? true : false;
+            _context.LoginOptions.AsNoTracking().Where(item => item.Email.ToLower() == Email.ToLower()).AnyAsync() ? false : true;
 
     }
 }

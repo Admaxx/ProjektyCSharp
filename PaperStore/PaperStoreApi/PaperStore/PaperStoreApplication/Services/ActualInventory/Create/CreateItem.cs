@@ -7,16 +7,11 @@ using PaperStoreModel.Models;
 
 namespace PaperStoreApplication.Services.ActualInventory.Create;
 
-public class CreateItem : ICreateItem
+public class CreateItem(PaperWarehouseContext conn, Container _container) : ICreateItem
 {
-    readonly PaperWarehouseContext _context;
-    readonly IContainer _conn;
-    public CreateItem(PaperWarehouseContext conn, Container _container)
-    {
-        this._context = conn ?? throw new ArgumentNullException(nameof(conn));
-        this._conn = _container.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(conn));
-
-    }
+    PaperWarehouseContext _context { get; init; } = conn ?? throw new ArgumentNullException(nameof(conn));
+    IContainer _conn { get; init; } = _container.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(conn));
+    
     public async Task<bool> CreateItemByName(ModifyItemModel model)
     {
         try

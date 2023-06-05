@@ -27,13 +27,7 @@ public partial class PaperWarehouseContext : DbContext
 
     IConfiguration jsonData = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build(); //Getting server navigation from appsettings.json
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer(
-            $"{jsonData["ConnectionStrings:Server"]}" +
-            $"{jsonData["ConnectionStrings:database"]}" +
-            $"{jsonData["ConnectionStrings:user"]}" +
-            $"{jsonData["ConnectionStrings:password"]}" +
-            $"{jsonData["ConnectionStrings:trustservercertificate"]}" 
-            );
+        => optionsBuilder.UseSqlServer($"{jsonData["Connection:dbString"]}");
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<CompaniesList>(entity =>
@@ -109,4 +103,3 @@ public partial class PaperWarehouseContext : DbContext
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
-//new ConfigurationBuilder().AddJsonFile("appsettings.json").Build()["ConnectionStrings:PaperStoreConn"] //Getting server navigation from appsettings.json

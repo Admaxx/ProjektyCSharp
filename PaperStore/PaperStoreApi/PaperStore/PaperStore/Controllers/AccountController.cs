@@ -2,30 +2,21 @@
 using Microsoft.AspNetCore.Mvc;
 using PaperStoreApplication.Services.OptionsForServices;
 using PaperStoreApplication.Services.Account.Registration;
-using PaperStoreApplication.Services.Account.RegistrationOptions;
-using Microsoft.AspNetCore.Http.HttpResults;
 using PaperStoreModel.Models;
 using PaperStoreApplication.Services.Account.Login;
 
 namespace PaperStore.Controllers
 {
     [Route("api/[Controller]")]
-    public class AccountController : Controller
+    public class AccountController(Container conn, ILogger<AccountController> logger) : Controller
     {
-        readonly IContainer _accountContainer;
-        readonly ILogger<AccountController> _logger;
-        public AccountController(Container conn, ILogger<AccountController> logger)
-        {
-            this._accountContainer = conn.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(conn));
-            this._logger = logger;
-        }
-
+        IContainer _accountContainer { get; init; } = conn.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(conn));
+        ILogger<AccountController> _logger { get; init; } = logger;
 
         [HttpGet] //Login user
         public IActionResult Login(UserCredentialsModel model)
         {
             var GetUserToken = _accountContainer.Resolve<ILoginUser>().UserLogin(new LoginOption() { Email = model.Email, Password = model.Password }).Result;
-
 
             _logger.LogInformation("Attemting to log user");
 

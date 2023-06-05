@@ -4,12 +4,9 @@ using PaperStoreModel.Models;
 
 namespace PaperStoreApplication.Services.ActualInventory.UpdateOptions;
 
-public class GetModel : IGetModel
+public class GetModel(PaperWarehouseContext conn) : IGetModel
 {
-    readonly PaperWarehouseContext _context;
-    public GetModel(PaperWarehouseContext conn)
-        =>
-        this._context = conn ?? throw new ArgumentNullException(nameof(conn));
+    PaperWarehouseContext _context { get; init; } = conn ?? throw new ArgumentNullException(nameof(conn));
 
     public async Task<CurrentStock> ModelById(long Id)
         => await

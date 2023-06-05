@@ -13,15 +13,13 @@ namespace PaperStoreApplication.Services.Account.Login
 
         public async Task<string> UserLogin(LoginOption model)
         {
-            CreatingUsersToken token = new CreatingUsersToken();
-
-            if (_conn.Resolve<IVerifyUsersPassword>().VerifyPassword(_context, model))
-                return token.CreateToken(new UserCredentialsModel() { Email = model.Email });
-
-
+            try
+            {
+                if (_conn.Resolve<IVerifyUsersPassword>().VerifyPassword(_context, model))
+                    return _conn.Resolve<ICreatingUsersToken>().CreateToken(new UserCredentialsModel() { Email = model.Email });
+            }
+            catch (Exception) { }
             return string.Empty;
         }
-
-
     }
 }
