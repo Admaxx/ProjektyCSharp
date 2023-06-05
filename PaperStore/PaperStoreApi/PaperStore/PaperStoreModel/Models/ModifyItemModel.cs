@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PaperStoreApplication.Services.OptionsForServices;
+namespace PaperStoreModel.Models;
 
 public class ModifyItemModel
 {

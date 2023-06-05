@@ -1,9 +1,12 @@
 ﻿using Autofac;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PaperStoreApplication.Services.ActualInventory.Create;
 using PaperStoreApplication.Services.ActualInventory.Delete;
 using PaperStoreApplication.Services.ActualInventory.Update;
 using PaperStoreApplication.Services.OptionsForServices;
+using PaperStoreModel.Models;
+
 namespace PaperStore.Controllers;
 
 [Route("api/[controller]")]
@@ -16,7 +19,7 @@ public class ActualInventoryController : Controller
         this._actualContainer = conn.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(conn));
         this._logger = logger;
     }
-    [HttpGet]
+    [HttpGet, Authorize]
     public IActionResult GetActualItems()
     {
         _logger.LogInformation("Getting current items");

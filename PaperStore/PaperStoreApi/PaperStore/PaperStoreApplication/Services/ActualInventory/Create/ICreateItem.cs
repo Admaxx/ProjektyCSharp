@@ -1,4 +1,4 @@
-﻿using PaperStoreApplication.Services.OptionsForServices;
+﻿using PaperStoreModel.Models;
 
 namespace PaperStoreApplication.Services.ActualInventory.Create;
 public interface ICreateItem

@@ -13,6 +13,11 @@ public class Container
         builder.RegisterModule<ActualInventory.CreateOptions.CreateRegistration>();
         builder.RegisterModule<ActualInventory.DeleteOptions.DeleteRegistration>();
 
+
+
+        builder.RegisterModule<Account.RegistrationOptions.RegistrationUserRegistration>();
+        builder.RegisterModule<Account.LoginOptions.LoginUserRegistration>();
+
         return builder.Build();
     }
 }

@@ -1,6 +1,6 @@
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\appsettings.Development.json
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\appsettings.json
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\PaperStore.exe
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\appsettings.json
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\PaperStore.deps.json
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\PaperStore.runtimeconfig.json
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\PaperStore.dll
@@ -8,6 +8,7 @@ C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStor
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Autofac.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Azure.Core.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Azure.Identity.dll
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\BCrypt.Net-Next.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Humanizer.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\MediatR.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\MediatR.Contracts.dll
@@ -81,3 +82,7 @@ C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStor
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\obj\Debug\net7.0\PaperStore.pdb
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\obj\Debug\net7.0\PaperStore.genruntimeconfig.cache
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\obj\Debug\net7.0\ref\PaperStore.dll
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Scrutor.dll
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
