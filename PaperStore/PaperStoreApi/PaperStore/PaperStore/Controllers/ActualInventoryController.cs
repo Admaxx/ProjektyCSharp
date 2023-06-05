@@ -21,7 +21,6 @@ public class ActualInventoryController(Container conn, ILogger<ActualInventoryCo
     {
         _logger.LogInformation("Attempting to get all items");
 
-
         return Ok(_actualContainer.Resolve<IReadAllItems>().GetAllItems(IsArchive: false).Result
             .Select(mapProfile.Map<ModifyItemModel>) //First attemts to use AutoMapper, not proud of place and code quality, will fix soon
             );

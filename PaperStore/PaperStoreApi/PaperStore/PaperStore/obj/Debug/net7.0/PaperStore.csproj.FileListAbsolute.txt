@@ -6,12 +6,16 @@ C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStor
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\PaperStore.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\PaperStore.pdb
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Autofac.dll
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Azure.Core.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Azure.Identity.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\BCrypt.Net-Next.dll
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\GoldenCompany.Cryptography.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Humanizer.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\MediatR.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\MediatR.Contracts.dll
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
@@ -33,6 +37,9 @@ C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStor
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Mono.TextTemplating.dll
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Scrutor.dll
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -82,10 +89,3 @@ C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStor
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\obj\Debug\net7.0\PaperStore.pdb
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\obj\Debug\net7.0\PaperStore.genruntimeconfig.cache
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\obj\Debug\net7.0\ref\PaperStore.dll
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Scrutor.dll
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.dll
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\AutoMapper.dll
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore\bin\Debug\net7.0\GoldenCompany.Cryptography.dll

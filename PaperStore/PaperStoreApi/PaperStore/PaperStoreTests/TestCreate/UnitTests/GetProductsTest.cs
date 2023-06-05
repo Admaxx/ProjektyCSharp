@@ -1,11 +1,12 @@
+using PaperStoreApplication.Contexts;
 using PaperStoreApplication.Services.ActualInventory.CreateOptions;
 
-namespace PaperStoreTests.TestCreate;
+namespace PaperStoreTests.TestCreate.UnitTests;
 
 [TestClass]
 public class GetProductsTest
 {
-    IGetProduct get = new GetProductId(new PaperStoreApplication.Contexts.PaperWarehouseContext());
+    IGetProduct get = new GetProductId(new PaperWarehouseContext());
     string RandomName = "NullName";
     string RandomCompany = "NullCompany";
 

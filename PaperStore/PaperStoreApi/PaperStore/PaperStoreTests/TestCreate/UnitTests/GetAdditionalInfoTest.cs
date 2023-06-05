@@ -1,6 +1,6 @@
 ﻿using PaperStoreApplication.Services.ActualInventory.Options;
 
-namespace PaperStoreTests.TestCreate;
+namespace PaperStoreTests.TestCreate.UnitTests;
 
 [TestClass]
 public class GetAdditionalInfoTest
