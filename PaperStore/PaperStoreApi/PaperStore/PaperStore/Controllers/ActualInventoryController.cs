@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using Microsoft.AspNetCore.Authorization;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using PaperStoreApplication.Services.ActualInventory.Create;
 using PaperStoreApplication.Services.ActualInventory.Delete;
@@ -10,21 +10,20 @@ using PaperStoreModel.Models;
 namespace PaperStore.Controllers;
 
 [Route("api/[controller]")]
-public class ActualInventoryController : Controller
+public class ActualInventoryController(Container conn, ILogger<ActualInventoryController> logger, IMapper m) : Controller
 {
-    readonly IContainer _actualContainer;
-    readonly ILogger<ActualInventoryController> _logger;
-    public ActualInventoryController(Container conn, ILogger<ActualInventoryController> logger)
-    {
-        this._actualContainer = conn.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(conn));
-        this._logger = logger;
-    }
-    [HttpGet, Authorize]
+    IContainer _actualContainer { get; init; } = conn.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(conn));
+    ILogger<ActualInventoryController> _logger { get; init; } = logger;
+    IMapper mapProfile { get; init; } = m;
+
+    [HttpGet]
     public IActionResult GetActualItems()
     {
         _logger.LogInformation("Getting current items");
 
-        return Ok(_actualContainer.Resolve<IReadAllItems>().GetAllItems(IsArchive: false).Result);
+        return Ok(_actualContainer.Resolve<IReadAllItems>().GetAllItems(IsArchive: false).Result
+            .Select(mapProfile.Map<ModifyItemModel>) //First attemts to use AutoMapper, not proud of place and code quality, will fix soon
+            );
     }
     [HttpPost]
     public IActionResult CreateItem(ModifyItemModel model)

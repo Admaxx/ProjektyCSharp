@@ -1,5 +1,7 @@
+using AutoMapper;
 using Microsoft.OpenApi.Models;
 using PaperStoreApplication.Services.OptionsForServices;
+using PaperStoreModel.Models;
 using Swashbuckle.AspNetCore.Filters;
 using System.Text.Json.Serialization;
 
@@ -24,11 +26,13 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 builder.Services.AddAuthentication().AddJwtBearer();
-
 builder.Services.AddScoped<Container>();
 
 builder.Services.AddControllersWithViews()
     .AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
+
+builder.Services.AddAutoMapper(typeof(DTOProfiles));
 
 var app = builder.Build();
 
