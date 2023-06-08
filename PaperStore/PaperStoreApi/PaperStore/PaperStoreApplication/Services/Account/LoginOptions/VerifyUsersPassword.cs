@@ -10,7 +10,7 @@ namespace PaperStoreApplication.Services.Account.LoginOptions
         public bool VerifyPassword(PaperWarehouseContext conn, LoginOption model)
             =>
             BCrypt.Net.BCrypt.Verify(model.Password, conn.LoginOptions
-                .Where(item => item.Email.ToLower() == model.Email).FirstAsync().Result.Password);
+                .FirstAsync(item => item.Email.ToLower() == model.Email).Result.Password);
 
 
     }

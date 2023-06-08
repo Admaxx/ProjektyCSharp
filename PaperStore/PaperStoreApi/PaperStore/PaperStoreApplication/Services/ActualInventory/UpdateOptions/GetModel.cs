@@ -10,7 +10,6 @@ public class GetModel(PaperWarehouseContext conn) : IGetModel
 
     public async Task<CurrentStock> ModelById(long Id)
         => await
-        _context.CurrentStocks.Where(item => item.Id == Id)
-        .AsNoTracking()
-        .FirstAsync();
+        _context.CurrentStocks.AsNoTracking()
+        .FirstAsync(item => item.Id == Id);
 }
