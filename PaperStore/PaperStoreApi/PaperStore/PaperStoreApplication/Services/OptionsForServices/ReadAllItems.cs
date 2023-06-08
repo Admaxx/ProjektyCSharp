@@ -15,6 +15,4 @@ public class ReadAllItems(PaperWarehouseContext conn) : IReadAllItems
             .Include(item => item.AddtionalInfoNavigation)
             .Include(item => item.ProductNameNavigation)
             .Where(item => item.Archive == IsArchive).ToListAsync();
-
-    
 }

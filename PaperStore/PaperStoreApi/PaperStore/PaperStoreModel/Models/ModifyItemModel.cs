@@ -10,5 +10,5 @@ public class ModifyItemModel
     public string ProductName { get; set; }
     [Required]
     public string CompanyName { get; set; }
-    public string? AdditionalDetail { get; set; } = null;
+    public string AdditionalDetail { get; set; }
 }
