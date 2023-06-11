@@ -4,15 +4,16 @@ using PaperStoreApplication.Contexts;
 using PaperStoreApplication.Services.ActualInventory.Options;
 using PaperStoreApplication.Services.ActualInventory.UpdateOptions;
 using PaperStoreApplication.Services.OptionsForServices;
+using PaperStoreModel.Models;
 
 namespace PaperStoreApplication.Services.ActualInventory.Update;
 
 public class UpdateItem(PaperWarehouseContext conn, Container _container) : IUpdateItem
 {
     PaperWarehouseContext _context { get; init; } = conn ?? throw new ArgumentNullException(nameof(conn));
-    IContainer _conn { get; init; } = _container.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(conn));
+    IContainer _conn { get; init; } = _container.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(_container));
 
-    public async Task<bool> UpdateItemByName(long Id, int? Qty, string AdditionalInfo)
+    public async Task<bool> UpdateItemByName(long Id, ModifyItemModel model)
     {
         try
         {
@@ -22,11 +23,11 @@ public class UpdateItem(PaperWarehouseContext conn, Container _container) : IUpd
                 .ExecuteUpdateAsync
                 (
                     item => item
-                    .SetProperty(item => item.Qty, item => Qty ?? updateModel.Qty)
+                    .SetProperty(item => item.Qty, item => updateModel.Qty + model.Qty)
                     .SetProperty(item => item.UpdateData, item => DateTime.Now)
                     .SetProperty(item => item.AddtionalInfoId,
                     item => _conn.Resolve<IGetAdditionalInfo>()
-                    .ByName(AdditionalInfo ?? string.Empty).Result ?? updateModel.AddtionalInfoId)
+                    .ByName(model.AdditionalDetail ?? string.Empty).Result ?? updateModel.AddtionalInfoId)
                 ) > 0;
         }
         catch (Exception) { return false; }

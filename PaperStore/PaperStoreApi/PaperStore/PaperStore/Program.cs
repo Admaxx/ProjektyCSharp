@@ -41,7 +41,7 @@ app.UseExceptionHandler(builder => builder.Use(async (context, next) =>
     {
         await next.Invoke(context);
     }
-    catch (Exception ex){}
+    catch (Exception){}
 }));
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

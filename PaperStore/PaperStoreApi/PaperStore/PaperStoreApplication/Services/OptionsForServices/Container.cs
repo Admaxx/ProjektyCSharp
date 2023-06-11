@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Microsoft.Extensions.Options;
 
 namespace PaperStoreApplication.Services.OptionsForServices;
 
@@ -12,7 +13,6 @@ public class Container
 
         builder.RegisterModule<ActualInventory.CreateOptions.CreateRegistration>();
         builder.RegisterModule<ActualInventory.DeleteOptions.DeleteRegistration>();
-
 
 
         builder.RegisterModule<Account.RegistrationOptions.RegistrationUserRegistration>();

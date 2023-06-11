@@ -16,7 +16,7 @@ namespace PaperStore.Controllers
         [HttpGet] //Login user
         public IActionResult Login(UserCredentialsModel model)
         {
-            var GetUserToken = _accountContainer.Resolve<ILoginUser>().UserLogin(new LoginOption() { Email = model.Email, Password = model.Password }).Result;
+            var GetUserToken = _accountContainer.Resolve<ILoginUser>().UserLogin(new LoginOption() { Email = model.Email, Password = model.Password });
 
             _logger.LogInformation("Attemting to log user");
 

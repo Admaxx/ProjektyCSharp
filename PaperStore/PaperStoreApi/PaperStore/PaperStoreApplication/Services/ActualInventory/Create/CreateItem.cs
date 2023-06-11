@@ -10,7 +10,7 @@ namespace PaperStoreApplication.Services.ActualInventory.Create;
 public class CreateItem(PaperWarehouseContext conn, Container _container) : ICreateItem
 {
     PaperWarehouseContext _context { get; init; } = conn ?? throw new ArgumentNullException(nameof(conn));
-    IContainer _conn { get; init; } = _container.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(conn));
+    IContainer _conn { get; init; } = _container.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(_container));
     
     public async Task<bool> CreateItemByName(ModifyItemModel model)
     {
@@ -23,6 +23,7 @@ public class CreateItem(PaperWarehouseContext conn, Container _container) : ICre
                 AddtionalInfoId = _conn.Resolve<IGetAdditionalInfo>().ByName(model.AdditionalDetail ?? string.Empty).Result
             });
             return await _context.SaveChangesAsync() > 0;
+
         }
         catch (Exception) { return false; }
     }

@@ -9,14 +9,12 @@ public class GetProductId(PaperWarehouseContext conn) : IGetProduct
 
     public async Task<long> ByNameAndCompany(string ProductName, string CompanyName)
             => await
-            _context.CurrentStocks
+            _context.StockItems
             .AsNoTracking()
-            .Include(item => item.ProductNameNavigation)
-            .ThenInclude(item => item.Company)
-            .Where(item => item.ProductNameNavigation.ItemName.ToLower() == ProductName.ToLower() &&
-            item.ProductNameNavigation.Company.CompanyName.ToLower() == CompanyName.ToLower())
-            .Select(item => item.ProductNameNavigation.Id)
+            .Include(item => item.Company)
+            .Where(item => item.ItemName.ToLower() == ProductName.ToLower() &&
+            item.Company.CompanyName.ToLower() == CompanyName.ToLower())
+            .Select(item => item.Id)
             .FirstOrDefaultAsync();
-
 }
 

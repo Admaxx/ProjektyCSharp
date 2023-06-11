@@ -37,6 +37,7 @@ public partial class PaperWarehouseContext : DbContext
             entity.Property(e => e.CompanyName)
                 .IsUnicode(false)
                 .HasColumnName("company_name");
+
         });
 
         modelBuilder.Entity<CurrentStock>(entity =>

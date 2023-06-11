@@ -11,7 +11,7 @@ namespace PaperStoreApplication.Services.Account.Login
         PaperWarehouseContext _context = conn ?? throw new ArgumentNullException();
         IContainer _conn = _container.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(conn));
 
-        public async Task<string> UserLogin(LoginOption model)
+        public string UserLogin(LoginOption model)
         {
             try
             {

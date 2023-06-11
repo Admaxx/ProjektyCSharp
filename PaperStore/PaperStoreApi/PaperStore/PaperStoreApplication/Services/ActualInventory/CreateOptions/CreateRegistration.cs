@@ -2,6 +2,7 @@
 using PaperStoreApplication.Services.ActualInventory.Create;
 using PaperStoreApplication.Contexts;
 using PaperStoreApplication.Services.OptionsForServices;
+using PaperStoreApplication.Services.ActualInventory.Options;
 
 namespace PaperStoreApplication.Services.ActualInventory.CreateOptions;
 
