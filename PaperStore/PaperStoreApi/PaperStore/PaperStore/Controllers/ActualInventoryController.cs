@@ -10,10 +10,10 @@ using PaperStoreModel.Models;
 namespace PaperStore.Controllers;
 
 [Route("api/[controller]")]
-public class ActualInventoryController(Container conn, ILogger<ActualInventoryController> logger, IMapper profilMapper) : Controller
+public class ActualInventoryController(Container conn, ILoggerFactory logger, IMapper profilMapper) : Controller
 {
     IContainer _actualContainer { get; init; } = conn.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(conn));
-    ILogger<ActualInventoryController> _logger { get; init; } = logger;
+    ILogger<ActualInventoryController> _logger { get; init; } = logger.CreateLogger<ActualInventoryController>();
     IMapper mapProfile { get; init; } = profilMapper;
 
     [HttpGet]

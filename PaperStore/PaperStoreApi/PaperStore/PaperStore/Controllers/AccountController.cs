@@ -8,10 +8,10 @@ using PaperStoreApplication.Services.Account.Login;
 namespace PaperStore.Controllers
 {
     [Route("api/[Controller]")]
-    public class AccountController(Container conn, ILogger<AccountController> logger) : Controller
+    public class AccountController(Container conn, ILoggerFactory logger) : Controller
     {
         IContainer _accountContainer { get; init; } = conn.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(conn));
-        ILogger<AccountController> _logger { get; init; } = logger;
+        ILogger<AccountController> _logger { get; init; } = logger.CreateLogger<AccountController>();
 
         [HttpGet] //Login user
         public IActionResult Login(UserCredentialsModel model)

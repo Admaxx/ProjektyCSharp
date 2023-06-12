@@ -1,4 +1,3 @@
-using AutoMapper;
 using Microsoft.OpenApi.Models;
 using PaperStoreApplication.Services.OptionsForServices;
 using PaperStoreModel.Models;

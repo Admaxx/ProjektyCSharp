@@ -1,11 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PaperStoreModel.Models;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace PaperStoreApplication.Contexts;
 
 public partial class PaperWarehouseContext : DbContext
 {
+    public static readonly ILoggerFactory loggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
     public PaperWarehouseContext()
     {
     }
@@ -27,7 +29,14 @@ public partial class PaperWarehouseContext : DbContext
 
     IConfiguration jsonData = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build(); //Getting server navigation from appsettings.json
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer($"{jsonData["Connection:dbString"]}");
+    {
+        optionsBuilder.UseSqlServer($"{jsonData["Connection:dbString"]}");
+
+
+        optionsBuilder.UseLoggerFactory(loggerFactory)
+            .EnableSensitiveDataLogging()
+            .UseSqlServer(jsonData["Connection:dbString"]);
+    }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<CompaniesList>(entity =>
