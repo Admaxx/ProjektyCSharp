@@ -14,6 +14,4 @@ public class GetAdditionalInfo(PaperWarehouseContext conn) : IGetAdditionalInfo
         .Where(item => item.AdditionalInfo.ToLower() == AdditionalInfoName.ToLower())
         .Select(item => item.Id)
         .FirstOrDefaultAsync();
-
-
 }

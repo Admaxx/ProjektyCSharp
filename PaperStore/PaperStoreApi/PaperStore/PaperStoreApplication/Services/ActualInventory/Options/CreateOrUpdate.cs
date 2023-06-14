@@ -11,11 +11,15 @@ namespace PaperStoreApplication.Services.ActualInventory.Options
         IContainer _conn { get; init; } = _container.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(_container));
         public bool ChooseItem(ModifyItemModel model)
         {
-            var CurrentItemId = _conn.Resolve<IGetCurrentItemId>().ByAll(model).Result;
+            try
+            {
+                var CurrentItemId = _conn.Resolve<IGetCurrentItemId>().ByAll(model).Result;
 
-            return CurrentItemId == 0 ? 
-                _conn.Resolve<ICreateItem>().CreateItemByName(model).Result : //Create new item
-                _conn.Resolve<IUpdateItem>().UpdateItemByName(CurrentItemId, model).Result; //Update old item
+                return CurrentItemId == 0 ?
+                    _conn.Resolve<ICreateItem>().CreateItemByName(model).Result : //Create new item
+                    _conn.Resolve<IUpdateItem>().UpdateItemByName(CurrentItemId, model).Result; //Update old item
+            }
+            catch (Exception) { return false; }
         }
     }
 }

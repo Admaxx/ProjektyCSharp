@@ -11,6 +11,9 @@ public class ShareRegistration : Module
         builder.RegisterType<GetAdditionalInfo>().As<IGetAdditionalInfo>().WithParameter("conn", new PaperWarehouseContext());
         builder.RegisterType<GetCurrentItemId>().As<IGetCurrentItemId>().WithParameter("conn", new PaperWarehouseContext());
 
+        builder.RegisterType<GetCompanyId>().As<IGetCompanyId>().WithParameter("conn", new PaperWarehouseContext());
+        builder.RegisterType<GetProductId>().As<IGetProductId>().WithParameter("conn", new PaperWarehouseContext());
+
         builder.RegisterType<CreateOrUpdate>().As<ICreateOrUpdate>().WithParameter("_container", new Container());
     }
 }
