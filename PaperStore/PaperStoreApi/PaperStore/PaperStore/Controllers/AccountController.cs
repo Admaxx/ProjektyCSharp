@@ -18,7 +18,7 @@ namespace PaperStore.Controllers
         {
             var GetUserToken = _accountContainer.Resolve<ILoginUser>().UserLogin(new LoginOption() { Email = model.Email, Password = model.Password });
 
-            _logger.LogInformation("Attemting to log user");
+            _logger.LogInformation(AllData.LogInActionMessage);
 
             return
                 GetUserToken != string.Empty
@@ -28,7 +28,7 @@ namespace PaperStore.Controllers
         [HttpPost] //Register user
         public async Task<IActionResult> Registration(UserCredentialsModel model)
         {
-            _logger.LogInformation("Attemting to create a new user");
+            _logger.LogInformation(AllData.RegisterActionMessage);
 
             return await
                 _accountContainer.Resolve<IRegistrationUser>().UserRegistration(new LoginOption() { Email = model.Email, Password = model.Password })

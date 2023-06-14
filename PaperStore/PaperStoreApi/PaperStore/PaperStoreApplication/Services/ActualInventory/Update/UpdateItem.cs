@@ -5,7 +5,6 @@ using PaperStoreApplication.Services.ActualInventory.Options;
 using PaperStoreApplication.Services.ActualInventory.UpdateOptions;
 using PaperStoreApplication.Services.OptionsForServices;
 using PaperStoreModel.Models;
-using System.Diagnostics;
 
 namespace PaperStoreApplication.Services.ActualInventory.Update;
 
@@ -14,13 +13,16 @@ public class UpdateItem(PaperWarehouseContext conn, Container _container) : IUpd
     PaperWarehouseContext _context { get; init; } = conn ?? throw new ArgumentNullException(nameof(conn));
     IContainer _conn { get; init; } = _container.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(_container));
 
-    public async Task<bool> UpdateItemByName(long Id, ModifyItemModel model)
+    public async Task<bool> UpdateItemByName(long Id, ModifyItemModel model, bool AddQtyToExists)
     {
         try
         {
             var updateModel = _conn.Resolve<IGetModel>().ModelById(Id).Result;
-            
-            return await _context.CurrentStocks.Where(item => item.Id == Id)//.Include(item => item.ProductNameNavigation).ThenInclude(item => item.Company)
+
+            if(AddQtyToExists) //Refactor needed!
+                updateModel.Qty = 0;
+
+            return await _context.CurrentStocks.Where(item => item.Id == Id)
                 .ExecuteUpdateAsync
                 (
                     item => item
@@ -35,6 +37,6 @@ public class UpdateItem(PaperWarehouseContext conn, Container _container) : IUpd
                     .ByName(model.ProductName, model.CompanyName).Result ?? updateModel.ProductName)
                 ) > 0;
         }
-        catch (Exception ex) { Debug.WriteLine(ex); return false; }
+        catch (Exception) { return false; }
     }
 }

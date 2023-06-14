@@ -17,7 +17,7 @@ namespace PaperStoreApplication.Services.ActualInventory.Options
 
                 return CurrentItemId == 0 ?
                     _conn.Resolve<ICreateItem>().CreateItemByName(model).Result : //Create new item
-                    _conn.Resolve<IUpdateItem>().UpdateItemByName(CurrentItemId, model).Result; //Update old item
+                    _conn.Resolve<IUpdateItem>().UpdateItemByName(CurrentItemId, model, false).Result; //Update old item
             }
             catch (Exception) { return false; }
         }

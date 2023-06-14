@@ -19,7 +19,7 @@ public class ActualInventoryController(Container conn, ILoggerFactory logger, IM
     [HttpGet]
     public IActionResult GetActualItems()
     {
-        _logger.LogInformation("Attempting to get all items");
+        _logger.LogInformation(AllData.ReadActionMessage);
 
         return Ok(_actualContainer.Resolve<IReadAllItems>().GetAllItems(IsArchive: false).Result
             //.Select(mapProfile.Map<ModifyItemModel>) //First attemts to use AutoMapper, not proud of place and code quality, will fix soon
@@ -28,7 +28,7 @@ public class ActualInventoryController(Container conn, ILoggerFactory logger, IM
     [HttpPost]
     public IActionResult CreateItem(ModifyItemModel model)
     {
-        _logger.LogInformation("Attempting to create new item");
+        _logger.LogInformation(AllData.CreateActionMessage);
 
         return _actualContainer.Resolve<ICreateOrUpdate>().ChooseItem(model) ?
         CreatedAtAction(nameof(CreateItem), AllData.CreateSuccessMessage) : BadRequest(AllData.BadRequestMessage);
@@ -36,15 +36,15 @@ public class ActualInventoryController(Container conn, ILoggerFactory logger, IM
     [HttpPut]
     public IActionResult UpdateItem(long Id, ModifyItemModel model)
     {
-        _logger.LogInformation("Attempting to update item");
+        _logger.LogInformation(AllData.UpdateActionMessage);
 
-        return _actualContainer.Resolve<IUpdateItem>().UpdateItemByName(Id, model).Result ?
+        return _actualContainer.Resolve<IUpdateItem>().UpdateItemByName(Id, model, true).Result ?
         StatusCode(200, AllData.UpdateSuccessMessage) : BadRequest(AllData.BadRequestMessage);
     }
     [HttpDelete]
     public IActionResult DeleteItem(long Id)
     {
-        _logger.LogInformation("Attempting to delete item");
+        _logger.LogInformation(AllData.DeleteActionMessage);
 
         return _actualContainer.Resolve<IDeleteItem>().ItemById(Id, false).Result ?
         StatusCode(200, AllData.DeleteSuccessMessage) : BadRequest(AllData.BadRequestMessage);
