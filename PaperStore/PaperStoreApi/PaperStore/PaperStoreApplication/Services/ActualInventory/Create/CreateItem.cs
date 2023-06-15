@@ -19,7 +19,7 @@ public class CreateItem(PaperWarehouseContext conn, Container _container) : ICre
             await _context.AddAsync(new CurrentStock()
             {
                 ProductName = _conn.Resolve<IGetProduct>().ByNameAndCompany(model.ProductName, model.CompanyName).Result,
-                Qty = model.Qty,
+                Qty = (int)model.Qty,
                 AddtionalInfoId = _conn.Resolve<IGetAdditionalInfo>().ByName(model.AdditionalDetail ?? string.Empty).Result
             });
             return await _context.SaveChangesAsync() > 0;

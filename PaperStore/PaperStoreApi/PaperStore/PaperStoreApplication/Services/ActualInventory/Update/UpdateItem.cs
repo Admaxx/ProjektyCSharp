@@ -5,6 +5,7 @@ using PaperStoreApplication.Services.ActualInventory.Options;
 using PaperStoreApplication.Services.ActualInventory.UpdateOptions;
 using PaperStoreApplication.Services.OptionsForServices;
 using PaperStoreModel.Models;
+using System.Diagnostics;
 
 namespace PaperStoreApplication.Services.ActualInventory.Update;
 
@@ -18,7 +19,7 @@ public class UpdateItem(PaperWarehouseContext conn, Container _container) : IUpd
         try
         {
             var updateModel = _conn.Resolve<IGetModel>().ModelById(Id).Result;
-
+            Debug.WriteLine($"{updateModel.Qty}");
             if(AddQtyToExists) //Refactor needed!
                 updateModel.Qty = 0;
 
@@ -26,7 +27,7 @@ public class UpdateItem(PaperWarehouseContext conn, Container _container) : IUpd
                 .ExecuteUpdateAsync
                 (
                     item => item
-                    .SetProperty(item => item.Qty, item => updateModel.Qty + model.Qty)
+                    .SetProperty(item => item.Qty, item => updateModel.Qty + (model.Qty ?? item.Qty))
                     .SetProperty(item => item.UpdateData, item => DateTime.Now)
                     .SetProperty(item => item.AddtionalInfoId,
                     item => _conn.Resolve<IGetAdditionalInfo>()
