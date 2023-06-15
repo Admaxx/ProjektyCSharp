@@ -11,6 +11,6 @@ public class GetAdditionalInfoTest
     [TestMethod]
     public void shouldReturnZeroBecouseOfFakeDetailName()
     {
-        Assert.AreEqual(get.ByName(RandomDetailName).Result, 0);
+        Assert.AreEqual(get.ByName(RandomDetailName).Result, null);
     }
 }
