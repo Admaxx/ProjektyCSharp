@@ -23,7 +23,6 @@ public class CreateItem(PaperWarehouseContext conn, Container _container) : ICre
                 AddtionalInfoId = _conn.Resolve<IGetAdditionalInfo>().ByName(model.AdditionalDetail ?? string.Empty).Result
             });
             return await _context.SaveChangesAsync() > 0;
-
         }
         catch (Exception) { return false; }
     }

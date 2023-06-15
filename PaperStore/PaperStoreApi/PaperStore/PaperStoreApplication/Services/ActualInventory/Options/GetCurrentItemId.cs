@@ -19,7 +19,8 @@ namespace PaperStoreApplication.Services.ActualInventory.Options
             .Where(item => 
             item.ProductNameNavigation.ItemName.ToLower() == model.ProductName.ToLower() &&
             item.ProductNameNavigation.Company.CompanyName.ToLower() == model.CompanyName.ToLower() &&
-            item.AddtionalInfoNavigation.AdditionalInfo == model.AdditionalDetail)
+            item.AddtionalInfoNavigation.AdditionalInfo == model.AdditionalDetail &&
+            item.Archive == false)
             .Select(item => item.Id)
             .FirstOrDefaultAsync();
 
