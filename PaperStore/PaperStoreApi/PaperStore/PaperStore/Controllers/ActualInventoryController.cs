@@ -10,7 +10,7 @@ using PaperStoreModel.Models;
 namespace PaperStore.Controllers;
 
 [Route("api/[controller]")]
-public class ActualInventoryController(Container conn, ILoggerFactory logger, IMapper profilMapper) : Controller
+public class ActualInventoryController(Container conn, ILoggerFactory logger, IMapper profilMapper) : Controller //This controller serving only non-archive items
 {
     IContainer _actualContainer { get; init; } = conn.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(conn));
     ILogger<ActualInventoryController> _logger { get; init; } = logger.CreateLogger<ActualInventoryController>();
@@ -26,7 +26,7 @@ public class ActualInventoryController(Container conn, ILoggerFactory logger, IM
             );
     }
     [HttpPost]
-    public IActionResult CreateItem(ModifyItemModel model)
+    public IActionResult CreateItem(ModifyItemModel model) //If updating qty, it adding exists qty to new one
     {
         _logger.LogInformation(AllData.CreateActionMessage);
 
@@ -34,7 +34,7 @@ public class ActualInventoryController(Container conn, ILoggerFactory logger, IM
         CreatedAtAction(nameof(CreateItem), AllData.CreateSuccessMessage) : BadRequest(AllData.BadRequestMessage);
     }
     [HttpPut]
-    public IActionResult UpdateItem(long Id, ModifyItemModel model)
+    public IActionResult UpdateItem(long Id, ModifyItemModel model) //If updating qty, it reseting qty, and replacing it by new one
     {
         _logger.LogInformation(AllData.UpdateActionMessage);
 
