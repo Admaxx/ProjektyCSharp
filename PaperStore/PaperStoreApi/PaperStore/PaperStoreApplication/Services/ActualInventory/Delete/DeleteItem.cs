@@ -14,7 +14,8 @@ public class DeleteItem(PaperWarehouseContext conn) : IDeleteItem
             return await
             _context.CurrentStocks
             .Where(item => item.Id == id && item.Archive == IsArchive)
-            .ExecuteDeleteAsync() > 0;
+            .ExecuteUpdateAsync(item => item.SetProperty(item => item.Archive, item => true)
+            ) > 0;
         }
         catch (Exception) { return false; }
     }
