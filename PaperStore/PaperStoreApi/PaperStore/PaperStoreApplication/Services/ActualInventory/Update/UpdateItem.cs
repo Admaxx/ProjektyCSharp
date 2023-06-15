@@ -19,7 +19,6 @@ public class UpdateItem(PaperWarehouseContext conn, Container _container) : IUpd
         try
         {
             var updateModel = _conn.Resolve<IGetModel>().ModelById(Id).Result;
-            Debug.WriteLine($"{updateModel.Qty}");
             if(AddQtyToExists) //Refactor needed!
                 updateModel.Qty = 0;
 
