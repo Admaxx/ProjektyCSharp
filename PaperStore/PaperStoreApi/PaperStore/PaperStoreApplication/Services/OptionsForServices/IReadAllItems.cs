@@ -4,5 +4,5 @@ namespace PaperStoreApplication.Services.OptionsForServices;
 
 public interface IReadAllItems
 {
-    Task<List<CurrentStock>> GetAllItems(bool? IsArchive);
+    IAsyncEnumerable<CurrentStock> GetAllItems(bool? IsArchive);
 }

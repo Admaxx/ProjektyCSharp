@@ -21,7 +21,7 @@ public class ActualInventoryController(Container conn, ILoggerFactory logger, IM
     {
         _logger.LogInformation(AllData.ReadActionMessage);
 
-        return Ok(_actualContainer.Resolve<IReadAllItems>().GetAllItems(IsArchive: false).Result
+        return Ok(_actualContainer.Resolve<IReadAllItems>().GetAllItems(IsArchive: false).ToBlockingEnumerable()
            .Select(mapProfile.Map<ModifyItemModel>) //First attemts to use AutoMapper, not proud of place and code quality, will fix soon
             );
     }

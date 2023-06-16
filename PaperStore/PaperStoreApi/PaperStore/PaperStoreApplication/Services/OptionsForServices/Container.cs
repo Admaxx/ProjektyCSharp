@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using Microsoft.Extensions.Options;
 
 namespace PaperStoreApplication.Services.OptionsForServices;
 
@@ -21,4 +20,3 @@ public class Container
         return builder.Build();
     }
 }
-
