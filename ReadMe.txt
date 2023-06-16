@@ -1,0 +1,3 @@
+CEIDGProjects are older than PaperStore.
+In that case, CEIDGProjects has older implementations ways...
+So, I recommend to check PaperStore first.
