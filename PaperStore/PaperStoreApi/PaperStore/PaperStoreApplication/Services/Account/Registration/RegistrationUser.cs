@@ -1,6 +1,6 @@
 ﻿using Autofac;
 using PaperStoreApplication.Contexts;
-using PaperStoreApplication.Services.Account.RegistrationOptions;
+using PaperStoreApplication.Services.Account.Registration.RegistrationOptions;
 using PaperStoreApplication.Services.OptionsForServices;
 using PaperStoreModel.Models;
 

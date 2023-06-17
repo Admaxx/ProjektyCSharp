@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using PaperStoreApplication.Contexts;
 using PaperStoreApplication.Services.ActualInventory.Options;
-using PaperStoreApplication.Services.ActualInventory.UpdateOptions;
+using PaperStoreApplication.Services.ActualInventory.Update.UpdateOptions;
 using PaperStoreApplication.Services.OptionsForServices;
 using PaperStoreModel.Models;
 

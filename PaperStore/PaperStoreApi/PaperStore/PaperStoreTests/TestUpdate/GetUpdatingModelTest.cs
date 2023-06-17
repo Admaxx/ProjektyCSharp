@@ -1,4 +1,4 @@
-﻿using PaperStoreApplication.Services.ActualInventory.UpdateOptions;
+﻿using PaperStoreApplication.Services.ActualInventory.Update.UpdateOptions;
 
 namespace PaperStoreTests.TestUpdate
 {

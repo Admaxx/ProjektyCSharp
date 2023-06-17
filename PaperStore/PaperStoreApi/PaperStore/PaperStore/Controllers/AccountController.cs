@@ -5,34 +5,33 @@ using PaperStoreApplication.Services.Account.Registration;
 using PaperStoreModel.Models;
 using PaperStoreApplication.Services.Account.Login;
 
-namespace PaperStore.Controllers
+namespace PaperStore.Controllers;
+
+[Route("api/[Controller]")]
+public class AccountController(Container conn, ILoggerFactory logger) : Controller
 {
-    [Route("api/[Controller]")]
-    public class AccountController(Container conn, ILoggerFactory logger) : Controller
+    IContainer _accountContainer { get; init; } = conn.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(conn));
+    ILogger<AccountController> _logger { get; init; } = logger.CreateLogger<AccountController>();
+
+    [HttpGet] //Login user
+    public IActionResult Login(UserCredentialsModel model)
     {
-        IContainer _accountContainer { get; init; } = conn.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(conn));
-        ILogger<AccountController> _logger { get; init; } = logger.CreateLogger<AccountController>();
+        var GetUserToken = _accountContainer.Resolve<ILoginUser>().UserLogin(new LoginOption() { Email = model.Email, Password = model.Password });
 
-        [HttpGet] //Login user
-        public IActionResult Login(UserCredentialsModel model)
-        {
-            var GetUserToken = _accountContainer.Resolve<ILoginUser>().UserLogin(new LoginOption() { Email = model.Email, Password = model.Password });
+        _logger.LogInformation(AllData.LogInActionMessage);
 
-            _logger.LogInformation(AllData.LogInActionMessage);
+        return
+            GetUserToken != string.Empty
+            ? Ok(GetUserToken) : BadRequest(AllData.BadRequestMessage);
+    }
 
-            return
-                GetUserToken != string.Empty
-                ? Ok(GetUserToken) : BadRequest(AllData.BadRequestMessage);
-        }
+    [HttpPost] //Register user
+    public async Task<IActionResult> Registration(UserCredentialsModel model)
+    {
+        _logger.LogInformation(AllData.RegisterActionMessage);
 
-        [HttpPost] //Register user
-        public async Task<IActionResult> Registration(UserCredentialsModel model)
-        {
-            _logger.LogInformation(AllData.RegisterActionMessage);
-
-            return await
-                _accountContainer.Resolve<IRegistrationUser>().UserRegistration(new LoginOption() { Email = model.Email, Password = model.Password })
-                ? Ok(AllData.CreateUser) : BadRequest(AllData.BadRequestMessage);
-        }
+        return await
+            _accountContainer.Resolve<IRegistrationUser>().UserRegistration(new LoginOption() { Email = model.Email, Password = model.Password })
+            ? Ok(AllData.CreateUser) : BadRequest(AllData.BadRequestMessage);
     }
 }

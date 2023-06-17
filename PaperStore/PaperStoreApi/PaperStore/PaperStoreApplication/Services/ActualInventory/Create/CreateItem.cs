@@ -1,6 +1,6 @@
 ﻿using Autofac;
 using PaperStoreApplication.Contexts;
-using PaperStoreApplication.Services.ActualInventory.CreateOptions;
+using PaperStoreApplication.Services.ActualInventory.Create.CreateOptions;
 using PaperStoreApplication.Services.ActualInventory.Options;
 using PaperStoreApplication.Services.OptionsForServices;
 using PaperStoreModel.Models;

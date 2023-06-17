@@ -1,5 +1,5 @@
 using PaperStoreApplication.Contexts;
-using PaperStoreApplication.Services.ActualInventory.CreateOptions;
+using PaperStoreApplication.Services.ActualInventory.Create.CreateOptions;
 
 namespace PaperStoreTests.TestCreate.UnitTests;
 

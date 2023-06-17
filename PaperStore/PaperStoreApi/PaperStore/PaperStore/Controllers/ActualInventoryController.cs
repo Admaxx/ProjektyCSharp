@@ -39,7 +39,7 @@ public class ActualInventoryController(Container conn, ILoggerFactory logger, IM
         _logger.LogInformation(AllData.UpdateActionMessage);
 
         return _actualContainer.Resolve<IUpdateItem>().UpdateItemByName(Id, model, true).Result ?
-        StatusCode(200, AllData.UpdateSuccessMessage) : BadRequest(AllData.BadRequestMessage);
+        Ok(AllData.UpdateSuccessMessage) : BadRequest(AllData.BadRequestMessage);
     }
     [HttpDelete]
     public IActionResult DeleteItem(long Id)
@@ -47,6 +47,6 @@ public class ActualInventoryController(Container conn, ILoggerFactory logger, IM
         _logger.LogInformation(AllData.DeleteActionMessage);
 
         return _actualContainer.Resolve<IDeleteItem>().ItemById(Id, false).Result ?
-        StatusCode(200, AllData.DeleteSuccessMessage) : BadRequest(AllData.BadRequestMessage);
+        Ok(AllData.DeleteSuccessMessage) : BadRequest(AllData.BadRequestMessage);
     }
 }
