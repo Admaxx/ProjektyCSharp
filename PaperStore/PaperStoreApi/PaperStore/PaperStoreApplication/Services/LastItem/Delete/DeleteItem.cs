@@ -1,22 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PaperStoreApplication.Contexts;
-
+﻿using Autofac;
+using PaperStoreApplication.Services.LastItem.Create.CreateOptions;
+using PaperStoreApplication.Services.OptionsForServices;
 namespace PaperStoreApplication.Services.LastItem.Delete;
 
-public class DeleteItem(PaperWarehouseContext conn) : IDeleteItem
+public class DeleteItem(Container _container) : IDeleteItem
 {
-    PaperWarehouseContext _context { get; init; } = conn ?? throw new ArgumentNullException(nameof(conn));
+    IContainer _conn { get; init; } = _container.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(_container));
 
-    public async Task<bool> ItemById(long id, bool IsArchive)
+    public async Task<bool> RemoveLastElement(bool IsArchive)
     {
-        try
-        {
-            return await
-            _context.CurrentStocks
-            .Where(item => item.Id == id && item.Archive == IsArchive)
-            .ExecuteUpdateAsync(item => item.SetProperty(item => item.Archive, item => true)
-            ) > 0;
-        }
-        catch (Exception) { return false; }
+        return await _conn.Resolve<ActualInventory.Delete.IDeleteItem>().ItemById(
+            _conn.Resolve<IGetProduct>().LastId().Result, 
+            IsArchive);
     }
 }

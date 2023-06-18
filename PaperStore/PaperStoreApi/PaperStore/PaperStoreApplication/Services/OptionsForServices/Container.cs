@@ -23,6 +23,7 @@ public class Container
         builder.RegisterModule<LastItem.Create.CreateOptions.CreateRegistration>();
         builder.RegisterModule<LastItem.Update.UpdateOptions.UpdateRegistration>();
         builder.RegisterModule<LastItem.Delete.DeleteOptions.DeleteRegistration>();
+        builder.RegisterModule<LastItem.Options.LastItemOptionsRegistration>();
 
         return builder.Build();
     }

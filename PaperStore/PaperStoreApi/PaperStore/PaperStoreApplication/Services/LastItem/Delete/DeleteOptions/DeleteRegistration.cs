@@ -1,6 +1,5 @@
 ﻿using Autofac;
 using PaperStoreApplication.Contexts;
-using PaperStoreApplication.Services.ActualInventory.Delete;
 using PaperStoreApplication.Services.OptionsForServices;
 
 namespace PaperStoreApplication.Services.LastItem.Delete.DeleteOptions;

@@ -3,5 +3,5 @@
 namespace PaperStoreApplication.Services.LastItem.Create;
 public interface ICreateItem
 {
-    Task<bool> CreateItemByName(ModifyItemModel model);
+    Task<bool> AddQtyUpdateRemainingItems(ModifyItemModel model, bool ModeChoose);
 }

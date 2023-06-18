@@ -2,5 +2,5 @@
 
 public interface IDeleteItem
 {
-    Task<bool> ItemById(long id, bool IsArchive);
+    Task<bool> RemoveLastElement(bool IsArchive);
 }
