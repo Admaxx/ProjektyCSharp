@@ -14,6 +14,4 @@ public class GetUpdatingModelTest
     {
         Assert.ThrowsException<AggregateException>(() => get.ModelById(ModelQty).Result.Qty);
     }
-
-
 }

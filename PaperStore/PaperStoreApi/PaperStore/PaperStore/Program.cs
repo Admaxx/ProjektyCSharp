@@ -26,6 +26,8 @@ builder.Services.AddSwaggerGen(options =>
 
 builder.Services.AddAuthentication().AddJwtBearer();
 builder.Services.AddScoped<Container>();
+builder.Services.AddOutputCache(items => items.AddPolicy
+    ("ItemsCachePolicy", builder => builder.Tag("Qty").Tag("ProductName").Tag("AddtionalInfoId"))); //First attempt to cache policy
 
 builder.Services.AddControllersWithViews()
     .AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
@@ -52,6 +54,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseOutputCache();
 
 app.MapControllers();
 

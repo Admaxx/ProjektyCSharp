@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OutputCaching;
 using PaperStoreApplication.Services.ActualInventory.Delete;
 using PaperStoreApplication.Services.ActualInventory.Options;
 using PaperStoreApplication.Services.ActualInventory.Update;
@@ -17,6 +18,7 @@ public class ActualInventoryController(Container conn, ILoggerFactory logger, IM
     IMapper mapProfile { get; init; } = profilMapper;
 
     [HttpGet]
+    [OutputCache(PolicyName = "ItemsCachePolicy")]
     public IActionResult GetActualItems()
     {
         _logger.LogInformation(AllData.ReadActionMessage);

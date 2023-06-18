@@ -7,6 +7,7 @@ using PaperStoreApplication.Services.LastItem.Create;
 using PaperStoreApplication.Services.LastItem.Read;
 using PaperStoreApplication.Services.OptionsForServices;
 using PaperStoreModel.Models;
+using Microsoft.AspNetCore.OutputCaching;
 
 namespace PaperStore.Controllers;
 
@@ -18,22 +19,23 @@ public class LastItemController(Container conn, ILoggerFactory logger, IMapper p
     IMapper mapProfile { get; init; } = profilMapper;
 
     [HttpGet]
-    public IActionResult GetActualItems()
+    [OutputCache(PolicyName = "ItemsCachePolicy")]
+    public IActionResult GetLastElement()
     {
         _logger.LogInformation(AllData.ReadActionMessage);
 
         return Ok(_lastItemContainer.Resolve<IGetLast>().LastItem());
     }
     [HttpPost]
-    public IActionResult CreateItem(ModifyItemModel model) //If updating qty, it adding exists qty to new one
+    public IActionResult AddToLastItem(ModifyItemModel model) //If updating qty, it adding exists qty to new one
     {
         _logger.LogInformation(AllData.CreateActionMessage);
 
         return _lastItemContainer.Resolve<ICreateItem>().AddQtyUpdateRemainingItems(model, false).Result ?
-        CreatedAtAction(nameof(CreateItem), AllData.CreateSuccessMessage) : BadRequest(AllData.BadRequestMessage);
+        CreatedAtAction(nameof(AddToLastItem), AllData.CreateSuccessMessage) : BadRequest(AllData.BadRequestMessage);
     }
     [HttpPut]
-    public IActionResult UpdateItem(ModifyItemModel model) //If updating qty, it reseting qty, and replacing it by new one
+    public IActionResult UpdateToLastItem(ModifyItemModel model) //If updating qty, it reseting qty, and replacing it by new one
     {
         _logger.LogInformation(AllData.UpdateActionMessage);
 
@@ -41,7 +43,7 @@ public class LastItemController(Container conn, ILoggerFactory logger, IMapper p
         Ok(AllData.UpdateSuccessMessage) : BadRequest(AllData.BadRequestMessage);
     }
     [HttpDelete]
-    public IActionResult DeleteItem()
+    public IActionResult DeleteLastItem()
     {
         _logger.LogInformation(AllData.DeleteActionMessage);
 
