@@ -1,6 +1,4 @@
 This is an simple API for local PaperStore, with simple (for now) CRUD operations...
-Will add roles etc.
-This is a Api's version of PaperStoreApp.
 
 There are 3 controllers:
 ActualInventory,
