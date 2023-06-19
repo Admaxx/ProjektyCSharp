@@ -13,5 +13,6 @@ public class ReadAllItems(PaperWarehouseContext conn) : IReadAllItems
         .Include(item => item.AddtionalInfoNavigation)
         .Include(item => item.ProductNameNavigation)
         .ThenInclude(item => item.Company)
-        .Where(item => item.Archive == IsArchive).AsQueryable();
+        .Where(item => item.Archive == IsArchive)
+        .AsQueryable();
 }

@@ -1,6 +1,7 @@
 using Microsoft.OpenApi.Models;
 using PaperStoreApplication.Services.OptionsForServices;
 using PaperStoreModel.Models;
+using Serilog;
 using Swashbuckle.AspNetCore.Filters;
 using System.Text.Json.Serialization;
 
@@ -50,6 +51,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+var loggerFactory = app.Services.GetService<ILoggerFactory>();
+loggerFactory.AddFile(builder.Configuration["Logging:LogFilePath"].ToString());//Only for log in to file (Serilog extension)
 
 app.UseHttpsRedirection();
 

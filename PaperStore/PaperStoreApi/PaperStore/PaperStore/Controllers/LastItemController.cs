@@ -22,7 +22,7 @@ public class LastItemController(Container conn, ILoggerFactory logger, IMapper p
     [OutputCache(PolicyName = "ItemsCachePolicy")]
     public IActionResult GetLastElement()
     {
-        _logger.LogInformation(AllData.ReadActionMessage);
+        _logger.LogInformation(AllData.ReadLastItemMessage);
 
         return Ok(profilMapper.Map<CurrentStock, ModifyItemModel>(_lastItemContainer.Resolve<IGetLast>().LastItem()));
     }
