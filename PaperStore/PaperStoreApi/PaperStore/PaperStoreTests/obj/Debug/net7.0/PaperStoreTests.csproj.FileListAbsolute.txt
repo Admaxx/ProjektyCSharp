@@ -19,6 +19,7 @@ C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStor
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStoreTests\bin\Debug\net7.0\Azure.Core.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStoreTests\bin\Debug\net7.0\Azure.Identity.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStoreTests\bin\Debug\net7.0\BCrypt.Net-Next.dll
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStoreTests\bin\Debug\net7.0\Castle.Core.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStoreTests\bin\Debug\net7.0\GoldenCompany.Cryptography.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStoreTests\bin\Debug\net7.0\MediatR.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStoreTests\bin\Debug\net7.0\MediatR.Contracts.dll
@@ -29,6 +30,7 @@ C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStor
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStoreTests\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStoreTests\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStoreTests\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStoreTests\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Proxies.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStoreTests\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStoreTests\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStoreTests\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
@@ -176,3 +178,7 @@ C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStor
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStoreTests\obj\Debug\net7.0\PaperStoreTests.pdb
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStoreTests\obj\Debug\net7.0\PaperStoreTests.genruntimeconfig.cache
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStoreTests\obj\Debug\net7.0\ref\PaperStoreTests.dll
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStoreTests\bin\Debug\net7.0\nlog.config
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStoreTests\bin\Debug\net7.0\NLog.dll
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStoreTests\bin\Debug\net7.0\NLog.Extensions.Logging.dll
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStoreTests\bin\Debug\net7.0\NLog.Web.AspNetCore.dll

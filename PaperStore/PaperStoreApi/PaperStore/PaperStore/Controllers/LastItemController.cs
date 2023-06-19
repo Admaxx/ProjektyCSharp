@@ -24,7 +24,7 @@ public class LastItemController(Container conn, ILoggerFactory logger, IMapper p
     {
         _logger.LogInformation(AllData.ReadActionMessage);
 
-        return Ok(_lastItemContainer.Resolve<IGetLast>().LastItem());
+        return Ok(profilMapper.Map<CurrentStock, ModifyItemModel>(_lastItemContainer.Resolve<IGetLast>().LastItem()));
     }
     [HttpPost]
     public IActionResult AddToLastItem(ModifyItemModel model) //If updating qty, it adding exists qty to new one

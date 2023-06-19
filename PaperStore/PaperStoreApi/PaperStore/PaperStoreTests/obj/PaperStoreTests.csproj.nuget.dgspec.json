@@ -320,6 +320,10 @@
               "target": "Package",
               "version": "[7.0.5, )"
             },
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[7.0.7, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.5, )"
@@ -333,6 +337,10 @@
             "Microsoft.Extensions.Logging.Console": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.2.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

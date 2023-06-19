@@ -7,11 +7,11 @@ public class ReadAllItems(PaperWarehouseContext conn) : IReadAllItems
 {
     PaperWarehouseContext _context { get; init; } = conn ?? throw new ArgumentNullException(nameof(conn));
 
-    public IAsyncEnumerable<CurrentStock> GetAllItems(bool? IsArchive)
+    public IQueryable<CurrentStock> GetAllItems(bool? IsArchive)
         =>
         _context.CurrentStocks.AsNoTracking()
         .Include(item => item.AddtionalInfoNavigation)
         .Include(item => item.ProductNameNavigation)
         .ThenInclude(item => item.Company)
-        .Where(item => item.Archive == IsArchive).AsAsyncEnumerable();
+        .Where(item => item.Archive == IsArchive).AsQueryable();
 }
