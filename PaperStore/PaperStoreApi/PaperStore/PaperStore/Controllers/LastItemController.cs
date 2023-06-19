@@ -16,7 +16,7 @@ public class LastItemController(Container conn, ILoggerFactory logger, IMapper p
 {
     IContainer _lastItemContainer { get; init; } = conn.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(conn));
     ILogger<LastItemController> _logger { get; init; } = logger.CreateLogger<LastItemController>();
-    IMapper mapProfile { get; init; } = profilMapper;
+    IMapper mapProfile { get; init; } = profilMapper!;
 
     [HttpGet]
     [OutputCache(PolicyName = "ItemsCachePolicy")]

@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Microsoft.EntityFrameworkCore;
 using PaperStoreApplication.Services.OptionsForServices;
 using PaperStoreModel.Models;
 
@@ -10,7 +11,7 @@ namespace PaperStoreApplication.Services.LastItem.Read
         public CurrentStock LastItem()
             =>
             _conn.Resolve<IReadAllItems>()
-            .GetAllItems(false)
+            .GetAllItems(false).AsNoTracking()
             .AsQueryable()
             .OrderBy(item => item.InputData)
             .LastOrDefault(); //Will refactorize it soon

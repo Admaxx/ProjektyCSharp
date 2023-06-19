@@ -10,9 +10,9 @@ public class ReadAllItems(PaperWarehouseContext conn) : IReadAllItems
     public IQueryable<CurrentStock> GetAllItems(bool? IsArchive)
         =>
         _context.CurrentStocks.AsNoTracking()
+        .AsQueryable()
         .Include(item => item.AddtionalInfoNavigation)
         .Include(item => item.ProductNameNavigation)
         .ThenInclude(item => item.Company)
-        .Where(item => item.Archive == IsArchive)
-        .AsQueryable();
+        .Where(item => item.Archive == IsArchive);
 }
