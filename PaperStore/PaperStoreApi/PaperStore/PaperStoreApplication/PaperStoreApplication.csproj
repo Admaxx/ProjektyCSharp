@@ -21,9 +21,12 @@
   <ItemGroup>
     <Folder Include="Services\Account\Options\" />
     <Folder Include="Services\ActualInventory\Read\" />
+    <Folder Include="Services\Health\Check\Api\" />
+    <Folder Include="Services\Health\Check\Registration\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="6.0.4" />
     <PackageReference Include="Autofac" Version="7.0.1" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="MediatR" Version="12.0.1" />

@@ -1,17 +1,16 @@
 using Microsoft.OpenApi.Models;
 using PaperStoreApplication.Services.OptionsForServices;
 using PaperStoreModel.Models;
-using Serilog;
 using Swashbuckle.AspNetCore.Filters;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddAuthentication().AddJwtBearer();
 builder.Services.AddSwaggerGen(options =>
 {
     options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
@@ -22,10 +21,8 @@ builder.Services.AddSwaggerGen(options =>
     });
 
     options.OperationFilter<SecurityRequirementsOperationFilter>();
-
 });
 
-builder.Services.AddAuthentication().AddJwtBearer();
 builder.Services.AddScoped<Container>();
 builder.Services.AddOutputCache(items => items.AddPolicy
     ("ItemsCachePolicy", builder => builder.Tag("Qty").Tag("ProductName").Tag("AddtionalInfoId"))); //First attempt to cache policy
@@ -34,6 +31,9 @@ builder.Services.AddControllersWithViews()
     .AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 builder.Services.AddAutoMapper(typeof(DTOProfiles));
+
+//Api health checking only for now
+builder.Services.AddHealthChecks();//.AddRedis(builder.Configuration["Connection:dbString"].ToString(), "Redis", HealthStatus.Unhealthy);
 
 var app = builder.Build();
 
