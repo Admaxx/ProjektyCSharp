@@ -10,15 +10,15 @@ namespace PaperStore.Controllers;
 [Route("api/[Controller]")]
 public class AccountController(Container conn, ILoggerFactory logger) : Controller
 {
-    IContainer _accountContainer { get; init; } = conn.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(conn));
-    ILogger<AccountController> _logger { get; init; } = logger.CreateLogger<AccountController>();
+    IContainer AccountContainer { get; init; } = conn.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(conn));
+    ILogger<AccountController> Logger { get; init; } = logger.CreateLogger<AccountController>();
 
     [HttpGet] //Login user
     public IActionResult Login(UserCredentialsModel model)
     {
-        var GetUserToken = _accountContainer.Resolve<ILoginUser>().UserLogin(new LoginOption() { Email = model.Email, Password = model.Password });
+        var GetUserToken = AccountContainer.Resolve<ILoginUser>().UserLogin(new LoginOption() { Email = model.Email, Password = model.Password });
 
-        _logger.LogInformation(AllData.LogInActionMessage);
+        Logger.LogInformation(AllData.LogInActionMessage);
 
         return
             GetUserToken != string.Empty
@@ -28,10 +28,10 @@ public class AccountController(Container conn, ILoggerFactory logger) : Controll
     [HttpPost] //Register user
     public async Task<IActionResult> Registration(UserCredentialsModel model)
     {
-        _logger.LogInformation(AllData.RegisterActionMessage);
+        Logger.LogInformation(AllData.RegisterActionMessage);
 
         return await
-            _accountContainer.Resolve<IRegistrationUser>().UserRegistration(new LoginOption() { Email = model.Email, Password = model.Password })
+            AccountContainer.Resolve<IRegistrationUser>().UserRegistration(new LoginOption() { Email = model.Email, Password = model.Password })
             ? Ok(AllData.CreateUser) : BadRequest(AllData.BadRequestMessage);
     }
 }

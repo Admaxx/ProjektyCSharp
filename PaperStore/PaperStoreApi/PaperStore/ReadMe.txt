@@ -23,5 +23,19 @@ Health - checking programs health, and returns statutes:
 	2 - Healthy (working well),
 	1 - Degraded (api is slow reading and modificates values),
 	0 - Unhealthy (exception occurred, api is offline etc).
+	
+RateLimits:
+	ActualInventory: 
+		Period: 60s,
+		Limit: 10,
+	Account:
+		Period: 75s,
+		Limit: 15
+	LastItem:
+	    Period: 10s,
+		Limit: 5
+	Health:
+		Period: 120s,
+		Limit: 5
 
 This projects is not created with so much functionality, its basically for training purposes...

@@ -13,9 +13,9 @@ namespace PaperStore.Controllers;
 [Route("api/[controller]")]
 public class ActualInventoryController(Container conn, ILogger<ActualInventoryController> logger, IMapper profilMapper) : Controller //This controller serving only non-archive items
 {
-    IContainer _actualContainer { get; init; } = conn.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(conn));
-    ILogger<ActualInventoryController> _logger { get; init; } = logger;
-    IMapper mapProfile { get; init; } = profilMapper;
+    IContainer ActualContainer { get; init; } = conn.RegistrationContainer(new ContainerBuilder()) ?? throw new ArgumentNullException(nameof(conn));
+    ILogger<ActualInventoryController> Logger { get; init; } = logger;
+    IMapper MapProfile { get; init; } = profilMapper;
 
     [HttpGet]
     [OutputCache(PolicyName = "ItemsCachePolicy")]
@@ -23,34 +23,34 @@ public class ActualInventoryController(Container conn, ILogger<ActualInventoryCo
     [ProducesResponseType(StatusCodes.Status200OK)]
     public IActionResult GetActualItems()
     {
-        _logger.LogInformation(AllData.ReadActionMessage);
+        Logger.LogInformation(AllData.ReadActionMessage);
 
-        return Ok(_actualContainer.Resolve<IReadAllItems>().GetAllItems(IsArchive: false)
-           .Select(mapProfile.Map<ModifyItemModel>) //First attemts to use AutoMapper, not proud of place and code quality, will fix soon
+        return Ok(ActualContainer.Resolve<IReadAllItems>().GetAllItems(IsArchive: false)
+           .Select(MapProfile.Map<ModifyItemModel>) //First attemts to use AutoMapper, not proud of place and code quality, will fix soon
             );
     }
     [HttpPost]
     public IActionResult CreateItem(ModifyItemModel model) //If updating qty, it adding exists qty to new one
     {
-        _logger.LogInformation(AllData.CreateActionMessage);
+        Logger.LogInformation(AllData.CreateActionMessage);
 
-        return _actualContainer.Resolve<ICreateOrUpdate>().ChooseItem(model) ?
+        return ActualContainer.Resolve<ICreateOrUpdate>().ChooseItem(model) ?
         CreatedAtAction(nameof(CreateItem), AllData.CreateSuccessMessage) : BadRequest(AllData.BadRequestMessage);
     }
     [HttpPut]
     public IActionResult UpdateItem(long Id, ModifyItemModel model) //If updating qty, it reseting qty, and replacing it by new one
     {
-        _logger.LogInformation(AllData.UpdateActionMessage);
+        Logger.LogInformation(AllData.UpdateActionMessage);
 
-        return _actualContainer.Resolve<IUpdateItem>().UpdateItemByName(Id, model, true).Result ?
+        return ActualContainer.Resolve<IUpdateItem>().UpdateItemByName(Id, model, true).Result ?
         Ok(AllData.UpdateSuccessMessage) : BadRequest(AllData.BadRequestMessage);
     }
     [HttpDelete]
     public IActionResult DeleteItem(long Id)
     {
-        _logger.LogInformation(AllData.DeleteActionMessage);
+        Logger.LogInformation(AllData.DeleteActionMessage);
 
-        return _actualContainer.Resolve<IDeleteItem>().ItemById(Id, false).Result ?
+        return ActualContainer.Resolve<IDeleteItem>().ItemById(Id, false).Result ?
         Ok(AllData.DeleteSuccessMessage) : BadRequest(AllData.BadRequestMessage);
     }
 }

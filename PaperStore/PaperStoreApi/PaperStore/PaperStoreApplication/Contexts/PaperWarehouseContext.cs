@@ -27,12 +27,12 @@ public partial class PaperWarehouseContext : DbContext
 
     public virtual DbSet<StockItem> StockItems { get; set; }
 
-    IConfiguration jsonData = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build(); //Getting server navigation from appsettings.json
+    IConfiguration JsonData { get; init; } = new ConfigurationBuilder().AddJsonFile("connection.json").Build(); //Getting server navigation from appsettings.json
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseLoggerFactory(loggerFactory)
             .EnableSensitiveDataLogging()
-            .UseSqlServer(jsonData["Connection:dbString"]);
+            .UseSqlServer(JsonData["Connection:dbString"]);
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
