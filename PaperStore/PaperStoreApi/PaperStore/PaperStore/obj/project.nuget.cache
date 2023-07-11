@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "zFSedrPmhD+P2FIeEGMLTA149/CXp6sSkRWLB/iSBEFJxlGKHQNyD6I+LgsLrBVfJXAoL9rVbNutwVuN3+CvUA==",
+  "dgSpecHash": "Odgj1MW8oXLH0B8PD29FvIt+Lc5EvO5jNExVetb0Htm3EIMOwkulrwbDUP8M6rJVqKfM8vsC+8F4kjfEfcLCVA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jakub\\OneDrive\\Pulpit\\ProjektyCSharp\\PaperStore\\PaperStoreApi\\PaperStore\\PaperStore\\PaperStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jakub\\.nuget\\packages\\aspnetcore.healthchecks.redis\\6.0.4\\aspnetcore.healthchecks.redis.6.0.4.nupkg.sha512",
+    "C:\\Users\\Jakub\\.nuget\\packages\\aspnetcoreratelimit\\5.0.0\\aspnetcoreratelimit.5.0.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\autofac\\7.0.1\\autofac.7.0.1.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
@@ -86,6 +87,7 @@
     "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\Jakub\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\nlog\\5.2.0\\nlog.5.2.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.2\\pipelines.sockets.unofficial.2.2.2.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\scrutor\\3.3.0\\scrutor.3.3.0.nupkg.sha512",

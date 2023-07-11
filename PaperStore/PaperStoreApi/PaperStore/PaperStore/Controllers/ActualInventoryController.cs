@@ -19,6 +19,8 @@ public class ActualInventoryController(Container conn, ILogger<ActualInventoryCo
 
     [HttpGet]
     [OutputCache(PolicyName = "ItemsCachePolicy")]
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public IActionResult GetActualItems()
     {
         _logger.LogInformation(AllData.ReadActionMessage);
