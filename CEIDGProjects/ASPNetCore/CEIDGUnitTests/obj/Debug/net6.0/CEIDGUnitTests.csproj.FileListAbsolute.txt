@@ -376,6 +376,7 @@ C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGUnit
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGUnitTests\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGUnitTests\bin\Debug\net6.0\appsettings.json
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGUnitTests\bin\Debug\net6.0\Connected Services\ServiceReference1\ConnectedService.json
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGUnitTests\bin\Debug\net6.0\connection.json
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGUnitTests\bin\Debug\net6.0\CEIDGASPNetCore.staticwebassets.runtime.json
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGUnitTests\bin\Debug\net6.0\CEIDGASPNetCore.exe
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGUnitTests\bin\Debug\net6.0\testhost.exe

@@ -3,3 +3,8 @@
 26.05.2023 18:00:09,Details choosing
 26.05.2023 18:00:12,Creating a new item
 26.05.2023 18:00:12,Main page
+12.07.2023 20:41:33,Main page
+12.07.2023 20:50:30,Main page
+12.07.2023 21:29:15,Main page
+12.07.2023 21:30:57,Main page
+12.07.2023 21:31:48,Main page

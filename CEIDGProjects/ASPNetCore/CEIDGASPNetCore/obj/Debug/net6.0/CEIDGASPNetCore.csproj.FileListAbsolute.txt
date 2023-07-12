@@ -300,6 +300,7 @@ C:\Users\Jakub\source\repos\CEIDGASPNetCore\CEIDGASPNetCore\obj\Debug\net6.0\ref
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\bin\Debug\net6.0\appsettings.json
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\bin\Debug\net6.0\Connected Services\ServiceReference1\ConnectedService.json
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\bin\Debug\net6.0\connection.json
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\bin\Debug\net6.0\CEIDGASPNetCore.staticwebassets.runtime.json
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\bin\Debug\net6.0\CEIDGASPNetCore.exe
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\CEIDGProjects\ASPNetCore\CEIDGASPNetCore\bin\Debug\net6.0\CEIDGASPNetCore.deps.json

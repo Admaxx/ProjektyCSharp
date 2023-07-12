@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5ywUYA7TYeUzufYBEsbgeZDBQRdb2KLxIbIKKE2WZdWs+2nLG55QhB5Kche700pT/6eb0YW6xbANPOvpcBtEkg==",
+  "dgSpecHash": "lVLsu1E3vpYwJgYtrxirfDUz4PwJfLaaSUzVFVePHoxWot3cUJx+zpWBHgUCAQaR3pKakxAVDYSSUNmEWOOulg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jakub\\OneDrive\\Pulpit\\ProjektyCSharp\\PaperStore\\PaperStoreUnitTests\\PaperStoreUnitTests.csproj",
+  "projectFilePath": "C:\\Users\\Jakub\\OneDrive\\Pulpit\\ProjektyCSharp\\PaperStore\\PaperStoreApp\\PaperStoreUnitTests\\PaperStoreUnitTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jakub\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.codecoverage\\17.5.0\\microsoft.codecoverage.17.5.0.nupkg.sha512",

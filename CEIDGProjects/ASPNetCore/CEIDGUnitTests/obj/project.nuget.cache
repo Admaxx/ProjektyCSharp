@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/lEczg5p3bx/gqCL6515DbdJKDmAckqN2OKKutKNjZlXbHZm15Mht9c5r4GEZEeK5EC99YGZIg2F3FRQGi8LqQ==",
+  "dgSpecHash": "ipHsbHXibI5/CH7x5l5k+FaOEh9TochkRabnHQmtA5pnww8RKTDKu/2bBm/X55kcPC5SyQRFvJptsV+cN9MEeA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jakub\\OneDrive\\Pulpit\\ProjektyCSharp\\CEIDGProjects\\ASPNetCore\\CEIDGUnitTests\\CEIDGUnitTests.csproj",
   "expectedPackageFiles": [
@@ -194,10 +194,7 @@
     "C:\\Users\\Jakub\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Jakub\\.nuget\\packages\\wcfcoremtomencoder\\0.1.16\\wcfcoremtomencoder.0.1.16.nupkg.sha512",
-    "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.16\\microsoft.windowsdesktop.app.ref.6.0.16.nupkg.sha512",
-    "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.16\\microsoft.netcore.app.ref.6.0.16.nupkg.sha512",
-    "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.16\\microsoft.aspnetcore.app.ref.6.0.16.nupkg.sha512"
+    "C:\\Users\\Jakub\\.nuget\\packages\\wcfcoremtomencoder\\0.1.16\\wcfcoremtomencoder.0.1.16.nupkg.sha512"
   ],
   "logs": []
 }

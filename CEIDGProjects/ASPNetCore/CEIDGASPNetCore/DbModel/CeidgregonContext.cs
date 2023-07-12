@@ -21,10 +21,10 @@ public partial class CeidgregonContext : DbContext
     public virtual DbSet<GusSpecialMessages> GusSpecialMessages { get; set; }
     public virtual DbSet<RaportyNamesModel> RaportyNames { get; set; }
 
-    string ConnString = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build()["ConnectionStrings:CEIDGConn"];
+    IConfiguration JsonData { get; init; } = new ConfigurationBuilder().AddJsonFile("connection.json").Build(); //Getting server navigation from appsettings.json
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
-        => optionsBuilder.UseSqlServer(ConnString);
+        => optionsBuilder.UseSqlServer(JsonData["ConnectionStrings:CEIDGConn"]);
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
