@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XhucKCNgqtP/tRUW/W7vpGkXakIvEN3OntjPGRcuErasLnLalaa5XCpCb3P3dRkcFvZPA4mE6Zm+nVt5lXmylA==",
+  "dgSpecHash": "pr1iFB/qBOD1IXtAYpDGD2XJP2Vyz4JJvEv3lUx+rTEFyaYaZGhULrRBXuxuaWTqQWyznLFLNQSHxkrLRIgv1g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jakub\\source\\repos\\CEIDGREGON\\CEIDGREGON\\CEIDGREGON.csproj",
+  "projectFilePath": "C:\\Users\\Jakub\\OneDrive\\Pulpit\\ProjektyCSharp\\CEIDGProjects\\Winforms\\CEIDGREGON\\CEIDGREGON\\CEIDGREGON.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",

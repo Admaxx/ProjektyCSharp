@@ -1,0 +1,5 @@
+2023-07-18T21:59:20.3697585+02:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-07-18T21:59:20.3757913+02:00  [INF] Hosting environment: "Development" (bc5a1a4e)
+2023-07-18T21:59:20.3779989+02:00  [INF] Content root path: "C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\PaperStore\PaperStoreApi\PaperStore\PaperStore" (cc26f24e)
+2023-07-18T22:00:26.1923968+02:00 80000002-0003-fb00-b63f-84710c7967bb [INF] Api Health: Healthy (a2b89472)
+2023-07-18T22:00:35.2249102+02:00 80000004-0000-fb00-b63f-84710c7967bb [INF] Attempting to get all items (bab2ac45)
