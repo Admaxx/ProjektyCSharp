@@ -74,13 +74,6 @@ C:\Users\Jakub\source\repos\worldWideService\worldWideService\bin\Debug\net7.0\w
 C:\Users\Jakub\source\repos\worldWideService\worldWideService\bin\Debug\net7.0\Autofac.dll
 C:\Users\Jakub\source\repos\worldWideService\worldWideService\bin\Debug\net7.0\worldWideApplication.dll
 C:\Users\Jakub\source\repos\worldWideService\worldWideService\bin\Debug\net7.0\worldWideApplication.pdb
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\obj\Debug\net7.0\worldWideService.csproj.AssemblyReference.cache
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\obj\Debug\net7.0\worldWideService.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\obj\Debug\net7.0\worldWideService.AssemblyInfoInputs.cache
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\obj\Debug\net7.0\worldWideService.AssemblyInfo.cs
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\obj\Debug\net7.0\worldWideService.csproj.CoreCompileInputs.cache
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\obj\Debug\net7.0\worldWideService.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\obj\Debug\net7.0\worldWideService.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\bin\Debug\net7.0\appsettings.json
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\bin\Debug\net7.0\worldWideService.exe
@@ -136,6 +129,13 @@ C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\bin\Debug\net7.0\worldWideModels.dll
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\bin\Debug\net7.0\worldWideApplication.pdb
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\bin\Debug\net7.0\worldWideModels.pdb
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\obj\Debug\net7.0\worldWideService.csproj.AssemblyReference.cache
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\obj\Debug\net7.0\worldWideService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\obj\Debug\net7.0\worldWideService.AssemblyInfoInputs.cache
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\obj\Debug\net7.0\worldWideService.AssemblyInfo.cs
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\obj\Debug\net7.0\worldWideService.csproj.CoreCompileInputs.cache
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\obj\Debug\net7.0\worldWideService.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\obj\Debug\net7.0\worldWideService.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\obj\Debug\net7.0\staticwebassets\msbuild.worldWideService.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\obj\Debug\net7.0\staticwebassets\msbuild.build.worldWideService.props
 C:\Users\Jakub\OneDrive\Pulpit\ProjektyCSharp\worldWideProject\worldWideService\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.worldWideService.props
