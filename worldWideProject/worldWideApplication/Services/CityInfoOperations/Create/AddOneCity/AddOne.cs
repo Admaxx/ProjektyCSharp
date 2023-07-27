@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using worldWideDbModels;
+﻿using worldWideDbModels;
 using worldWideModels.contexts;
 
 namespace worldWideApplication.Services.CityInfoOperations.Create.AddOneCity

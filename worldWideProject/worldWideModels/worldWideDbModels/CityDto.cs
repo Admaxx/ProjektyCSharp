@@ -9,11 +9,9 @@ public partial class CityDto
 
     public string Name { get; set; } = null!;
 
-    public long Population { get; set; }
+    public long? Population { get; set; }
 
     public string Country { get; set; } = null!;
 
     public string Region { get; set; } = null!;
-
-    public virtual Region CountryNavigation { get; set; } = null!;
 }

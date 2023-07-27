@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using worldWideApplication.Services.OptionsForServices;
 using worldWideModels.contexts;
 
 namespace worldWideApplication.Services.CityInfoOperations.Read.GetRandomCity.Options
@@ -7,7 +8,9 @@ namespace worldWideApplication.Services.CityInfoOperations.Read.GetRandomCity.Op
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<GetRandom>().As<IGetRandom>().WithParameter("context", new WorldWideDbContext());
+            builder.RegisterType<GetRandom>().As<IGetRandom>()
+                .WithParameter("context", new WorldWideDbContext())
+                .WithParameter("container", new MainContainer());
         }
     }
 

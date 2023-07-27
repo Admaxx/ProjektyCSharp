@@ -4,6 +4,6 @@ namespace worldWideApplication.Services.CityInfoOperations.Read.GetOneCity
 {
     public interface IGetOne
     {
-        Task<City> City();
+        CityDto City(CityDto city_dto);
     }
 }

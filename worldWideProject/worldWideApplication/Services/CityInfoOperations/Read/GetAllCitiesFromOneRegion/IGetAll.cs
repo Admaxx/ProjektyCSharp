@@ -4,6 +4,6 @@ namespace worldWideApplication.Services.CityInfoOperations.Read.GetAllCitiesFrom
 {
     public interface IGetAll
     {
-        Task<List<City>> Cities(Region region);
+        List<City> AllCities(Region region);
     }
 }

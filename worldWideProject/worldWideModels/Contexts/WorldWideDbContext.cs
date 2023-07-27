@@ -17,8 +17,6 @@ public partial class WorldWideDbContext : DbContext
 
     public virtual DbSet<City> Cities { get; set; }
 
-    public virtual DbSet<CityDto> CityDtos { get; set; }
-
     public virtual DbSet<Region> Regions { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -40,33 +38,6 @@ public partial class WorldWideDbContext : DbContext
             entity.Property(e => e.Population).HasColumnName("population");
         });
 
-        modelBuilder.Entity<CityDto>(entity =>
-        {
-            entity
-                .HasNoKey()
-                .ToTable("city_dto");
-
-            entity.Property(e => e.Country)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("country");
-            entity.Property(e => e.Id)
-                .ValueGeneratedOnAdd()
-                .HasColumnName("id");
-            entity.Property(e => e.Name)
-                .IsUnicode(false)
-                .HasColumnName("name");
-            entity.Property(e => e.Population).HasColumnName("population");
-            entity.Property(e => e.Region)
-                .IsUnicode(false)
-                .HasColumnName("region");
-
-            entity.HasOne(d => d.CountryNavigation).WithMany()
-                .HasForeignKey(d => d.Country)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_city_dto_region");
-        });
-
         modelBuilder.Entity<Region>(entity =>
         {
             entity.HasKey(e => e.Country);
@@ -77,9 +48,9 @@ public partial class WorldWideDbContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("country");
-            entity.Property(e => e.City)
+            entity.Property(e => e.Name)
                 .IsUnicode(false)
-                .HasColumnName("city");
+                .HasColumnName("name");
         });
 
         OnModelCreatingPartial(modelBuilder);

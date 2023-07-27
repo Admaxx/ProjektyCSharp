@@ -1,15 +1,29 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Autofac;
+using Microsoft.EntityFrameworkCore;
+using worldWideApplication.Services.CityInfoOperations.Read.GetOneCity.Options;
+using worldWideApplication.Services.OptionsForServices;
 using worldWideDbModels;
 using worldWideModels.contexts;
 
 namespace worldWideApplication.Services.CityInfoOperations.Read.GetRandomCity
 {
-    public class GetRandom(WorldWideDbContext context) : IGetRandom
+    public class GetRandom(WorldWideDbContext context, MainContainer container) : IGetRandom
     {
         WorldWideDbContext context { get; init; } = context;
-        public async Task<City> City()
-            => await
-            context.Cities.OrderBy(item => Guid.NewGuid()).FirstAsync();
+        IContainer Conn { get; init; } = container.main(new ContainerBuilder());
+        public CityDto City()
+        {
+            var randomCity = context.Cities.OrderBy(item => Guid.NewGuid()).FirstAsync().Result;
+
+            return new CityDto()
+            {
+                Name = randomCity.Name,
+                Population = randomCity.Population,
+                Country = randomCity.Country,
+                Region = Conn.Resolve<IGetRegion>().RegionByString(randomCity.Country)
+            };
+
+        }
 
 
     }
