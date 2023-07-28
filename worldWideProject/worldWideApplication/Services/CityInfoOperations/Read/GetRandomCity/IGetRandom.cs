@@ -1,9 +1,8 @@
 ﻿using worldWideDbModels;
 
-namespace worldWideApplication.Services.CityInfoOperations.Read.GetRandomCity
+namespace worldWideApplication.Services.CityInfoOperations.Read.GetRandomCity;
+
+public interface IGetRandom
 {
-    public interface IGetRandom
-    {
-        CityDto City();
-    }
+    CityDto City();
 }

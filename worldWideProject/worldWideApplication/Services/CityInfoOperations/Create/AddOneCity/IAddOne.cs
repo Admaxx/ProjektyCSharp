@@ -1,9 +1,8 @@
 ﻿using worldWideDbModels;
 
-namespace worldWideApplication.Services.CityInfoOperations.Create.AddOneCity
+namespace worldWideApplication.Services.CityInfoOperations.Create.AddOneCity;
+
+public interface IAddOne
 {
-    public interface IAddOne
-    {
-        Task<bool> Cities(City city);
-    }
+    Task<bool> Cities(City city);
 }

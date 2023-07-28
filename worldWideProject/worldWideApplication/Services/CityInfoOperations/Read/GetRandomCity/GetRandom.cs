@@ -5,26 +5,25 @@ using worldWideApplication.Services.OptionsForServices;
 using worldWideDbModels;
 using worldWideModels.contexts;
 
-namespace worldWideApplication.Services.CityInfoOperations.Read.GetRandomCity
+namespace worldWideApplication.Services.CityInfoOperations.Read.GetRandomCity;
+
+public class GetRandom(WorldWideDbContext context, MainContainer container) : IGetRandom
 {
-    public class GetRandom(WorldWideDbContext context, MainContainer container) : IGetRandom
+    WorldWideDbContext context { get; init; } = context;
+    IContainer Conn { get; init; } = container.main(new ContainerBuilder());
+    public CityDto City()
     {
-        WorldWideDbContext context { get; init; } = context;
-        IContainer Conn { get; init; } = container.main(new ContainerBuilder());
-        public CityDto City()
+        var randomCity = context.Cities.OrderBy(item => Guid.NewGuid()).FirstAsync().Result;
+
+        return new CityDto()
         {
-            var randomCity = context.Cities.OrderBy(item => Guid.NewGuid()).FirstAsync().Result;
-
-            return new CityDto()
-            {
-                Name = randomCity.Name,
-                Population = randomCity.Population,
-                Country = randomCity.Country,
-                Region = Conn.Resolve<IGetRegion>().RegionByString(randomCity.Country)
-            };
-
-        }
-
+            Name = randomCity.Name,
+            Population = randomCity.Population,
+            Country = randomCity.Country,
+            Region = Conn.Resolve<IGetRegion>().RegionByString(randomCity.Country)
+        };
 
     }
+
+
 }

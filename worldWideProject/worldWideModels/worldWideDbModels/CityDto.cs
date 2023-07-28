@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace worldWideDbModels;
 
 public partial class CityDto
 {
+    [Range(0, int.MaxValue), Required]
     public long Id { get; set; }
 
     public string Name { get; set; } = null!;

@@ -1,9 +1,8 @@
 ﻿using worldWideDbModels;
 
-namespace worldWideApplication.Services.CityInfoOperations.Read.GetOneCity
+namespace worldWideApplication.Services.CityInfoOperations.Read.GetOneCity;
+
+public interface IGetOne
 {
-    public interface IGetOne
-    {
-        CityDto City(CityDto city_dto);
-    }
+    CityDto City(CityDto city_dto);
 }

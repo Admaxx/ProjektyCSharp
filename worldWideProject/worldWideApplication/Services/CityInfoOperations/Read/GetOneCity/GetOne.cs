@@ -4,24 +4,25 @@ using worldWideApplication.Services.OptionsForServices;
 using worldWideDbModels;
 using worldWideModels.contexts;
 
-namespace worldWideApplication.Services.CityInfoOperations.Read.GetOneCity
+namespace worldWideApplication.Services.CityInfoOperations.Read.GetOneCity;
+
+public class GetOne(MainContainer container) : IGetOne
 {
-    public class GetOne(MainContainer container) : IGetOne
+    IContainer Conn { get; init; } = container.main(new ContainerBuilder());
+    public CityDto City(CityDto city_dto)
     {
-        IContainer Conn { get; init; } = container.main(new ContainerBuilder());
-        public CityDto City(CityDto city_dto)
+        try
         {
-            try
+            var OneCityInfo = Conn.Resolve<IGetCityBy>().GetOneCityByParams(city_dto).Result;
+            return new CityDto()
             {
-                var OneCityInfo = Conn.Resolve<IGetCityBy>().GetOneCityByParams(city_dto).Result;
-                return new CityDto()
-                {
-                    Name = OneCityInfo.Name,
-                    Population = OneCityInfo.Population,
-                    Country = OneCityInfo.Country,
-                    Region = Conn.Resolve<IGetRegion>().RegionByString(OneCityInfo.Country)
-                };
-            }catch (Exception ex) { return new CityDto() { Name = ex.Message }; }
+                Name = OneCityInfo.Name,
+                Population = OneCityInfo.Population,
+                Country = OneCityInfo.Country,
+                Region = Conn.Resolve<IGetRegion>().RegionByString(OneCityInfo.Country)
+            };
         }
+        catch (Exception ex) { return new CityDto() { Name = ex.Message }; }
     }
 }
+

@@ -1,9 +1,8 @@
 ﻿using worldWideDbModels;
 
-namespace worldWideApplication.Services.CityInfoOperations.Read.GetAllCitiesFromOneRegion
+namespace worldWideApplication.Services.CityInfoOperations.Read.GetAllCitiesFromOneRegion;
+
+public interface IGetAll
 {
-    public interface IGetAll
-    {
-        List<City> AllCities(Region region);
-    }
+    List<City> AllCities(Region region);
 }
