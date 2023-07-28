@@ -13,7 +13,7 @@ public class Adding_Data_To_DB_TEST
         {
             using (context.Database.BeginTransaction())
             {
-                AddOne city = new AddOne(new WorldWideDbContext());
+                AddOne city = new AddOne(new WorldWideDbContext(), new worldWideApplication.Services.OptionsForServices.MainContainer());
                 var newCity = city.City(new worldWideDbModels.City() { Name = "Bialystok", Country = "Poland", Population = 43523 });
 
                 context.Add(newCity);
