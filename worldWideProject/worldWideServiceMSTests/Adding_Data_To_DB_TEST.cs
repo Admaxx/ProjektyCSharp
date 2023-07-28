@@ -14,7 +14,7 @@ public class Adding_Data_To_DB_TEST
             using (context.Database.BeginTransaction())
             {
                 AddOne city = new AddOne(new WorldWideDbContext());
-                var newCity = city.Cities(new worldWideDbModels.City() { Name = "Bialystok", Country = "Poland", Population = 43523 });
+                var newCity = city.City(new worldWideDbModels.City() { Name = "Bialystok", Country = "Poland", Population = 43523 });
 
                 context.Add(newCity);
 

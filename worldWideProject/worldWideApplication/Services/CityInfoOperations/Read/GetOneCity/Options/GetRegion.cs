@@ -6,7 +6,7 @@ namespace worldWideApplication.Services.CityInfoOperations.Read.GetOneCity.Optio
     public class GetRegion(WorldWideDbContext context) : IGetRegion
     {
         WorldWideDbContext Conn = context;
-        public string RegionByString(string Country)
+        public string RegionByCountry(string Country)
             => 
             Conn.Regions.
             FirstAsync(item => item.Country.Replace(" ", string.Empty).ToLower() == Country.Replace(" ", string.Empty).ToLower()).Result.Name;

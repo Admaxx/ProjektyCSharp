@@ -16,4 +16,3 @@ public class CityInfoOperationsOptions
     public readonly static string GetRandomCityMess = "Attempting to get random city";
     public readonly static string GetAllCitiesByRegionMess = "Attempting to get all cities by region";
 }
-}

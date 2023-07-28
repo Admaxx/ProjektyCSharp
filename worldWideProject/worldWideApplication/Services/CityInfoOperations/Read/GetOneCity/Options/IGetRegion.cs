@@ -2,6 +2,6 @@
 {
     public interface IGetRegion
     {
-        string RegionByString(string Country);
+        string RegionByCountry(string Country);
     }
 }

@@ -20,7 +20,7 @@ public class GetRandom(WorldWideDbContext context, MainContainer container) : IG
             Name = randomCity.Name,
             Population = randomCity.Population,
             Country = randomCity.Country,
-            Region = Conn.Resolve<IGetRegion>().RegionByString(randomCity.Country)
+            Region = Conn.Resolve<IGetRegion>().RegionByCountry(randomCity.Country)
         };
 
     }

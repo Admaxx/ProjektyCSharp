@@ -28,7 +28,7 @@ public class CityInfoOperationsController(MainContainer container, IMapper mappe
     public IActionResult AddOneCity(City city)
     {
         Logger.LogInformation(CityInfoOperationsOptions.AddOneCityMess);
-        return Conn.Resolve<IAddOne>().Cities(city).Result ?
+        return Conn.Resolve<IAddOne>().City(city).Result ?
             CreatedAtAction(nameof(AddOneCity), CityInfoOperationsOptions.CreateSuccessMessage) : BadRequest(CityInfoOperationsOptions.BadRequestMessage);
     }
     [HttpGet("/GetRandomCity")]

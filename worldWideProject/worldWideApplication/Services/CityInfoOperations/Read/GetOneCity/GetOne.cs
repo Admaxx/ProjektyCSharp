@@ -19,7 +19,7 @@ public class GetOne(MainContainer container) : IGetOne
                 Name = OneCityInfo.Name,
                 Population = OneCityInfo.Population,
                 Country = OneCityInfo.Country,
-                Region = Conn.Resolve<IGetRegion>().RegionByString(OneCityInfo.Country)
+                Region = Conn.Resolve<IGetRegion>().RegionByCountry(OneCityInfo.Country)
             };
         }
         catch (Exception ex) { return new CityDto() { Name = ex.Message }; }
