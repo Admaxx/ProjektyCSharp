@@ -7,8 +7,9 @@ using PaperStoreModel.Models;
 using Swashbuckle.AspNetCore.Filters;
 using System.Text.Json.Serialization;
 
-var builder = WebApplication.CreateBuilder(args);
+#region ServicesRegistration 
 
+var builder = WebApplication.CreateBuilder(args);
 var dbConnection = builder.Configuration["Connection:dbString"];
 builder.Services.AddDbContext<PaperWarehouseContext>(item => item.UseSqlServer(dbConnection));
 
@@ -82,6 +83,8 @@ builder.Services.AddAutoMapper(typeof(DTOProfiles));
 //Api health checking only for now
 builder.Services.AddHealthChecks();//.AddRedis(builder.Configuration["Connection:dbString"].ToString(), "Redis", HealthStatus.Unhealthy);
 
+#endregion
+#region MiddlewaresArea
 var app = builder.Build();
 
 app.UseExceptionHandler(builder => builder.Use(async (context, next) =>
@@ -113,3 +116,4 @@ app.UseOutputCache();
 app.MapControllers();
 
 app.Run();
+#endregion
