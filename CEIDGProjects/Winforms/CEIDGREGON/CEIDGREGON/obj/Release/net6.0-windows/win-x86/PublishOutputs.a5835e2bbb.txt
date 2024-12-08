@@ -1,8 +1,0 @@
-C:\Users\Jakub\OneDrive\Pulpit\Program2\CEIDGREGON.pdb
-C:\Users\Jakub\OneDrive\Pulpit\Program2\D3DCompiler_47_cor3.dll
-C:\Users\Jakub\OneDrive\Pulpit\Program2\PenImc_cor3.dll
-C:\Users\Jakub\OneDrive\Pulpit\Program2\PresentationNative_cor3.dll
-C:\Users\Jakub\OneDrive\Pulpit\Program2\vcruntime140_cor3.dll
-C:\Users\Jakub\OneDrive\Pulpit\Program2\wpfgfx_cor3.dll
-C:\Users\Jakub\OneDrive\Pulpit\Program2\sni.dll
-C:\Users\Jakub\OneDrive\Pulpit\Program2\CEIDGREGON.exe

@@ -1,5 +1,0 @@
-﻿{
-  "ConnectionStrings": {
-    "CEIDGConn": "Server=DESKTOP-VTOS691\\MSSQLSERVER01;database=CEIDGREGON;User ID = sa;Password = Jajeczko8;Encrypt=True;TrustServerCertificate=True;"
-  }
-}
