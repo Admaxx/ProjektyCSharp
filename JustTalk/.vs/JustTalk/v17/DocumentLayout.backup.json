@@ -3,32 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Jakub\\source\\repos\\ProjektyCSharp\\JustTalk\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4E4BB3E5-79FA-4680-84A1-6C73790FCB68}|JustTalk\\JustTalk.csproj|c:\\users\\jakub\\source\\repos\\projektycsharp\\justtalk\\justtalk\\views\\account\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E4BB3E5-79FA-4680-84A1-6C73790FCB68}|JustTalk\\JustTalk.csproj|solutionrelative:justtalk\\views\\account\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E4BB3E5-79FA-4680-84A1-6C73790FCB68}|JustTalk\\JustTalk.csproj|c:\\users\\jakub\\source\\repos\\projektycsharp\\justtalk\\justtalk\\controllers\\infocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E4BB3E5-79FA-4680-84A1-6C73790FCB68}|JustTalk\\JustTalk.csproj|solutionrelative:justtalk\\controllers\\infocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E4BB3E5-79FA-4680-84A1-6C73790FCB68}|JustTalk\\JustTalk.csproj|c:\\users\\jakub\\source\\repos\\projektycsharp\\justtalk\\justtalk\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E4BB3E5-79FA-4680-84A1-6C73790FCB68}|JustTalk\\JustTalk.csproj|solutionrelative:justtalk\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E4BB3E5-79FA-4680-84A1-6C73790FCB68}|JustTalk\\JustTalk.csproj|c:\\users\\jakub\\source\\repos\\projektycsharp\\justtalk\\justtalk\\views\\info\\signupsucc.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E4BB3E5-79FA-4680-84A1-6C73790FCB68}|JustTalk\\JustTalk.csproj|solutionrelative:justtalk\\views\\info\\signupsucc.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E4BB3E5-79FA-4680-84A1-6C73790FCB68}|JustTalk\\JustTalk.csproj|c:\\users\\jakub\\source\\repos\\projektycsharp\\justtalk\\justtalk\\services\\account\\inserttodbnew.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E4BB3E5-79FA-4680-84A1-6C73790FCB68}|JustTalk\\JustTalk.csproj|solutionrelative:justtalk\\services\\account\\inserttodbnew.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jakub\\source\\repos\\ProjektyCSharp\\JustTalk\\JustTalk\\justTalkModels\\justTalkContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:JustTalk\\justTalkModels\\justTalkContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E4BB3E5-79FA-4680-84A1-6C73790FCB68}|JustTalk\\JustTalk.csproj|c:\\users\\jakub\\source\\repos\\projektycsharp\\justtalk\\justtalk\\justtalk.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{4E4BB3E5-79FA-4680-84A1-6C73790FCB68}|JustTalk\\JustTalk.csproj|solutionrelative:justtalk\\justtalk.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{4E4BB3E5-79FA-4680-84A1-6C73790FCB68}|JustTalk\\JustTalk.csproj|c:\\users\\jakub\\source\\repos\\projektycsharp\\justtalk\\justtalk\\justtalkmodels\\justtalkcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E4BB3E5-79FA-4680-84A1-6C73790FCB68}|JustTalk\\JustTalk.csproj|solutionrelative:justtalk\\justtalkmodels\\justtalkcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,92 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SignUp.cshtml",
-              "DocumentMoniker": "C:\\Users\\Jakub\\source\\repos\\ProjektyCSharp\\JustTalk\\JustTalk\\Views\\Account\\SignUp.cshtml",
-              "RelativeDocumentMoniker": "JustTalk\\Views\\Account\\SignUp.cshtml",
-              "ToolTip": "C:\\Users\\Jakub\\source\\repos\\ProjektyCSharp\\JustTalk\\JustTalk\\Views\\Account\\SignUp.cshtml",
-              "RelativeToolTip": "JustTalk\\Views\\Account\\SignUp.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAB2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-09T14:30:05.78Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "justTalkContext.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\source\\repos\\ProjektyCSharp\\JustTalk\\JustTalk\\justTalkModels\\justTalkContext.cs",
               "RelativeDocumentMoniker": "JustTalk\\justTalkModels\\justTalkContext.cs",
               "ToolTip": "C:\\Users\\Jakub\\source\\repos\\ProjektyCSharp\\JustTalk\\JustTalk\\justTalkModels\\justTalkContext.cs",
               "RelativeToolTip": "JustTalk\\justTalkModels\\justTalkContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAABnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T14:05:36.852Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "JustTalk.csproj",
-              "DocumentMoniker": "C:\\Users\\Jakub\\source\\repos\\ProjektyCSharp\\JustTalk\\JustTalk\\JustTalk.csproj",
-              "RelativeDocumentMoniker": "JustTalk\\JustTalk.csproj",
-              "ToolTip": "C:\\Users\\Jakub\\source\\repos\\ProjektyCSharp\\JustTalk\\JustTalk\\JustTalk.csproj",
-              "RelativeToolTip": "JustTalk\\JustTalk.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-12-09T13:58:43.413Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "InsertToDBNew.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\source\\repos\\ProjektyCSharp\\JustTalk\\JustTalk\\Services\\Account\\InsertToDBNew.cs",
-              "RelativeDocumentMoniker": "JustTalk\\Services\\Account\\InsertToDBNew.cs",
-              "ToolTip": "C:\\Users\\Jakub\\source\\repos\\ProjektyCSharp\\JustTalk\\JustTalk\\Services\\Account\\InsertToDBNew.cs",
-              "RelativeToolTip": "JustTalk\\Services\\Account\\InsertToDBNew.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T13:34:31.44Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SignUpSucc.cshtml",
-              "DocumentMoniker": "C:\\Users\\Jakub\\source\\repos\\ProjektyCSharp\\JustTalk\\JustTalk\\Views\\Info\\SignUpSucc.cshtml",
-              "RelativeDocumentMoniker": "JustTalk\\Views\\Info\\SignUpSucc.cshtml",
-              "ToolTip": "C:\\Users\\Jakub\\source\\repos\\ProjektyCSharp\\JustTalk\\JustTalk\\Views\\Info\\SignUpSucc.cshtml",
-              "RelativeToolTip": "JustTalk\\Views\\Info\\SignUpSucc.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-09T13:26:02.789Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "InfoController.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\source\\repos\\ProjektyCSharp\\JustTalk\\JustTalk\\Controllers\\InfoController.cs",
-              "RelativeDocumentMoniker": "JustTalk\\Controllers\\InfoController.cs",
-              "ToolTip": "C:\\Users\\Jakub\\source\\repos\\ProjektyCSharp\\JustTalk\\JustTalk\\Controllers\\InfoController.cs",
-              "RelativeToolTip": "JustTalk\\Controllers\\InfoController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAByAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T13:24:12.294Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\source\\repos\\ProjektyCSharp\\JustTalk\\JustTalk\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "JustTalk\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\Jakub\\source\\repos\\ProjektyCSharp\\JustTalk\\JustTalk\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "JustTalk\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T12:56:02.699Z",
+              "WhenOpened": "2024-12-09T14:43:21.796Z",
               "EditorCaption": ""
             }
           ]
