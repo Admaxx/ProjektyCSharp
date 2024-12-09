@@ -1,12 +1,37 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Jakub\\source\\repos\\ProjektyCSharp\\JustTalk\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4E4BB3E5-79FA-4680-84A1-6C73790FCB68}|JustTalk\\JustTalk.csproj|c:\\users\\jakub\\source\\repos\\projektycsharp\\justtalk\\justtalk\\justtalkmodels\\justtalkcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E4BB3E5-79FA-4680-84A1-6C73790FCB68}|JustTalk\\JustTalk.csproj|solutionrelative:justtalk\\justtalkmodels\\justtalkcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "justTalkContext.cs",
+              "DocumentMoniker": "C:\\Users\\Jakub\\source\\repos\\ProjektyCSharp\\JustTalk\\JustTalk\\justTalkModels\\justTalkContext.cs",
+              "RelativeDocumentMoniker": "JustTalk\\justTalkModels\\justTalkContext.cs",
+              "ToolTip": "C:\\Users\\Jakub\\source\\repos\\ProjektyCSharp\\JustTalk\\JustTalk\\justTalkModels\\justTalkContext.cs",
+              "RelativeToolTip": "JustTalk\\justTalkModels\\justTalkContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAABnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T14:43:21.796Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

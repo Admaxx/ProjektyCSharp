@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JustTalk")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f10b5d2408a62b2954bfcae71741cc3addc4cd73")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ce53af656edf32f8a6e8e37dfe262cdb693ec4a6")]
 [assembly: System.Reflection.AssemblyProductAttribute("JustTalk")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JustTalk")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
